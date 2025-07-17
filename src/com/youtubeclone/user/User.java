@@ -1,5 +1,6 @@
 package com.youtubeclone.user;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.*;
 
@@ -16,13 +17,13 @@ public class User {
     private String username;
 
     /** Encrypted password of the user (store securely in production) */
-    private String password;
+    private String passwordHash;
 
     /** Email address of the user */
     private String email;
 
     /** Date of birth of the user */
-    private LocalDateTime DOB;
+    private LocalDate DOB;
 
     /** Timestamp when the account was created */
     private final LocalDateTime createdAt;
@@ -34,7 +35,7 @@ public class User {
     private String gender;
 
     /** Current account status of the user */
-    private AccountStatus accStatus;
+    private AccountStatus accountStatus;
 
     /** Set of roles assigned to the user (e.g., VIEWER, CREATOR) */
     private Set<UserRoles> roles;
@@ -66,14 +67,14 @@ public class User {
     public User(){
         this.id = null;
         this.username = null;
-        this.password = null;
+        this.passwordHash = null;
         this.email = null;
         this.DOB = null;
         this.createdAt = LocalDateTime.now();
         this.updatedAt = LocalDateTime.now();
         this.gender = null;
         this.roles = new HashSet<>();
-        this.accStatus = AccountStatus.PENDING_EMAIL_VERIFICATION;
+        this.accountStatus = AccountStatus.PENDING_EMAIL_VERIFICATION;
     }
 
     /**
@@ -86,15 +87,15 @@ public class User {
      * @param DOB       User's date of birth
      */
     public User(UUID id, String username,
-                String password, String email, LocalDateTime DOB) {
+                String password, String email, LocalDate DOB) {
         this.id = id;
         this.username = username;
-        this.password = password;
+        this.passwordHash = password;
         this.email = email;
         this.DOB = DOB;
         this.createdAt = LocalDateTime.now();
         this.updatedAt = LocalDateTime.now();
-        this.accStatus = AccountStatus.ACTIVE;
+        this.accountStatus = AccountStatus.PENDING_EMAIL_VERIFICATION;
     }
 
     /** @return User ID */
@@ -129,7 +130,7 @@ public class User {
     }
 
     /** @return User's date of birth */
-    public LocalDateTime getDOB() {
+    public LocalDate getDOB() {
         return DOB;
     }
 
@@ -137,7 +138,7 @@ public class User {
      * Sets the user's date of birth.
      * @param DOB Date of birth
      */
-    public void setDOB(LocalDateTime DOB) {
+    public void setDOB(LocalDate DOB) {
         this.DOB = DOB;
     }
 
@@ -160,16 +161,24 @@ public class User {
     }
 
     /** @return Current account status */
-    public AccountStatus getAccStatus() {
-        return accStatus;
+    public AccountStatus getAccountStatus() {
+        return accountStatus;
     }
 
     /**
      * Sets the user's account status.
-     * @param accStatus New account status
+     * @param accountStatus New account status
      */
-    public void setAccStatus(AccountStatus accStatus) {
-        this.accStatus = accStatus;
+    public void setAccountStatus(AccountStatus accountStatus) {
+        this.accountStatus = accountStatus;
+    }
+
+    public String getPasswordHash() {
+        return passwordHash;
+    }
+
+    public void setPasswordHash(String passwordHash) {
+        this.passwordHash = passwordHash;
     }
 
     /** @return Set of user roles */
@@ -217,7 +226,7 @@ public class User {
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
                 ", gender='" + gender + '\'' +
-                ", accStatus=" + accStatus +
+                ", accStatus=" + accountStatus +
                 ", roles=" + roles +
                 '}';
     }
