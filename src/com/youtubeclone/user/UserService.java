@@ -6,6 +6,8 @@ import java.util.UUID;
 import java.time.LocalDateTime;
 import java.time.LocalDate;
 
+import static com.youtubeclone.user.UserUtil.*;
+
 /**
  * Service class responsible for user-related operations such as
  * registration, authentication, profile management, and status updates.
