@@ -23,7 +23,7 @@ public class User {
     private String email;
 
     /** Date of birth of the user */
-    private LocalDate DOB;
+    private LocalDateTime DOB;
 
     /** Timestamp when the account was created */
     private final LocalDateTime createdAt;
@@ -87,7 +87,7 @@ public class User {
      * @param DOB       User's date of birth
      */
     public User(UUID id, String username,
-                String password, String email, LocalDate DOB) {
+                String password, String email, LocalDateTime DOB) {
         this.id = id;
         this.username = username;
         this.passwordHash = password;
@@ -130,7 +130,7 @@ public class User {
     }
 
     /** @return User's date of birth */
-    public LocalDate getDOB() {
+    public LocalDateTime getDOB() {
         return DOB;
     }
 
@@ -138,7 +138,7 @@ public class User {
      * Sets the user's date of birth.
      * @param DOB Date of birth
      */
-    public void setDOB(LocalDate DOB) {
+    public void setDOB(LocalDateTime DOB) {
         this.DOB = DOB;
     }
 
