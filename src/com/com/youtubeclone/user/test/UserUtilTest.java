@@ -89,4 +89,44 @@ class UserUtilTest {
         assertFalse(UserUtil.isValidEmail(""), "Empty email should be invalid");
         assertFalse(UserUtil.isValidEmail("   "), "Blank email should be invalid"); // String with only spaces
     }
+
+    //^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@#$%^&+=!]).{8,}$
+    @Test
+    @DisplayName("isStrongPassword : should return true for strong password")
+    public void isStrongPassword_shouldReturnTrueForStrongPassword() {
+        // Arrange - strong password
+        String strongPassword1 = "abcdefghijklmnopqrst";
+        String strongPassword2 = "ABCDEFGHIJKLMNOPQRST";
+        String strongPassword3 = "abcdefABCDEF";
+        String strongPassword4 = "1234567890";
+        String strongPassword5 = "abcdefABCDEFG1234";
+        String strongPassword6 = "$#@$#@&^+!$#@";
+        String strongPassword7 = "abcdefABCDEF123456$#@!%";
+
+        // Act & Assert - call the method and verify result
+        assertTrue(UserUtil.isStrongPassword(strongPassword1), "Strong password should be valid");
+        assertTrue(UserUtil.isStrongPassword(strongPassword2), "Strong password should be valid");
+        assertTrue(UserUtil.isStrongPassword(strongPassword3), "Strong password should be valid");
+        assertTrue(UserUtil.isStrongPassword(strongPassword4), "Strong password should be valid");
+        assertTrue(UserUtil.isStrongPassword(strongPassword5), "Strong password should be valid");
+        assertTrue(UserUtil.isStrongPassword(strongPassword6), "Strong password should be valid");
+        assertTrue(UserUtil.isStrongPassword(strongPassword7), "Strong password should be valid");
+    }
+
+    @Test
+    @DisplayName("isStrongPassword : should return false for weak password")
+    void isStrongPassword_shouldReturnFalseForWeakPassword() {
+        // Arrange - Weak password
+        String weakPassword1 = "aaaa-bbbb";
+        String weakPassword2 = "AAA";
+        String weakPassword3 = "aB123`a";
+        String weakPassword4 = "||//\\";
+
+        // Act & Assert - call the method and verify result
+        assertFalse(UserUtil.isStrongPassword(weakPassword1), "Strong password should not be valid");
+        assertFalse(UserUtil.isStrongPassword(weakPassword2), "Strong password should not be valid");
+        assertFalse(UserUtil.isStrongPassword(weakPassword3), "Strong password should not be valid");
+        assertFalse(UserUtil.isStrongPassword(weakPassword4), "Strong password should not be valid");
+
+    }
 }
