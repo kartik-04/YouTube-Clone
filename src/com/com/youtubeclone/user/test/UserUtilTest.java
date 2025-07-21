@@ -4,6 +4,8 @@ import com.youtubeclone.user.UserUtil;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
+
 import static org.junit.jupiter.api.Assertions.*; // Static import for easy access to assertion methods
 
 /**
@@ -95,13 +97,13 @@ class UserUtilTest {
     @DisplayName("isStrongPassword : should return true for strong password")
     public void isStrongPassword_shouldReturnTrueForStrongPassword() {
         // Arrange - strong password
-        String strongPassword1 = "abcdefghijklmnopqrst";
-        String strongPassword2 = "ABCDEFGHIJKLMNOPQRST";
-        String strongPassword3 = "abcdefABCDEF";
-        String strongPassword4 = "1234567890";
-        String strongPassword5 = "abcdefABCDEFG1234";
-        String strongPassword6 = "$#@$#@&^+!$#@";
-        String strongPassword7 = "abcdefABCDEF123456$#@!%";
+        String strongPassword1 = "abcdBCD$@klmno13pqrst";
+        String strongPassword2 = "ABCDEFGHIabd%@#OPQ34ST";
+        String strongPassword3 = "abcdefA12$CDEF";
+        String strongPassword4 = "12345aB67$890";
+        String strongPassword5 = "abcd@efABCDEFG1234";
+        String strongPassword6 = "$#@$#@&^+!$aB2#@";
+        String strongPassword7 = "abcdefABDEF123456$#@!%";
 
         // Act & Assert - call the method and verify result
         assertTrue(UserUtil.isStrongPassword(strongPassword1), "Strong password should be valid");
@@ -127,6 +129,34 @@ class UserUtilTest {
         assertFalse(UserUtil.isStrongPassword(weakPassword2), "Strong password should not be valid");
         assertFalse(UserUtil.isStrongPassword(weakPassword3), "Strong password should not be valid");
         assertFalse(UserUtil.isStrongPassword(weakPassword4), "Strong password should not be valid");
+    }
 
+    @Test
+    @DisplayName("isAdult : should return true for valid age")
+
+    void isAdult_shouldReturnTrueForValidAge(){
+        // Arrange - Is adult
+        LocalDate isAdult1 = LocalDate.of(1999,12,21);
+        LocalDate isAdult2 = LocalDate.of(1999, 11, 21);
+        LocalDate isAdult3 = LocalDate.of(1999, 10, 21);
+
+        // Act & Assert - call the method and verify result
+        assertTrue(UserUtil.isAdult(isAdult1), "An Individual is Adult");
+        assertTrue(UserUtil.isAdult(isAdult2), "An Individual is Adult");
+        assertTrue(UserUtil.isAdult(isAdult3), "An Individual is Adult");
+    }
+
+    @Test
+    @DisplayName("isAdult : should return false for inValid age")
+    void isAdult_shouldReturnFalseForInValidAge(){
+        // Arrange - Is Adult
+        LocalDate isNotAdult1 = LocalDate.of(2008,12,21);
+        LocalDate isNotAdult2 = LocalDate.of(2009,12,21);
+        LocalDate isNotAdult3 = LocalDate.of(2010,12,21);
+
+        // Act & Arrange - call the method and verify result
+        assertFalse(UserUtil.isAdult(isNotAdult1), "An Individual isn't Adult");
+        assertFalse(UserUtil.isAdult(isNotAdult2), "An Individual isn't Adult");
+        assertFalse(UserUtil.isAdult(isNotAdult3), "An Individual isn't Adult");
     }
 }
