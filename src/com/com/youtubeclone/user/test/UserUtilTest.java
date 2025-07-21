@@ -154,9 +154,37 @@ class UserUtilTest {
         LocalDate isNotAdult2 = LocalDate.of(2009,12,21);
         LocalDate isNotAdult3 = LocalDate.of(2010,12,21);
 
-        // Act & Arrange - call the method and verify result
+        // Act & Assert - call the method and verify result
         assertFalse(UserUtil.isAdult(isNotAdult1), "An Individual isn't Adult");
         assertFalse(UserUtil.isAdult(isNotAdult2), "An Individual isn't Adult");
         assertFalse(UserUtil.isAdult(isNotAdult3), "An Individual isn't Adult");
+    }
+
+    @Test
+    @DisplayName("isVerified : should return true for verfied email")
+    void isVerified_shouldReturnTrueForVerifiedEmail(){
+        // Arrange - isVerified
+        String email1 = "04kartik04@gmail.com";
+        String email2 = "ad@gmail.com";
+        String email3 = "luffy.D.Monkey@one.peice";
+
+        // Act & Assert - call the method and verify result
+        assertTrue(UserUtil.isVerified(email1), "It's verified");
+        assertTrue(UserUtil.isVerified(email2), "It's verified");
+        assertTrue(UserUtil.isVerified(email3), "It's verified");
+    }
+
+    @Test
+    @DisplayName("isVerified : should return false for Unverified email")
+    void isVerified_shouldReturnFalseForUnverifiedEmail(){
+        // Arrange - isVerified
+        String email1 = "daslk@gmail.commmmmm";
+        String email2 = "DSAgmail.com";
+        String email3 = "Hello-gmail.com";
+
+        // Act & Assert - call the method and verify result
+        assertFalse(UserUtil.isVerified(email1), "It's verified");
+        assertFalse(UserUtil.isVerified(email2), "It's verified");
+        assertFalse(UserUtil.isVerified(email3), "It's verified");
     }
 }
