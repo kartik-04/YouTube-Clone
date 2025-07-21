@@ -166,7 +166,7 @@ class UserUtilTest {
         // Arrange - isVerified
         String email1 = "04kartik04@gmail.com";
         String email2 = "ad@gmail.com";
-        String email3 = "luffy.D.Monkey@one.peice";
+        String email3 = "luffy.D.Monkey@gmail.com";
 
         // Act & Assert - call the method and verify result
         assertTrue(UserUtil.isVerified(email1), "It's verified");
