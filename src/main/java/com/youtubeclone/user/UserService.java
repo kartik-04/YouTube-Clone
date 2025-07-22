@@ -189,4 +189,8 @@ public class UserService {
         }
     }
 
+    /** creating userHandle function **/
+    public void handleUser(User user){
+        user.handle();
+    }
 }
