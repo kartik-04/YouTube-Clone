@@ -1,4 +1,4 @@
-package com.youtubeclone.user.test;
+package com.youtubeclone.user;
 
 import com.youtubeclone.user.User;
 import com.youtubeclone.user.UserService;

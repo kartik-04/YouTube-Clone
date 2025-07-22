@@ -1,4 +1,4 @@
-package com.youtubeclone.user.test;
+package com.youtubeclone.user;
 
 import com.youtubeclone.user.UserUtil;
 import org.junit.jupiter.api.DisplayName;

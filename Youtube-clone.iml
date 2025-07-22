@@ -10,6 +10,8 @@
       <sourceFolder url="file://$MODULE_DIR$/src/com/youtubeclone/user" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/com" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/com/youtubeclone" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
