@@ -196,6 +196,11 @@ public class User {
         this.roles = roles;
     }
 
+    /** @return UserHndle call */
+    public void handle(){
+        System.out.println(getUsername()+" is browsing user.");
+    }
+
     /** @return User's gender */
     public String getGender() {
         return gender;
