@@ -1,5 +1,6 @@
 package com.youtubeclone.user;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.*;
 
@@ -22,7 +23,7 @@ public class User {
     private String email;
 
     /** Date of birth of the user */
-    private LocalDateTime DOB;
+    private LocalDate DOB;
 
     /** Timestamp when the account was created */
     private final LocalDateTime createdAt;
@@ -86,7 +87,7 @@ public class User {
      * @param DOB       User's date of birth
      */
     public User(UUID id, String username,
-                String password, String email, LocalDateTime DOB) {
+                String password, String email, LocalDate DOB) {
         this.id = id;
         this.username = username;
         this.passwordHash = password;
@@ -129,7 +130,7 @@ public class User {
     }
 
     /** @return User's date of birth */
-    public LocalDateTime getDOB() {
+    public LocalDate getDOB() {
         return DOB;
     }
 
@@ -137,7 +138,7 @@ public class User {
      * Sets the user's date of birth.
      * @param DOB Date of birth
      */
-    public void setDOB(LocalDateTime DOB) {
+    public void setDOB(LocalDate DOB) {
         this.DOB = DOB;
     }
 

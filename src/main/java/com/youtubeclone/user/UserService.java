@@ -33,7 +33,7 @@ public class UserService {
             }
         }
         UUID userId  = UUID.randomUUID();
-        User newUser = new User(userId, username, passwordHash, email, DOB.atStartOfDay());
+        User newUser = new User(userId, username, passwordHash, email, DOB);
         newUser.setAccountStatus(User.AccountStatus.PENDING_EMAIL_VERIFICATION);
         userStore.put(userId, newUser);
         return newUser;
