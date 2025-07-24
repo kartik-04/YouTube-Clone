@@ -44,4 +44,19 @@ public class UserServiceTest {
         assertEquals(DOB, result.getDOB(), "DOB should match");
         assertEquals(User.AccountStatus.PENDING_EMAIL_VERIFICATION, result.getAccountStatus(), "Account status should match");
     }
+
+    @Test
+    @DisplayName("authenticate User if email and password match")
+    public void authenticateUserIfEmailAndPassword(){
+        // Arrange - set attribute
+        String email = "04kartik04@gmail.com";
+        String passwordHash = "Kartik_04";
+
+        User result = userService.authenticateUser(email, passwordHash);
+
+        // Act & assert
+        assertNotNull(result, "User should not be null");
+        assertEquals(email, result.getEmail(), "Email should match");
+        assertEquals(passwordHash, result.getPasswordHash(), "Password hash should match");
+    }
 }
