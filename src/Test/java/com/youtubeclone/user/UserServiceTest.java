@@ -59,4 +59,78 @@ public class UserServiceTest {
         assertEquals(email, result.getEmail(), "Email should match");
         assertEquals(passwordHash, result.getPasswordHash(), "Password hash should match");
     }
+
+    @Test
+    @DisplayName("should return user when given Id as input")
+    public void getUserById() {
+        // Arrange - set Attribute
+        String email = "04kartik04@gmail.com";
+        String username = "kartik04";
+        LocalDate DOB = LocalDate.now();
+        String passwordHash = "Kartik_04";
+
+        User registerUser = userService.registerUser(username,passwordHash,email,DOB);
+        UUID userId = registerUser.getId();
+        // Act
+        User result = userService.getUserByID(userId);
+        // Assert
+        assertNotNull(result, "User should not be null");
+        assertEquals(userId, result.getId(), "User id should match");
+    }
+
+    @Test
+    @DisplayName("should return user by username")
+    public void getUserByUsername() {
+        // Arrange
+        String email = "04kartik04@gmail.com";
+        String username = "kartik04";
+        LocalDate DOB = LocalDate.now();
+        String passwordHash = "Kartik_04";
+
+        // Act
+        User registerUser = userService.registerUser(username,passwordHash,email,DOB);
+        String userName = registerUser.getUsername();
+
+        // Assert
+        User result = userService.getUserByUsername(userName);
+        assertNotNull(userName, "Username should not be null");
+        assertEquals(username, userName, "Username should match");
+    }
+
+    @Test
+    @DisplayName("should return user when given email ")
+    public void getUserByEmail() {
+        // Arrange
+        String email = "04kartik04@gmail.com";
+        String username = "kartik04";
+        LocalDate DOB = LocalDate.now();
+        String passwordHash = "Kartik_04";
+
+        // Act
+        User registerUser = userService.registerUser(username,passwordHash,email,DOB);
+        String userEmail = registerUser.getEmail();
+
+        // Assert
+        User result = userService.getUserByEmail(userEmail);
+        assertNotNull(userEmail, "Username should not be null");
+        assertEquals(username, userEmail, "Username should match");
+    }
+
+    @Test
+    @DisplayName("should delete user with help of Id")
+    public void deleteUserById() {
+        // Arrange - set Attribute
+        String email = "04kartik04@gmail.com";
+        String username = "kartik04";
+        LocalDate DOB = LocalDate.now();
+        String passwordHash = "Kartik_04";
+
+        User registerUser = userService.registerUser(username,passwordHash,email,DOB);
+        UUID userId = registerUser.getId();
+        // Act
+        User result = userService.deleteUser(userId);
+        // Assert
+        assertNotNull(result, "User should not be null");
+        assertEquals(userId, result.getId(), "User id should match");
+    }
 }
