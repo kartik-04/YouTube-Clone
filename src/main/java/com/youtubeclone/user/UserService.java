@@ -119,9 +119,10 @@ public class UserService {
      * Deletes the user associated with the given ID.
      *
      * @param id User ID
+     * @return
      */
-    public void deleteUser(UUID id) {
-        userStore.remove(id);
+    public User deleteUser(UUID id) {
+        return userStore.remove(id);
     }
 
     /**
