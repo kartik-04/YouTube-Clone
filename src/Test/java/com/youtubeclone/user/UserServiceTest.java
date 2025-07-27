@@ -152,5 +152,25 @@ public class UserServiceTest {
         assertEquals(gender, result.getGender(), "Gender should match");
     }
 
+    @Test
+    @DisplayName("should update the password")
+    public void updatePassword() {
+        //Arrange
+        String username = "kartik04";
+        String passwordHash = "Kartik_04";
+        String email = "04kartik04@gmail.com";
+        LocalDate DOB = LocalDate.now();
+        String passwordHashNew = "Kartik04_";
+        User registerUser = userService.registerUser(username,passwordHash,email,DOB);
+        UUID userId = registerUser.getId();
+        String pass = registerUser.getPasswordHash();
+        // Act
+        User result = userService.updatePassword(userId,passwordHash,passwordHashNew);
+        String passNew = result.getPasswordHash();
+        // Assert
+        assertNotNull(result, "User should not be null");
+        assertEquals(passwordHashNew, result.getPasswordHash(), "Password hash should match");
+    }
+
 
 }
