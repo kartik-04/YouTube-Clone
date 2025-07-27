@@ -1,4 +1,7 @@
-package com.youtubeclone.user;
+package com.youtubeclone.services.Impl;
+
+import com.youtubeclone.services.Interfaces.IUserService;
+import com.youtubeclone.user.User;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -6,13 +9,13 @@ import java.util.UUID;
 import java.time.LocalDateTime;
 import java.time.LocalDate;
 
-import static com.youtubeclone.user.UserUtil.*;
+import static com.youtubeclone.util.UserUtil.*;
 
 /**
  * Service class responsible for user-related operations such as
  * registration, authentication, profile management, and status updates.
  */
-public class UserService {
+public class UserService implements IUserService {
 
     /** In-memory storage for user data (simulates a database) */
     private final Map<UUID, User> userStore = new HashMap<>();
