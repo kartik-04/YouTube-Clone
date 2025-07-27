@@ -62,7 +62,7 @@ public class UserServiceTest {
 
     @Test
     @DisplayName("should return user when given Id as input")
-    public void getUserById() {
+    public void getUserByIdTest() {
         // Arrange - set Attribute
         String email = "04kartik04@gmail.com";
         String username = "kartik04";
@@ -80,7 +80,7 @@ public class UserServiceTest {
 
     @Test
     @DisplayName("should return user by username")
-    public void getUserByUsername() {
+    public void getUserByUsernameTest() {
         // Arrange
         String email = "04kartik04@gmail.com";
         String username = "kartik04";
@@ -99,7 +99,7 @@ public class UserServiceTest {
 
     @Test
     @DisplayName("should return user when given email ")
-    public void getUserByEmail() {
+    public void getUserByEmailTest() {
         // Arrange
         String email = "04kartik04@gmail.com";
         String username = "kartik04";
@@ -118,7 +118,7 @@ public class UserServiceTest {
 
     @Test
     @DisplayName("should delete user with help of Id")
-    public void deleteUserById() {
+    public void deleteUserByIdTest() {
         // Arrange - set Attribute
         String email = "04kartik04@gmail.com";
         String username = "kartik04";
@@ -136,7 +136,7 @@ public class UserServiceTest {
 
     @Test
     @DisplayName("should update profile & set gender")
-    public void updateProfile() {
+    public void updateProfileTest() {
         //Arrange
         String username = "kartik04";
         String passwordHash = "Kartik_04";
@@ -154,7 +154,7 @@ public class UserServiceTest {
 
     @Test
     @DisplayName("should update the password")
-    public void updatePassword() {
+    public void updatePasswordTest() {
         //Arrange
         String username = "kartik04";
         String passwordHash = "Kartik_04";
@@ -172,5 +172,18 @@ public class UserServiceTest {
         assertEquals(passwordHashNew, result.getPasswordHash(), "Password hash should match");
     }
 
-
+    @Test
+    @DisplayName("should udpate User with User ID")
+    public void updateAccountStatusTest(){
+        // Arrange - set Attribute
+        String email = "04kartik04@gmail.com";
+        String username = "kartik04";
+        LocalDate DOB = LocalDate.now();
+        String passwordHash = "Kartik_04";
+        User.AccountStatus status = User.AccountStatus.ACTIVE;
+        User registerUser = userService.registerUser(username,passwordHash,email,DOB);
+        UUID userId = registerUser.getId();
+        // Arrange
+        userService.updateAccountStatus(userId, status);
+    }
 }
