@@ -151,7 +151,7 @@ public class UserService {
      */
     public void updateAccountStatus(UUID id, User.AccountStatus newStatus){
         User user = userStore.get(id);
-        if(user != null){
+        if(user != null ){
             user.setAccountStatus(newStatus);
             user.setUpdatedAt(LocalDateTime.now());
         }
@@ -162,7 +162,7 @@ public class UserService {
      *
      * @param id User ID
      */
-    public void verifyEmail(UUID id){
+    public User verifyEmail(UUID id){
         User user = userStore.get(id);
         if(user != null){
             String email = user.getEmail();
@@ -170,24 +170,30 @@ public class UserService {
             if(emailVerified){
                 user.setAccountStatus(User.AccountStatus.ACTIVE);
                 user.setUpdatedAt(LocalDateTime.now());
+                return user;
             }
         }
+        return null;
     }
 
-    public void deactivateUser(UUID id){
+    public User deactivateUser(UUID id){
         User user = userStore.get(id);
         if(user != null){
             user.setAccountStatus(User.AccountStatus.DELETED);
             user.setUpdatedAt(LocalDateTime.now());
+            return user;
         }
+        return null;
     }
 
-    public void suspendedUser(UUID id){
+    public User suspendedUser(UUID id){
         User user = userStore.get(id);
         if(user != null){
             user.setAccountStatus(User.AccountStatus.SUSPENDED);
             user.setUpdatedAt(LocalDateTime.now());
+            return  user;
         }
+        return null;
     }
 
     /** creating userHandle function **/
