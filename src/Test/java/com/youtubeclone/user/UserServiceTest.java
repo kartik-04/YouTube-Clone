@@ -133,4 +133,24 @@ public class UserServiceTest {
         assertNotNull(result, "User should not be null");
         assertEquals(userId, result.getId(), "User id should match");
     }
+
+    @Test
+    @DisplayName("should update profile & set gender")
+    public void updateProfile() {
+        //Arrange
+        String username = "kartik04";
+        String passwordHash = "Kartik_04";
+        String email = "04kartik04@gmail.com";
+        LocalDate DOB = LocalDate.now();
+        String  gender = "Male";
+        User registerUser = userService.registerUser(username,passwordHash,email,DOB);
+        UUID userId = registerUser.getId();
+        // Act
+        User result = userService.updateProfile(userId,username,passwordHash,gender);
+        // Assert
+        assertNotNull(result, "User should not be null");
+        assertEquals(gender, result.getGender(), "Gender should match");
+    }
+
+
 }
