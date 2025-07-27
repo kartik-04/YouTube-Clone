@@ -95,7 +95,7 @@ public class UserServiceTest {
         // Assert
         User result = userService.getUserByUsername(userName);
         assertNotNull(userName, "Username should not be null");
-        assertEquals(username, userName, "Username should match");
+        assertEquals(username, result.getUsername(), "Username should match");
     }
 
     @Test
@@ -164,10 +164,8 @@ public class UserServiceTest {
         String passwordHashNew = "Kartik04_";
         User registerUser = userService.registerUser(username,passwordHash,email,DOB);
         UUID userId = registerUser.getId();
-        String pass = registerUser.getPasswordHash();
         // Act
         User result = userService.updatePassword(userId,passwordHash,passwordHashNew);
-        String passNew = result.getPasswordHash();
         // Assert
         assertNotNull(result, "User should not be null");
         assertEquals(passwordHashNew, result.getPasswordHash(), "Password hash should match");
@@ -231,7 +229,6 @@ public class UserServiceTest {
         String username = "kartik04";
         LocalDate DOB = LocalDate.now();
         String passwordHash = "Kartik_04";
-        User.AccountStatus status = User.AccountStatus.SUSPENDED;
         User registerUser = userService.registerUser(username,passwordHash,email,DOB);
         UUID userId = registerUser.getId();
         // Act
