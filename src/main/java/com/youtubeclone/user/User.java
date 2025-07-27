@@ -82,15 +82,15 @@ public class User {
      *
      * @param id        Unique user identifier
      * @param username  User's chosen username
-     * @param password  User's password (should be hashed)
+     * @param passwordHash  User's passwordHash (should be hashed)
      * @param email     User's email address
      * @param DOB       User's date of birth
      */
     public User(UUID id, String username,
-                String password, String email, LocalDate DOB) {
+                String passwordHash, String email, LocalDate DOB) {
         this.id = id;
         this.username = username;
-        this.passwordHash = password;
+        this.passwordHash = passwordHash;
         this.email = email;
         this.DOB = DOB;
         this.createdAt = LocalDateTime.now();
@@ -197,7 +197,7 @@ public class User {
         this.roles = roles;
     }
 
-    /** @return UserHndle call */
+    /** @return UserHandle call */
     public void handle(){
         System.out.println(getUsername()+" is browsing user.");
     }
