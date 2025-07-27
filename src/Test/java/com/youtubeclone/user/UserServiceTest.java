@@ -1,17 +1,15 @@
 package com.youtubeclone.user;
 
-import com.youtubeclone.user.User;
-import com.youtubeclone.user.UserService;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.UUID;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class UserServiceTest {
 
@@ -185,5 +183,57 @@ public class UserServiceTest {
         UUID userId = registerUser.getId();
         // Arrange
         userService.updateAccountStatus(userId, status);
+    }
+
+    @Test
+    @DisplayName("should return User if email is verified")
+    public void emailVerifiedTest() {
+        // Arrange - set Attribute
+        String email = "04kartik04@gmail.com";
+        String username = "kartik04";
+        LocalDate DOB = LocalDate.now();
+        String passwordHash = "Kartik_04";
+        User registerUser = userService.registerUser(username,passwordHash,email,DOB);
+        UUID userId = registerUser.getId();
+        // Arrange
+        User result = userService.verifyEmail(userId);
+        // Assert
+        assertNotNull(result, "User should not be null");
+        assertEquals(email, result.getEmail(), "Email should match");
+    }
+
+    @Test
+    @DisplayName("should deactive user with given Id")
+    public void deactivateUserTest() {
+        // Arrange - set Attribute
+        String email = "04kartik04@gmail.com";
+        String username = "kartik04";
+        LocalDate DOB = LocalDate.now();
+        String passwordHash = "Kartik_04";
+        User registerUser = userService.registerUser(username,passwordHash,email,DOB);
+        UUID userId = registerUser.getId();
+        // Arrange
+        User result = userService.deactivateUser(userId);
+        // Assert
+        assertNotNull(result, "User should not be null");
+        assertEquals(User.AccountStatus.DELETED, result.getAccountStatus(), "Account status should match");
+    }
+
+    @Test
+    @DisplayName("should suspend user with given ID")
+    public void suspendUserTest() {
+        // Arrange - set Attribute
+        String email = "04kartik04@gmail.com";
+        String username = "kartik04";
+        LocalDate DOB = LocalDate.now();
+        String passwordHash = "Kartik_04";
+        User.AccountStatus status = User.AccountStatus.SUSPENDED;
+        User registerUser = userService.registerUser(username,passwordHash,email,DOB);
+        UUID userId = registerUser.getId();
+        // Act
+        User result = userService.suspendedUser(userId);
+        // Assert
+        assertNotNull(result, "User should not be null");
+        assertEquals(User.AccountStatus.SUSPENDED, result.getAccountStatus(),  "Account status should match");
     }
 }
