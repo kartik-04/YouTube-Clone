@@ -32,9 +32,9 @@ public class UserServiceTest {
         String email = "04kartik04@gmail.com";
         String username = "kartik04";
         LocalDate DOB = LocalDate.now();
-        String paswordHash = "Kartik_04";
+        String passwordHash = "Kartik_04";
 
-        User result = userService.registerUser(username,paswordHash,email,DOB);
+        User result = userService.registerUser(username,passwordHash,email,DOB);
         // Act & assert
         assertNotNull(result, "User should not be null");
         assertEquals(username, result.getUsername(), "Username should match");
@@ -62,7 +62,7 @@ public class UserServiceTest {
 
     @Test
     @DisplayName("should return user when given Id as input")
-    public void getUserByIdTest() {
+    public void getUserById() {
         // Arrange - set Attribute
         String email = "04kartik04@gmail.com";
         String username = "kartik04";
@@ -80,7 +80,7 @@ public class UserServiceTest {
 
     @Test
     @DisplayName("should return user by username")
-    public void getUserByUsernameTest() {
+    public void shouldReturnUserByUsername() {
         // Arrange
         String email = "04kartik04@gmail.com";
         String username = "kartik04";
@@ -99,7 +99,7 @@ public class UserServiceTest {
 
     @Test
     @DisplayName("should return user when given email ")
-    public void getUserByEmailTest() {
+    public void shouldReturnUserByEmail() {
         // Arrange
         String email = "04kartik04@gmail.com";
         String username = "kartik04";
@@ -118,7 +118,7 @@ public class UserServiceTest {
 
     @Test
     @DisplayName("should delete user with help of Id")
-    public void deleteUserByIdTest() {
+    public void shouldDeleteUserByIdt() {
         // Arrange - set Attribute
         String email = "04kartik04@gmail.com";
         String username = "kartik04";
@@ -136,7 +136,7 @@ public class UserServiceTest {
 
     @Test
     @DisplayName("should update profile & set gender")
-    public void updateProfileTest() {
+    public void updateProfileAndSetGender() {
         //Arrange
         String username = "kartik04";
         String passwordHash = "Kartik_04";
@@ -154,7 +154,7 @@ public class UserServiceTest {
 
     @Test
     @DisplayName("should update the password")
-    public void updatePasswordTest() {
+    public void updatePassword() {
         //Arrange
         String username = "kartik04";
         String passwordHash = "Kartik_04";
@@ -174,7 +174,7 @@ public class UserServiceTest {
 
     @Test
     @DisplayName("should udpate User with User ID")
-    public void updateAccountStatusTest(){
+    public void updateAccountStatusWithUserId() {
         // Arrange - set Attribute
         String email = "04kartik04@gmail.com";
         String username = "kartik04";
@@ -185,11 +185,12 @@ public class UserServiceTest {
         UUID userId = registerUser.getId();
         // Arrange
         userService.updateAccountStatus(userId, status);
+        assertEquals(status, User.AccountStatus.ACTIVE, "Status should be ACTIVE");
     }
 
     @Test
     @DisplayName("should return User if email is verified")
-    public void emailVerifiedTest() {
+    public void shouldReturnEmailIf_EmailIsVerified() {
         // Arrange - set Attribute
         String email = "04kartik04@gmail.com";
         String username = "kartik04";
@@ -206,7 +207,7 @@ public class UserServiceTest {
 
     @Test
     @DisplayName("should deactive user with given Id")
-    public void deactivateUserTest() {
+    public void shouldReturnUserNDeactivateUser() {
         // Arrange - set Attribute
         String email = "04kartik04@gmail.com";
         String username = "kartik04";
@@ -223,7 +224,7 @@ public class UserServiceTest {
 
     @Test
     @DisplayName("should suspend user with given ID")
-    public void suspendUserTest() {
+    public void shouldReturnUserNSuspendUserTest() {
         // Arrange - set Attribute
         String email = "04kartik04@gmail.com";
         String username = "kartik04";
