@@ -48,11 +48,13 @@ public class UserServiceTest {
     public void authenticateUserIfEmailAndPassword(){
         // Arrange - set attribute
         String email = "04kartik04@gmail.com";
+        String username = "kartik04";
+        LocalDate DOB = LocalDate.now();
         String passwordHash = "Kartik_04";
-
+        User registerUser = userService.registerUser(username,passwordHash,email,DOB);
+        // Act
         User result = userService.authenticateUser(email, passwordHash);
-
-        // Act & assert
+        // assert
         assertNotNull(result, "User should not be null");
         assertEquals(email, result.getEmail(), "Email should match");
         assertEquals(passwordHash, result.getPasswordHash(), "Password hash should match");
@@ -110,8 +112,8 @@ public class UserServiceTest {
 
         // Assert
         User result = userService.getUserByEmail(userEmail);
-        assertNotNull(userEmail, "Username should not be null");
-        assertEquals(username, userEmail, "Username should match");
+        assertNotNull(result, "User should not be null");
+        assertEquals(userEmail, result.getEmail(), "Username should match");
     }
 
     @Test
