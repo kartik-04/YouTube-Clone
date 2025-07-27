@@ -133,7 +133,7 @@ public class UserService {
      * @param id            User ID
      * @return Updated User object or null if validation fails
      */
-    public User updatePassword(String newPassword, String oldPassword, UUID id){
+    public User updatePassword(UUID id, String oldPassword, String newPassword){
         User user = userStore.get(id);
         if(user != null && user.getPasswordHash().equals(oldPassword)){
             user.setPasswordHash(newPassword);
