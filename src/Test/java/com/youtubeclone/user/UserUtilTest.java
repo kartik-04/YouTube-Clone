@@ -5,6 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
+import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*; // Static import for easy access to assertion methods
 
@@ -186,5 +187,27 @@ class UserUtilTest {
         assertFalse(UserUtil.isVerified(email1), "It's verified");
         assertFalse(UserUtil.isVerified(email2), "It's verified");
         assertFalse(UserUtil.isVerified(email3), "It's verified");
+    }
+
+    @Test
+    public void testGenericPrintUserInfo() {
+        Viewer viewer = new Viewer(
+                UUID.randomUUID(),
+                "viewer_kartik",
+                "pass123",
+                "kartik_viewer@example.com",
+                LocalDate.of(1995, 8, 1)
+        );
+
+        Creator creator = new Creator(
+                UUID.randomUUID(),
+                "creator_kartik",
+                "pass456",
+                "kartik_creator@example.com",
+                LocalDate.of(1993, 4, 15)
+        );
+
+        UserUtil.printUserInfo(viewer);
+        UserUtil.printUserInfo(creator);
     }
 }
