@@ -1,5 +1,9 @@
 package com.youtubeclone.util;
 
+import com.youtubeclone.user.Creator;
+import com.youtubeclone.user.User;
+import com.youtubeclone.user.Viewer;
+
 import java.time.LocalDate;
 import java.time.Period;
 
@@ -66,5 +70,19 @@ public class UserUtil {
 
         Period age = Period.between(dob, LocalDate.now());
         return age.getYears() >= 18;
+    }
+
+    // Generic method that works for any subtype of User
+    public static <T extends User> void printUserInfo(T user) {
+        System.out.println("User Info:");
+        System.out.println("Username: " + user.getUsername());
+        System.out.println("Email: " + user.getEmail());
+
+            // Downcast if needed
+        if (user instanceof Viewer) {
+            ((Viewer) user).browseVideos(); // or any viewer-specific method
+        } else if (user instanceof Creator) {
+            ((Creator) user).accessStudio();
+        }
     }
 }
