@@ -165,7 +165,7 @@ class UserUtilTest {
     @DisplayName("isVerified : should return true for verfied email")
     void isVerified_shouldReturnTrueForVerifiedEmail(){
         // Arrange - isVerified
-        String email1 = "04kartik04@gmail.com";
+        String email1 = "example@gmail.com";
         String email2 = "ad@gmail.com";
         String email3 = "luffy.D.Monkey@gmail.com";
 

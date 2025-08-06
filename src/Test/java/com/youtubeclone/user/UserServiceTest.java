@@ -30,10 +30,11 @@ public class UserServiceTest {
     @DisplayName("should register user if email is not duplicate")
     public void registerUserIfEmailIsNotDuplicate() {
         // Arrange
-        String email = "04kartik04@gmail.com";
+        String email = "example@gmail.com";
         String username = "kartik04";
         LocalDate DOB = LocalDate.now();
-        String passwordHash = "Kartik_04";
+        String passwordHash = "Example_123" +
+                "";
 
         User result = userService.registerUser(username,passwordHash,email,DOB);
         // Act & assert
@@ -48,10 +49,10 @@ public class UserServiceTest {
     @DisplayName("authenticate User if email and password match")
     public void authenticateUserIfEmailAndPassword(){
         // Arrange - set attribute
-        String email = "04kartik04@gmail.com";
+        String email = "example@gmail.com";
         String username = "kartik04";
         LocalDate DOB = LocalDate.now();
-        String passwordHash = "Kartik_04";
+        String passwordHash = "Example_123";
         User registerUser = userService.registerUser(username,passwordHash,email,DOB);
         // Act
         User result = userService.authenticateUser(email, passwordHash);
@@ -65,10 +66,10 @@ public class UserServiceTest {
     @DisplayName("should return user when given Id as input")
     public void getUserById() {
         // Arrange - set Attribute
-        String email = "04kartik04@gmail.com";
+        String email = "example@gmail.com";
         String username = "kartik04";
         LocalDate DOB = LocalDate.now();
-        String passwordHash = "Kartik_04";
+        String passwordHash = "Example_123";
 
         User registerUser = userService.registerUser(username,passwordHash,email,DOB);
         UUID userId = registerUser.getId();
@@ -83,10 +84,10 @@ public class UserServiceTest {
     @DisplayName("should return user by username")
     public void shouldReturnUserByUsername() {
         // Arrange
-        String email = "04kartik04@gmail.com";
+        String email = "example@gmail.com";
         String username = "kartik04";
         LocalDate DOB = LocalDate.now();
-        String passwordHash = "Kartik_04";
+        String passwordHash = "Example_123";
 
         // Act
         User registerUser = userService.registerUser(username,passwordHash,email,DOB);
@@ -102,10 +103,10 @@ public class UserServiceTest {
     @DisplayName("should return user when given email ")
     public void shouldReturnUserByEmail() {
         // Arrange
-        String email = "04kartik04@gmail.com";
+        String email = "example@gmail.com";
         String username = "kartik04";
         LocalDate DOB = LocalDate.now();
-        String passwordHash = "Kartik_04";
+        String passwordHash = "Example_123";
 
         // Act
         User registerUser = userService.registerUser(username,passwordHash,email,DOB);
@@ -121,10 +122,10 @@ public class UserServiceTest {
     @DisplayName("should delete user with help of Id")
     public void shouldDeleteUserByIdt() {
         // Arrange - set Attribute
-        String email = "04kartik04@gmail.com";
+        String email = "example@gmail.com";
         String username = "kartik04";
         LocalDate DOB = LocalDate.now();
-        String passwordHash = "Kartik_04";
+        String passwordHash = "Example_123";
 
         User registerUser = userService.registerUser(username,passwordHash,email,DOB);
         UUID userId = registerUser.getId();
@@ -140,8 +141,8 @@ public class UserServiceTest {
     public void updateProfileAndSetGender() {
         //Arrange
         String username = "kartik04";
-        String passwordHash = "Kartik_04";
-        String email = "04kartik04@gmail.com";
+        String passwordHash = "Example_123";
+        String email = "example@gmail.com";
         LocalDate DOB = LocalDate.now();
         String  gender = "Male";
         User registerUser = userService.registerUser(username,passwordHash,email,DOB);
@@ -158,8 +159,8 @@ public class UserServiceTest {
     public void updatePassword() {
         //Arrange
         String username = "kartik04";
-        String passwordHash = "Kartik_04";
-        String email = "04kartik04@gmail.com";
+        String passwordHash = "Example_123";
+        String email = "example@gmail.com";
         LocalDate DOB = LocalDate.now();
         String passwordHashNew = "Kartik04_";
         User registerUser = userService.registerUser(username,passwordHash,email,DOB);
@@ -175,10 +176,10 @@ public class UserServiceTest {
     @DisplayName("should udpate User with User ID")
     public void updateAccountStatusWithUserId() {
         // Arrange - set Attribute
-        String email = "04kartik04@gmail.com";
+        String email = "example@gmail.com";
         String username = "kartik04";
         LocalDate DOB = LocalDate.now();
-        String passwordHash = "Kartik_04";
+        String passwordHash = "Example_123";
         User.AccountStatus status = User.AccountStatus.ACTIVE;
         User registerUser = userService.registerUser(username,passwordHash,email,DOB);
         UUID userId = registerUser.getId();
@@ -191,10 +192,10 @@ public class UserServiceTest {
     @DisplayName("should return User if email is verified")
     public void shouldReturnEmailIf_EmailIsVerified() {
         // Arrange - set Attribute
-        String email = "04kartik04@gmail.com";
+        String email = "example@gmail.com";
         String username = "kartik04";
         LocalDate DOB = LocalDate.now();
-        String passwordHash = "Kartik_04";
+        String passwordHash = "Example_123";
         User registerUser = userService.registerUser(username,passwordHash,email,DOB);
         UUID userId = registerUser.getId();
         // Arrange
@@ -208,10 +209,10 @@ public class UserServiceTest {
     @DisplayName("should deactive user with given Id")
     public void shouldReturnUserNDeactivateUser() {
         // Arrange - set Attribute
-        String email = "04kartik04@gmail.com";
+        String email = "example@gmail.com";
         String username = "kartik04";
         LocalDate DOB = LocalDate.now();
-        String passwordHash = "Kartik_04";
+        String passwordHash = "Example_123";
         User registerUser = userService.registerUser(username,passwordHash,email,DOB);
         UUID userId = registerUser.getId();
         // Arrange
@@ -225,10 +226,10 @@ public class UserServiceTest {
     @DisplayName("should suspend user with given ID")
     public void shouldReturnUserNSuspendUserTest() {
         // Arrange - set Attribute
-        String email = "04kartik04@gmail.com";
+        String email = "example@gmail.com";
         String username = "kartik04";
         LocalDate DOB = LocalDate.now();
-        String passwordHash = "Kartik_04";
+        String passwordHash = "Example_123";
         User registerUser = userService.registerUser(username,passwordHash,email,DOB);
         UUID userId = registerUser.getId();
         // Act
