@@ -1,4 +1,4 @@
-package com.youtubeclone.user;
+package com.youtubeclone.Models.user;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

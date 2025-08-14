@@ -1,8 +1,8 @@
 package com.youtubeclone.util;
 
-import com.youtubeclone.user.Creator;
-import com.youtubeclone.user.User;
-import com.youtubeclone.user.Viewer;
+import com.youtubeclone.Models.user.Creator;
+import com.youtubeclone.Models.user.User;
+import com.youtubeclone.Models.user.Viewer;
 
 import java.time.LocalDate;
 import java.time.Period;

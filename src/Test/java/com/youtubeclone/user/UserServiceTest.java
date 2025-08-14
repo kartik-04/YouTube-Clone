@@ -1,5 +1,6 @@
 package com.youtubeclone.user;
 
+import com.youtubeclone.Models.user.User;
 import com.youtubeclone.services.Impl.UserService;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;

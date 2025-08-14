@@ -1,7 +1,7 @@
 package com.youtubeclone.services.Impl;
 
 import com.youtubeclone.services.Interfaces.IUserService;
-import com.youtubeclone.user.User;
+import com.youtubeclone.Models.user.User;
 
 import java.util.HashMap;
 import java.util.Map;

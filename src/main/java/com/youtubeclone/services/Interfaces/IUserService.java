@@ -1,6 +1,6 @@
 package com.youtubeclone.services.Interfaces;
 
-import com.youtubeclone.user.User;
+import com.youtubeclone.Models.user.User;
 
 import java.time.LocalDate;
 import java.util.UUID;
