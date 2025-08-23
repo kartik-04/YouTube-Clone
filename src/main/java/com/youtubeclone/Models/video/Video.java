@@ -157,7 +157,7 @@ public class Video {
     }
 
     public void setMetadata(VideoMetadata metadata) {
-        this.metadata = (metadata != null) ? new VideoMetadata(metadata) : null;
+        this.metadata = (metadata != null) ? new VideoMetadata() : null;
     }
 
     @Override
