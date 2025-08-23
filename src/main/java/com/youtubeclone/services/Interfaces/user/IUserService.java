@@ -1,4 +1,4 @@
-package com.youtubeclone.services.Interfaces;
+package com.youtubeclone.services.Interfaces.user;
 
 import com.youtubeclone.Models.user.User;
 
