@@ -5,7 +5,15 @@ import java.util.UUID;
 
 public class Video {
 
-    /** Choosing UUID for random generated videoId for the video */
+    /** Choosing UUID for random generated videoId for the video
+     * not creating setters for many
+     * of the attributes cause
+     * as in production grade
+     * application we occasionally use
+     * setter for class like Video
+     * where data is set for
+     * once and does not change
+     */
     private final UUID videoId;
 
     private String title;
@@ -85,6 +93,8 @@ public class Video {
     is no need for setter for the same.
      */
 
+    /** we will implement immutable model later in this class */
+
     public UUID getVideoId() {
         return videoId;
     }
@@ -107,13 +117,9 @@ public class Video {
         this.description = description;
     }
 
-    /** Getters and Setters for VideoUrl */
+    /** Getters for VideoUrl */
     public String getVideoUrl() {
         return videoUrl;
-    }
-
-    public void setVideoUrl(String videoUrl) {
-        this.videoUrl = videoUrl;
     }
 
     /** Getter and Setter for Thumbnail */
@@ -125,22 +131,14 @@ public class Video {
         this.thumbnailUrl = thumbnailUrl;
     }
 
-    /** Getter and Setter for CreatorId */
+    /** Getter for CreatorId */
     public UUID getCreatorId() {
         return creatorId;
     }
 
-    public void setCreatorId(UUID creatorId) {
-        this.creatorId = creatorId;
-    }
-
-    /** Getter and Setter for uploadDate */
+    /** Getter for uploadDate */
     public LocalDate getUploadDate() {
         return uploadDate;
-    }
-
-    public void setUploadDate(LocalDate uploadDate) {
-        this.uploadDate = uploadDate;
     }
 
     /** Getter and Setter for the enum */
