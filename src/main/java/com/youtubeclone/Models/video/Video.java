@@ -20,13 +20,13 @@ public class Video {
 
     private String description;
 
-    private String videoUrl;
+    private final String videoUrl;
 
     private String thumbnailUrl;
 
-    private UUID creatorId;
+    private final UUID creatorId;
 
-    private LocalDate uploadDate;
+    private final LocalDate uploadDate;
 
     private Visibility visibility;
 
