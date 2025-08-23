@@ -31,6 +31,19 @@ public class Video {
         UNLISTED
     }
 
+    /** Default Constructor */
+    public Video(){
+        this.videoId = UUID.randomUUID();
+        this.title = "";
+        this.description = "";
+        this.videoUrl = "";
+        this.thumbnailUrl = "";
+        this.creatorId = UUID.randomUUID();
+        this.uploadDate = LocalDate.now();
+        this.visibility = Visibility.PRIVATE;
+        this.metadata = new VideoMetadata();
+    }
+
     /** Parameterized Constructor */
     public Video(UUID id, String title, String description,
                  String videoUrl, String thumbnailUrl,
