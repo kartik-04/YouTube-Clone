@@ -59,9 +59,12 @@ public class VideoValidator {
             throw new IllegalArgumentException("Video size must be greater than 0 MB");
         }
 
-        if (metadata.getQuality() == null || metadata.getQuality().trim().isEmpty()) {
+        if (metadata.getQuality() == null) {
             throw new IllegalArgumentException("Video quality cannot be null or empty");
         }
 
+        if (metadata.getLanguage() == null) {
+            throw new IllegalArgumentException("Video language cannot be null or empty");
+        }
     }
 }
