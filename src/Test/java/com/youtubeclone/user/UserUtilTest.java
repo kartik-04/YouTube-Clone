@@ -2,7 +2,7 @@ package com.youtubeclone.user;
 
 import com.youtubeclone.Models.user.Creator;
 import com.youtubeclone.Models.user.Viewer;
-import com.youtubeclone.util.UserUtil;
+import com.youtubeclone.util.user.UserUtil;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

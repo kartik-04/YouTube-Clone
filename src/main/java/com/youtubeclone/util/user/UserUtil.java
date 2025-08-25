@@ -1,4 +1,4 @@
-package com.youtubeclone.util;
+package com.youtubeclone.util.user;
 
 import com.youtubeclone.Models.user.Creator;
 import com.youtubeclone.Models.user.User;

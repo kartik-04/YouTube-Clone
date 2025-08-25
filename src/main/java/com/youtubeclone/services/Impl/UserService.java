@@ -9,7 +9,7 @@ import java.util.UUID;
 import java.time.LocalDateTime;
 import java.time.LocalDate;
 
-import static com.youtubeclone.util.UserUtil.*;
+import static com.youtubeclone.util.user.UserUtil.*;
 
 /**
  * Service class responsible for user-related operations such as

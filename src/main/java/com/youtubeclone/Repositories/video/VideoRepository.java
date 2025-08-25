@@ -1,4 +1,4 @@
-package com.youtubeclone.Repositories;
+package com.youtubeclone.Repositories.video;
 
 import com.youtubeclone.Models.video.Video;
 
