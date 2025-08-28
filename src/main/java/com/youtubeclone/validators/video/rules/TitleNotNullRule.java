@@ -1,4 +1,13 @@
 package com.youtubeclone.validators.video.rules;
 
-public class TitleNotNullRule {
+import com.youtubeclone.Models.video.Video;
+import com.youtubeclone.validators.video.ValidationRule;
+
+public class TitleNotNullRule implements ValidationRule {
+
+    public void validate(Video video) {
+        if(video.getTitle() != null && !video.getTitle().isEmpty()) {
+            throw new IllegalArgumentException("Title cannot be null or empty");
+        }
+    }
 }
