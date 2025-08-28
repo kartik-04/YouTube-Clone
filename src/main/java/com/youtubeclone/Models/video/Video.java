@@ -33,11 +33,6 @@ public class Video {
     private VideoMetadata metadata;
 
     /** created enum for easy access */
-    public enum Visibility{
-        PUBLIC,
-        PRIVATE,
-        UNLISTED
-    }
 
     /** Default Constructor */
     public Video(){
