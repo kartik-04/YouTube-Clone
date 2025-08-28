@@ -10,16 +10,8 @@ import java.util.UUID;
 
 public interface IVideoService {
 
-    /**
-     * create video method goes and initialize the video and upload it.
-     * @param video
-     * @return
-     */
     Video createVideo(Video video);
 
-    /**
-     * Create method to upload the video and use the Video class
-     */
     void uploadVideo(UUID videoId);
 
     byte[] downloadVideo(Video video);
@@ -36,4 +28,5 @@ public interface IVideoService {
 
     VideoMetadata getVideoMetadata(UUID videoId);
 
+    Video getVideoByTitle(String title);
 }
