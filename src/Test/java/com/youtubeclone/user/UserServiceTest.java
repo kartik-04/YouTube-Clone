@@ -1,7 +1,7 @@
 package com.youtubeclone.user;
 
 import com.youtubeclone.Models.user.User;
-import com.youtubeclone.services.Impl.UserService;
+import com.youtubeclone.services.Impl.user.UserServiceImpl;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -15,11 +15,11 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class UserServiceTest {
 
-    private UserService userService;
+    private UserServiceImpl userService;
 
     @BeforeEach
     public void setup() {
-        userService = new UserService();
+        userService = new UserServiceImpl();
     }
 
     @AfterEach
