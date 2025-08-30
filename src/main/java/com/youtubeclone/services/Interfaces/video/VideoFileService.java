@@ -1,13 +1,11 @@
 package com.youtubeclone.services.Interfaces.video;
 
 import com.youtubeclone.Models.video.Video;
-import com.youtubeclone.Models.video.VideoMetadata;
 
 import java.io.InputStream;
-import java.util.List;
 import java.util.UUID;
 
-public interface IVideoFileService {
+public interface VideoFileService {
 
     void uploadVideo(UUID videoId,  InputStream fileData);
 
