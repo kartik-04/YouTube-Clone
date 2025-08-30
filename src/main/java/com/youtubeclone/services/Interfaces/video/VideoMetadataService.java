@@ -6,7 +6,7 @@ import com.youtubeclone.Models.video.VideoMetadata;
 import java.util.List;
 import java.util.UUID;
 
-public interface IVideoMetadataService {
+public interface VideoMetadataService {
 
     Video createVideo(Video video);
 

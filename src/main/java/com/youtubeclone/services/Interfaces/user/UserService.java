@@ -5,7 +5,7 @@ import com.youtubeclone.Models.user.User;
 import java.time.LocalDate;
 import java.util.UUID;
 
-public interface IUserService {
+public interface UserService {
     User registerUser(String username, String passwordHash, String email, LocalDate DOB);
     User authenticateUser(String email, String passwordHash);
     User getUserByID(UUID id);
