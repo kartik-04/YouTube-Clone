@@ -1,7 +1,7 @@
-package com.youtubeclone.services.Impl;
+package com.youtubeclone.services.Impl.user;
 
-import com.youtubeclone.services.Interfaces.user.IUserService;
 import com.youtubeclone.Models.user.User;
+import com.youtubeclone.services.Interfaces.user.UserService;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,7 +15,7 @@ import static com.youtubeclone.util.user.UserUtil.*;
  * Service class responsible for user-related operations such as
  * registration, authentication, profile management, and status updates.
  */
-public class UserService implements IUserService {
+public class UserServiceImpl implements UserService {
 
     /** In-memory storage for user data (simulates a database) */
     private final Map<UUID, User> userStore = new HashMap<>();
