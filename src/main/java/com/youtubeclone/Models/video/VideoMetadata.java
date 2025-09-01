@@ -13,9 +13,9 @@ public class VideoMetadata {
      * for example like length,
      * quality, language , caption
      */
-    private final int lengthSeconds;
+    private int lengthSeconds;
 
-    private final double sizeMB;
+    private double sizeMB;
 
     private boolean caption;
 
@@ -69,25 +69,40 @@ public class VideoMetadata {
         return this.lengthSeconds;
     }
 
+    public  void setLengthSeconds(int lengthSeconds) {
+        this.lengthSeconds = lengthSeconds;
+    }
+
+    /** Need to create this getter and setter
+     * cause require to access this in the
+     * helper pipeline
+     * @return size of the video
+     */
     public double getSizeMB() {
         return this.sizeMB;
     }
+
+    public void setSizeMB(double sizeMB) {
+        this.sizeMB = sizeMB;
+    }
+
+
+    /**
+     * Sets whether captions are available.
+     *
+     */
 
     public boolean isCaption() {
         return this.caption;
     }
 
-    /**
-     * Sets whether captions are available.
-     *
-     * @param caption true if captions are available, false otherwise
-     */
     public void setCaption(boolean caption) {
         this.caption = caption;
     }
 
     /**
      * gets the downloadable for the video
+     *  sets the state for downloading.
      *
      * @return downloadable true if download is possible, false otherwise
      */
@@ -96,11 +111,7 @@ public class VideoMetadata {
         return this.downloadable;
     }
 
-    /**
-     * sets the state for downloading.
-     *
-     * @param downloadable true if download is possible, false otherwise
-     */
+
     public void setDownloadable(boolean downloadable) {
         this.downloadable = downloadable;
     }
