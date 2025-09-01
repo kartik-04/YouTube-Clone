@@ -7,9 +7,9 @@ import java.util.UUID;
 
 public interface VideoFileService {
 
-    void uploadVideo(UUID videoId,  InputStream fileData);
+    void uploadVideo(UUID videoId,  byte[] fileData);
 
-    byte[] downloadVideo(Video video);
+    byte[] downloadVideo(UUID videoId);
 
     InputStream streamVideo(UUID videoId);
 
