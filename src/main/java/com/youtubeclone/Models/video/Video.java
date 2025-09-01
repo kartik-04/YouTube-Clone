@@ -14,19 +14,19 @@ public class Video {
      * where data is set for
      * once and does not change
      */
-    private final UUID videoId;
+    private UUID videoId;
 
     private String title;
 
     private String description;
 
-    private final String videoUrl;
+    private  String videoUrl;
 
     private String thumbnailUrl;
 
-    private final UUID creatorId;
+    private UUID creatorId;
 
-    private final LocalDate uploadDate;
+    private  LocalDate uploadDate;
 
     private Visibility visibility;
 
@@ -94,6 +94,10 @@ public class Video {
         return videoId;
     }
 
+    public void setVideoId(UUID videoId) {
+        this.videoId = videoId;
+    }
+
     /** Getter and Setter for Title */
     public String getTitle() {
         return title;
@@ -117,6 +121,9 @@ public class Video {
         return videoUrl;
     }
 
+    public void setVideoUrl(String videoUrl) {
+        this.videoUrl = videoUrl;
+    }
     /** Getter and Setter for Thumbnail */
     public String getThumbnailUrl() {
         return thumbnailUrl;
@@ -131,11 +138,18 @@ public class Video {
         return creatorId;
     }
 
+    public void setCreatorId(UUID creatorId) {
+        this.creatorId = creatorId;
+    }
+
     /** Getter for uploadDate */
     public LocalDate getUploadDate() {
         return uploadDate;
     }
 
+    public void setUploadDate(LocalDate uploadDate) {
+        this.uploadDate = uploadDate;
+    }
     /** Getter and Setter for the enum */
     public Visibility getVisibility() {
         return visibility;
