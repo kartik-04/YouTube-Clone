@@ -109,7 +109,6 @@ public class VideoMetadataServiceImpl implements VideoMetadataService {
             throw new IllegalArgumentException("Title cannot be null or empty");
         }
         Video video = repository.findByTitle(title);
-        videoValidator.validate(video);
         defaultApplier.apply(video);
         return video;
     }
