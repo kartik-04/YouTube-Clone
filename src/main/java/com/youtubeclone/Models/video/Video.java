@@ -32,8 +32,6 @@ public class Video {
 
     private VideoMetadata metadata;
 
-    /** created enum for easy access */
-
     /** Default Constructor */
     public Video(){
         this.videoId = UUID.randomUUID();
@@ -86,8 +84,6 @@ public class Video {
     Setting up the setter for the attributes,
     Does not added setter for ID cause ID is final and should not change so there
     is no need for setter for the same.
-     */
-
     /** we will implement immutable model later in this class */
 
     public UUID getVideoId() {

@@ -9,7 +9,7 @@ public class TitleDefaultRule implements VideoDefaultRule {
     @Override
     public void apply(Video video) {
         if(video.getTitle() == null || video.getTitle().trim().isEmpty()){
-            video.setTitle("Untitled-"+ UUID.randomUUID().toString());
+            video.setTitle("Untitled-"+ UUID.randomUUID());
         }
     }
 }

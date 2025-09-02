@@ -2,7 +2,6 @@ package com.youtubeclone.controllers.video;
 
 import com.youtubeclone.Models.video.VideoMetadata;
 import com.youtubeclone.dtos.video.VideoDTO;
-import com.youtubeclone.dtos.video.VideoMetadataDTO;
 import com.youtubeclone.mappers.video.VideoMapper;
 import com.youtubeclone.Models.video.Video;
 import com.youtubeclone.services.Interfaces.video.VideoMetadataService;

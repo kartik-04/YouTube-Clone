@@ -49,7 +49,7 @@ public class VideoFileServiceImpl implements VideoFileService {
     }
 
     /**
-     * @param videoId
+     * @param videoId is Unique Identifier for video
      * @return sends the continuous stream of Byte value
      */
     @Override

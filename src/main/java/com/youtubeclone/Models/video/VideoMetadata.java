@@ -27,7 +27,6 @@ public class VideoMetadata {
 
 
     /** Default constructor
-     *
      * sets the values of the videoMetadata to it's
      * default values
      * */

@@ -28,9 +28,7 @@ public class VideoMetadataServiceImpl implements VideoMetadataService {
      * has the diff rules and check
      * in the pipeline and checking if defaults are set or not
      * if not it assign the default values to it first.
-     *
      * After default, it goes through the validate video object for the diff checks
-     *
      * Saves the video to the in memory storage for the metadata
      * @param video of the Video
      * @return video of Video
