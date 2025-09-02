@@ -1,7 +1,5 @@
 package com.youtubeclone.services.Interfaces.video;
 
-import com.youtubeclone.Models.video.Video;
-
 import java.io.InputStream;
 import java.util.UUID;
 
