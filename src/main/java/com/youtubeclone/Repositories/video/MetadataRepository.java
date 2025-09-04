@@ -1,6 +1,8 @@
 package com.youtubeclone.Repositories.video;
 
 import com.youtubeclone.Models.video.Video;
+import com.youtubeclone.exceptions.NotFoundException;
+import com.youtubeclone.exceptions.ValidationException;
 
 import java.util.HashMap;
 import java.util.List;
@@ -33,13 +35,13 @@ public class MetadataRepository {
     public void ensureExists(UUID videoId) {
         Video video = storage.get(videoId);
         if(video == null) {
-            throw new IllegalArgumentException("Video with Id " + videoId + " not exists in metadata");
+            throw new NotFoundException("Video with Id " + videoId + " not exists in metadata");
         }
     }
 
     public Video findByTitle(String title) {
         if (title == null || title.isBlank()) {
-            throw new IllegalArgumentException("Title cannot be null or empty");
+            throw new ValidationException("Title cannot be null or empty");
         }
 
         return storage.values().stream()

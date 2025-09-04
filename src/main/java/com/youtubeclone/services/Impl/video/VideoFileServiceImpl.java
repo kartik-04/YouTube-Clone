@@ -2,6 +2,7 @@ package com.youtubeclone.services.Impl.video;
 
 import com.youtubeclone.Repositories.video.FileRepository;
 import com.youtubeclone.Repositories.video.MetadataRepository;
+import com.youtubeclone.exceptions.StorageException;
 import com.youtubeclone.services.Interfaces.video.VideoFileService;
 
 import java.io.ByteArrayInputStream;
@@ -31,7 +32,7 @@ public class VideoFileServiceImpl implements VideoFileService {
     public void uploadVideo(UUID videoId, byte[] fileData) {
         ensureExists(videoId);
         if(fileData == null || fileData.length == 0) {
-            throw new IllegalArgumentException("File data cannot be null or empty");
+            throw new StorageException("File data cannot be null or empty");
         }
         fileRepository.save(videoId,fileData);
     }
@@ -70,6 +71,6 @@ public class VideoFileServiceImpl implements VideoFileService {
 
 
     public void ensureExists(UUID videoId) {
-        metadataRepository.findById(videoId);
+        fileRepository.findById(videoId);
     }
 }
