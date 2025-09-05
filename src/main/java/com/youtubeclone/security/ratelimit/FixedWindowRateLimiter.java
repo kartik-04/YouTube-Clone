@@ -16,7 +16,7 @@ public class FixedWindowRateLimiter implements RateLimiter {
     }
 
     /**
-     * @param videoId
+     * @param videoId an Unique qualifier for video
      */
     @Override
     public boolean allowRequest(UUID videoId) {
