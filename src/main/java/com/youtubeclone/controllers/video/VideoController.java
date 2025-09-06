@@ -2,8 +2,10 @@ package com.youtubeclone.controllers.video;
 
 import com.youtubeclone.Models.video.VideoMetadata;
 import com.youtubeclone.dtos.video.VideoDTO;
+import com.youtubeclone.exceptions.RateLimitExceededException;
 import com.youtubeclone.mappers.video.VideoMapper;
 import com.youtubeclone.Models.video.Video;
+import com.youtubeclone.security.ratelimit.RateLimiter;
 import com.youtubeclone.services.Interfaces.video.VideoMetadataService;
 import com.youtubeclone.services.Interfaces.video.VideoFileService;
 
@@ -19,10 +21,12 @@ public class VideoController {
 
     private final VideoMetadataService metadataService;
     private final VideoFileService fileService;
+    private final RateLimiter rateLimit;
 
-    public VideoController(VideoMetadataService metadataService, VideoFileService fileService) {
+    public VideoController(VideoMetadataService metadataService, VideoFileService fileService, RateLimiter rateLimit) {
         this.metadataService = metadataService;
         this.fileService = fileService;
+        this.rateLimit = rateLimit;
     }
 
     /**
@@ -31,6 +35,12 @@ public class VideoController {
      * @return saved video DTO with generated IDs/defaults
      */
     public VideoDTO createVideo(VideoDTO dto) {
+        UUID creatorId = UUID.fromString(dto.getCreatorId());
+
+        if(!rateLimit.allowRequest(creatorId)){
+            throw new RateLimitExceededException("Rate limit exceeded for creator " + creatorId);
+        }
+
         Video video = VideoMapper.toEntity(dto);
         Video saved = metadataService.createVideo(video);
         return VideoMapper.toDTO(saved);
