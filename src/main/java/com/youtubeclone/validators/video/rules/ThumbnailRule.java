@@ -15,10 +15,10 @@ public class ThumbnailRule implements ValidationRule {
         if(video.getThumbnailUrl() == null || video.getThumbnailUrl().isBlank()) {
             throw new ValidationException("ThumbnailUrl cannot be null");
         }
-        if(video.getThumbnailUrl().startsWith("http")) {
+        if(!video.getThumbnailUrl().startsWith("http")) {
             throw new ValidationException("ThumbnailUrl cannot be an HTTP url");
         }
-        if(video.getThumbnailUrl().matches(".*\\.(jpg|jpeg|png|webp)$")){
+        if(!video.getThumbnailUrl().matches(".*\\.(jpg|jpeg|png|webp)$")){
             throw new ValidationException("ThumbnailUrl must end with .jpg , .jpeg , .png or .webp");
         }
         if(video.getThumbnailUrl().length() > 500) {
