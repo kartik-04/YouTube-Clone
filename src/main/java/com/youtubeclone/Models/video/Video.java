@@ -162,7 +162,7 @@ public class Video {
     }
 
     public void setMetadata(VideoMetadata metadata) {
-        this.metadata = (metadata != null) ? new VideoMetadata() : null;
+        this.metadata = (metadata != null) ? metadata : new VideoMetadata();
     }
 
     @Override
@@ -176,5 +176,9 @@ public class Video {
                 "uploadDate=" + uploadDate + ", " +
                 "visibility=" + visibility + ", " +
                 "metadata=" + metadata + "]";
+    }
+
+    public void setThumbnail(String newThumbnailUrl) {
+        this.thumbnailUrl = newThumbnailUrl;
     }
 }
