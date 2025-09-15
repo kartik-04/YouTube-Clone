@@ -7,7 +7,7 @@ import com.youtubeclone.validators.video.ValidationRule;
 public class TitleNotNullRule implements ValidationRule {
 
     public void validate(Video video) {
-        if(video.getTitle() != null && !video.getTitle().isEmpty()) {
+        if(video.getTitle() == null || video.getTitle().isEmpty()) {
             throw new NotFoundException("Title cannot be null or empty");
         }
     }
