@@ -25,7 +25,9 @@ public class MetadataRule implements ValidationRule {
         if (metadata.getLanguage() == null || metadata.getLanguage().toString().isBlank()) {
             throw new ValidationException("Language must not be null or empty");
         }
-        if (metadata.getLanguage().toString().matches(".*\\.(ENGLISH|HINDI|FRENCH|SPANISH|GERMAN|CHINESE|JAPANESE)")) {
+        String lang = metadata.getLanguage().toString().toUpperCase();
+
+        if (!lang.matches("(ENGLISH|HINDI|FRENCH|SPANISH|GERMAN|CHINESE|JAPANESE)")) {
             throw new ValidationException("Language must be inclusive of the options");
         }
     }
