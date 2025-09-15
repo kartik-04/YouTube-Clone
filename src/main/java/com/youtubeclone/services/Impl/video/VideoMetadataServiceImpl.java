@@ -23,6 +23,8 @@ public class VideoMetadataServiceImpl implements VideoMetadataService {
         this.defaultApplier = defaultApplier;
     }
 
+
+    public VideoMetadataServiceImpl() {}
     /**
      * This uses the default pipeline which
      * has the diff rules and check
