@@ -31,7 +31,7 @@ public class VideoValidator{
      *  Runs the validation pipeline against the given Video object.
      *  Throws IllegalArgumentException if any rule fails.
      *
-     *  This is runtime polymorphism is play as we are calling validate method using
+     *  This is runtime polymorphism in play as we are calling validate method using
      *  pipeline object at runtime it is deciding to call the validate method
      *  present inside the VideoPipeline class
      *
