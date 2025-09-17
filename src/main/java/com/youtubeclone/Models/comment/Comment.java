@@ -1,6 +1,7 @@
 package com.youtubeclone.Models.comment;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -33,7 +34,7 @@ public class Comment {
     private String content;
 
     /** The date when the comment was created. */
-    private LocalDate timestamp;
+    private LocalDateTime timestamp;
 
     /** Current status of the comment (e.g., active, deleted, flagged). */
     private CommentStatus status;
@@ -90,7 +91,7 @@ public class Comment {
     /**
      * @return the timestamp of when this comment was created
      */
-    public LocalDate getTimestamp() {
+    public LocalDateTime getTimestamp() {
         return timestamp;
     }
 
@@ -147,7 +148,7 @@ public class Comment {
         this.content = content;
     }
 
-    public void setTimestamp(LocalDate timestamp) {
+    public void setTimestamp(LocalDateTime timestamp) {
         this.timestamp = timestamp;
     }
 
@@ -191,7 +192,7 @@ public class Comment {
      * @param editHistory  list of prior comment versions
      */
     private Comment(UUID commentId, UUID videoId, UUID userId, UUID parentId,
-                    String content, LocalDate timestamp, CommentStatus status,
+                    String content, LocalDateTime timestamp, CommentStatus status,
                     int likes, int dislikes, List<String> editHistory) {
         this.commentId = commentId;
         this.videoId = videoId;
@@ -257,7 +258,7 @@ public class Comment {
         private UUID userId;
         private UUID parentId;
         private String content;
-        private LocalDate timestamp;
+        private LocalDateTime timestamp;
         private CommentStatus status;
         private int likes;
         private int dislikes;
@@ -288,7 +289,7 @@ public class Comment {
             return this;
         }
 
-        public Builder setTimestamp(LocalDate timestamp) {
+        public Builder setTimestamp(LocalDateTime timestamp) {
             this.timestamp = timestamp;
             return this;
         }

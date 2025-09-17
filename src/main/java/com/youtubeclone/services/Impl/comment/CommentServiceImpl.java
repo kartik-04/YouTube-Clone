@@ -9,6 +9,7 @@ import com.youtubeclone.services.Interfaces.comment.CommentService;
 import com.youtubeclone.validators.comment.CommentValidator;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -98,7 +99,7 @@ public class CommentServiceImpl implements CommentService {
         comment.setEditHistory(history);
 
         comment.setContent(newCommentText);
-        comment.setTimestamp(LocalDate.now());
+        comment.setTimestamp(LocalDateTime.now());
 
         commentValidator.validate(comment);
         commentRepository.save(comment);
