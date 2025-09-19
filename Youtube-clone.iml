@@ -12,6 +12,10 @@
       <sourceFolder url="file://$MODULE_DIR$/src/com/youtubeclone" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/Test/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/plain-java-services/src/Test" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/plain-java-services/src/main" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/subscription-service/src/main" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/subscription-service/src/test" isTestSource="true" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
