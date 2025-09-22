@@ -12,4 +12,5 @@ public interface SubscriptionService {
     List<Subscription> getSubscribersByUserId(UUID userId);
     List<Subscription> getSubscribersByCreatorId(UUID creatorId);
     boolean isUserSubscribed(UUID userId, UUID creatorId);
+    int getSubscriberCount(UUID creatorId);
 }
