@@ -33,9 +33,19 @@ public class SubscriptionServiceImpl implements SubscriptionService {
     @Override
     public Subscription subscribe(UUID userId, UUID creatorId) {
         return repository.findByUserIdAndCreatorId(userId, creatorId)
+                .map(existing -> {
+                    // if already exists but inactive → reactivate
+                    if (!existing.isActive()) {
+                        existing.setActive(true);
+                        existing.setSubscribedAt(LocalDateTime.now());
+                        return repository.save(existing);
+                    }
+                    return existing; // already active
+                })
                 .orElseGet(() -> {
                     Subscription sub = Subscription.builder()
-                            .userId(userId).creatorId(creatorId)
+                            .userId(userId)
+                            .creatorId(creatorId)
                             .subscribedAt(LocalDateTime.now())
                             .active(true)
                             .build();
@@ -86,5 +96,14 @@ public class SubscriptionServiceImpl implements SubscriptionService {
     @Override
     public boolean isUserSubscribed(UUID userId, UUID creatorId) {
         return repository.findByUserIdAndCreatorId(userId, creatorId).isPresent();
+    }
+
+    /** Return the total number of subscriber as per given creatorId
+     * @param creatorId unique id for the Creator
+     * @return return the total count for subscriber
+     */
+    @Override
+    public int getSubscriberCount(UUID creatorId) {
+       return repository.countByCreatorIdAndActiveTrue(creatorId);
     }
 }
