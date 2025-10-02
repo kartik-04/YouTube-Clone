@@ -5,7 +5,10 @@ import com.youtube_clone.subscription.dtos.SubscriptionDTO;
 import com.youtube_clone.subscription.entities.Subscription;
 import com.youtube_clone.subscription.mappers.SubscriptionMapper;
 import com.youtube_clone.subscription.services.SubscriptionService;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -13,6 +16,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/v1/subscription")
+@Validated
 public class SubscriptionController {
     private final SubscriptionService subscriptionService;
 
@@ -23,7 +27,7 @@ public class SubscriptionController {
     @PostMapping("/creatorId")
     public ResponseEntity<SubscriptionDTO> subscribe(
             @PathVariable UUID creatorId,
-            @RequestBody CreateSubscriptionRequest request
+            @RequestBody @Valid CreateSubscriptionRequest request
             ){
 
         Subscription sub = subscriptionService.subscribe(UUID.fromString(request.getUserId()), creatorId);
@@ -57,8 +61,8 @@ public class SubscriptionController {
 
     @GetMapping("/check")
     public ResponseEntity<Boolean> isUserSubscribed(
-            @PathVariable UUID userId,
-            @RequestParam UUID creatorId){
+            @RequestParam @NotNull(message = "UserId cannot be null") UUID userId,
+            @RequestParam @NotNull(message = "CreatorId cannot be null") UUID creatorId){
         return ResponseEntity.ok(subscriptionService.isUserSubscribed(userId, creatorId));
     }
 }
