@@ -2,6 +2,7 @@ package com.youtube_clone.subscription.services;
 
 import com.youtube_clone.subscription.entities.Subscription;
 import com.youtube_clone.subscription.repositories.SubscriptionRepository;
+import com.youtube_clone.subscription.validation.SubscriptionValidator;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -11,9 +12,11 @@ import java.util.UUID;
 @Service
 public class SubscriptionServiceImpl implements SubscriptionService {
     private final SubscriptionRepository repository;
+    private final SubscriptionValidator validator;
 
-    public SubscriptionServiceImpl(SubscriptionRepository repository) {
+    public SubscriptionServiceImpl(SubscriptionRepository repository, SubscriptionValidator validator) {
         this.repository = repository;
+        this.validator = validator;
     }
 
 
@@ -49,6 +52,7 @@ public class SubscriptionServiceImpl implements SubscriptionService {
                             .subscribedAt(LocalDateTime.now())
                             .active(true)
                             .build();
+                    validator.validate(sub);
                     return repository.save(sub);
                 });
     }
@@ -98,7 +102,7 @@ public class SubscriptionServiceImpl implements SubscriptionService {
         return repository.findByUserIdAndCreatorId(userId, creatorId).isPresent();
     }
 
-    /** Return the total number of subscriber as per given creatorId
+    /** Return the total number of subscribers as per given creatorId
      * @param creatorId unique id for the Creator
      * @return return the total count for subscriber
      */
