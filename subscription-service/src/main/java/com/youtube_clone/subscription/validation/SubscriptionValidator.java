@@ -5,7 +5,9 @@ import com.youtube_clone.subscription.validation.rules.AlreadySubscribedRule;
 import com.youtube_clone.subscription.validation.rules.CannotSubscribeSelfRule;
 import com.youtube_clone.subscription.validation.rules.CreatorIdNotNullRule;
 import com.youtube_clone.subscription.validation.rules.UserIDNotNullRule;
+import org.springframework.stereotype.Component;
 
+@Component
 public class SubscriptionValidator {
     private final ValidationPipeline pipeline;
 
