@@ -11,7 +11,13 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
-@Table(name = "subscriptions")
+@Table(
+        name = "subscriptions",
+        indexes = {
+                @Index(name = "idx_creator_id", columnList = "creatorId"),
+                @Index(name = "idx_user_creator", columnList = "userId, creatorId", unique = true)
+        }
+)
 @Getter
 @Setter
 @NoArgsConstructor  // Fixes the no-arg constructor issue
