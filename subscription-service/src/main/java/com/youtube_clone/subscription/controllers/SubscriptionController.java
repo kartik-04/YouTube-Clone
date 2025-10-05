@@ -9,6 +9,7 @@ import com.youtube_clone.subscription.services.SubscriptionService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -77,5 +78,17 @@ public class SubscriptionController {
         return ResponseEntity.ok(
                 GlobalResponse.success("Subscription status fetched successfully", isSubscribed)
         );
+    }
+
+    // Getting the Subscriptions by the page count
+    @GetMapping("/creators/{creatorId}")
+    public ResponseEntity<GlobalResponse<Page<SubscriptionDTO>>> getSubscribers(
+            @PathVariable UUID creatorId,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size
+    ){
+            Page<SubscriptionDTO> sub = subscriptionService.getSubscribersByCreatorId(creatorId, page, size)
+                    .map(SubscriptionMapper::toDTO);
+            return ResponseEntity.ok(GlobalResponse.success("Fetched subscriber count successfully", sub));
     }
 }

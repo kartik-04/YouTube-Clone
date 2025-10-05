@@ -2,6 +2,7 @@ package com.youtube_clone.subscription.services;
 
 
 import com.youtube_clone.subscription.entities.Subscription;
+import org.springframework.data.domain.Page;
 
 import java.util.List;
 import java.util.UUID;
@@ -13,4 +14,5 @@ public interface SubscriptionService {
     List<Subscription> getSubscribersByCreatorId(UUID creatorId);
     boolean isUserSubscribed(UUID userId, UUID creatorId);
     int getSubscriberCount(UUID creatorId);
+    Page<Subscription> getSubscribersByCreatorId(UUID creatorId, int page, int size);
 }
