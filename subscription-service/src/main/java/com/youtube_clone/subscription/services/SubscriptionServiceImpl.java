@@ -3,6 +3,9 @@ package com.youtube_clone.subscription.services;
 import com.youtube_clone.subscription.entities.Subscription;
 import com.youtube_clone.subscription.repositories.SubscriptionRepository;
 import com.youtube_clone.subscription.validation.SubscriptionValidator;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -55,6 +58,18 @@ public class SubscriptionServiceImpl implements SubscriptionService {
                     validator.validate(sub);
                     return repository.save(sub);
                 });
+    }
+
+    /** This method gives back the paginated list of subscribers for the creator.
+     * @param creatorId unique id for the creator.
+     * @param page page number
+     * @param size size of the page
+     * @return Page of Subscriptions.
+     */
+    @Override
+    public Page<Subscription> getSubscribersByCreatorId(UUID creatorId, int page, int size){
+        Pageable pageable = PageRequest.of(page, size);
+        return repository.findByCreatorId(creatorId, pageable);
     }
 
     /** This method makes sure that we are getting the checking from the database
