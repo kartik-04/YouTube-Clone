@@ -34,3 +34,5 @@ build/
 
 ### IntelliJ workspace ###
 .idea/workspace.xml
+
+application.properties
