@@ -8,6 +8,7 @@ import com.youtube_clone.subscription.mappers.SubscriptionMapper;
 import com.youtube_clone.subscription.services.SubscriptionService;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.UUID;
 
+@Slf4j
 @RestController
 @RequestMapping("/api/v1/subscription")
 @Validated
@@ -32,7 +34,9 @@ public class SubscriptionController {
             @RequestBody @Valid CreateSubscriptionRequest request
             ){
 
+        log.info("Received subscribe request from user {} for creator {}", request.getUserId(), creatorId);
         Subscription sub = subscriptionService.subscribe(UUID.fromString(request.getUserId()), creatorId);
+        log.debug("Subscription object created: {}", sub);
         return ResponseEntity.ok(GlobalResponse.success("User subscribed successfully", SubscriptionMapper.toDTO(sub)));
     }
 

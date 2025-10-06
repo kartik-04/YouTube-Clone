@@ -3,6 +3,7 @@ package com.youtube_clone.subscription.services;
 import com.youtube_clone.subscription.entities.Subscription;
 import com.youtube_clone.subscription.repositories.SubscriptionRepository;
 import com.youtube_clone.subscription.validation.SubscriptionValidator;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -12,6 +13,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
+@Slf4j
 @Service
 public class SubscriptionServiceImpl implements SubscriptionService {
     private final SubscriptionRepository repository;
@@ -38,6 +40,8 @@ public class SubscriptionServiceImpl implements SubscriptionService {
      */
     @Override
     public Subscription subscribe(UUID userId, UUID creatorId) {
+        log.info("Attempting to subscribe user {} to creator {}", userId, creatorId);
+
         return repository.findByUserIdAndCreatorId(userId, creatorId)
                 .map(existing -> {
                     // if already exists but inactive → reactivate
@@ -56,6 +60,7 @@ public class SubscriptionServiceImpl implements SubscriptionService {
                             .active(true)
                             .build();
                     validator.validate(sub);
+                    log.info("User {} successfully subscribed to creator {}", userId, creatorId);
                     return repository.save(sub);
                 });
     }
@@ -82,11 +87,15 @@ public class SubscriptionServiceImpl implements SubscriptionService {
      */
     @Override
     public void unsubscribe(UUID userId, UUID creatorId) {
+        log.info("Attempting to unsubscribe user {} from creator {}", userId, creatorId);
+
         repository.findByUserIdAndCreatorId(userId, creatorId)
                 .ifPresent(sub -> {
                     sub.setActive(false);
                     repository.save(sub);
                 });
+        log.info("User {} successfully unsubscribed from creator {}", userId, creatorId);
+
     }
 
     /** Gives back the list of Subscribers when provided with the userId
