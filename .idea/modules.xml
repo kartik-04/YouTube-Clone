@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Youtube-clone.iml" filepath="$PROJECT_DIR$/Youtube-clone.iml" />
       <module fileurl="file://$PROJECT_DIR$/subscription-service/demo.iml" filepath="$PROJECT_DIR$/subscription-service/demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/reaction/reaction.iml" filepath="$PROJECT_DIR$/reaction/reaction.iml" />
+      <module fileurl="file://$PROJECT_DIR$/like-dislike-service/reaction-service.iml" filepath="$PROJECT_DIR$/like-dislike-service/reaction-service.iml" />
     </modules>
   </component>
 </project>
