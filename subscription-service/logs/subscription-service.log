@@ -13,3 +13,8 @@
 2025-10-06T20:00:56.102+05:30  WARN 15527 --- [subscription-service] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m34s541ms).
 2025-10-06T20:37:10.390+05:30  WARN 15527 --- [subscription-service] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m44s223ms).
 2025-10-06T20:50:10.062+05:30  WARN 15527 --- [subscription-service] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m59s622ms).
+2025-10-06T22:11:59.687+05:30  INFO 15527 --- [subscription-service] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-06T22:12:01.730+05:30  INFO 15527 --- [subscription-service] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-10-06T22:12:01.758+05:30  INFO 15527 --- [subscription-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-06T22:12:01.778+05:30  INFO 15527 --- [subscription-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-10-06T22:12:01.786+05:30  INFO 15527 --- [subscription-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
