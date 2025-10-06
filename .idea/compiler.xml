@@ -10,7 +10,7 @@
         </processorPath>
         <module name="like-dislike-service.main" />
       </profile>
-      <profile name="Annotation profile for like-dislike-service" enabled="true">
+      <profile name="Annotation profile for youtube-clone" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
@@ -18,16 +18,18 @@
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.40/lombok-1.18.40.jar" />
         </processorPath>
         <module name="demo" />
-        <module name="like-dislike-service" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="reaction-service" target="21" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="demo" options="-parameters" />
-      <module name="like-dislike-service" options="-parameters" />
       <module name="like-dislike-service.main" options="-parameters" />
       <module name="like-dislike-service.test" options="-parameters" />
+      <module name="reaction-service" options="-parameters" />
     </option>
   </component>
 </project>
