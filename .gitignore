@@ -21,6 +21,10 @@ bin/
 /dist/
 /nbdist/
 /.nb-gradle/
+/logs
+target/
+.env
+application.properties
 
 ### VS Code ###
 .vscode/
