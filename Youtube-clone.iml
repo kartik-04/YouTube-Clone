@@ -15,6 +15,9 @@
       <sourceFolder url="file://$MODULE_DIR$/plain-java-services/src/Test" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/plain-java-services/src/main" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/subscription-service/src/main" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/reaction/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/reaction/src/test" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/reaction/src/main" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
@@ -50,5 +53,12 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-autoconfigure:3.5.6" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.tomcat.embed:tomcat-embed-core:10.1.46" level="project" />
+    <orderEntry type="library" name="Maven: org.hibernate.orm:hibernate-core:6.6.29.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot:3.5.6" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-context:6.2.11" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-context:6.2.11" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-context:6.2.11" level="project" />
   </component>
 </module>
