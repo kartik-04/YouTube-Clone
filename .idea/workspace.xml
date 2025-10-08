@@ -4,27 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="71a1b3b7-8ac3-4034-a5be-aba9b9835dc7" name="Changes" comment="chore : clean-up">
-      <change afterPath="$PROJECT_DIR$/../../IntelliJ/Reaction/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../IntelliJ/Reaction/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../IntelliJ/Reaction/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../IntelliJ/Reaction/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../IntelliJ/Reaction/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../IntelliJ/Reaction/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../IntelliJ/Reaction/src/main/java/com/youtube_clone/ReactionApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../IntelliJ/Reaction/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plain-java-services/src/Test/Test.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/plain-java-services/src/main/main.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+    <list default="true" id="71a1b3b7-8ac3-4034-a5be-aba9b9835dc7" name="Changes" comment="feat : This creates the Reaction Table with multiple columns and deactivate function to delete the reaction uses the @Entity Data Index and etc annotation">
+      <change afterPath="$PROJECT_DIR$/Reaction/src/main/java/com/youtube_clone/entities/ReactionType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reaction/src/main/java/com/youtube_clone/exceptions/ReactionNotFoundException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Youtube-clone.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reaction/src/main/java/com/youtube_clone/ReactionApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reaction/src/main/java/com/youtube_clone/ReactionApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reaction/src/main/java/com/youtube_clone/entities/Reaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reaction/src/main/java/com/youtube_clone/entities/Reaction.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,10 +41,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Exception" />
-        <option value="Enum" />
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
+        <option value="Exception" />
       </list>
     </option>
   </component>
@@ -83,102 +73,102 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
-    &quot;Application.Admin.executor&quot;: &quot;Debug&quot;,
-    &quot;Application.AppBootstrap.executor&quot;: &quot;Debug&quot;,
-    &quot;Application.CommentRepositoryImpl.executor&quot;: &quot;Run&quot;,
-    &quot;Application.com.youtubeclone.Repositories.comment.CommentRepositoryImpl.executor&quot;: &quot;Debug&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;JUnit.CommentDefaultApplierTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CommentDefaultPipelineTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CommentValidatorPipelineTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CommentValidatorPipelineTest.shouldThrowForProfanity.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CommentValidatorPipelineTest.shouldThrowForTooLongContent.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CommentValidatorTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MetadataDefaultRuleTest (1).executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MetadataDefaultRuleTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MetadataRuleTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MetadataRuleTest.validate_withValidMetadata_shouldNotThrowException.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.SubscriptionServiceTest (1).executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.SubscriptionServiceTest (2).executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.SubscriptionServiceTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.SubscriptionServiceTest.testGetSubscriberCount.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.SubscriptionServiceTest.testSubscribeAndCheckIsUserSubscribed (1).executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.SubscriptionServiceTest.testSubscribeAndCheckIsUserSubscribed.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TitleDefaultRuleTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TitleNotNullRuleTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TitleNotNullRuleTest.validate_withEmptyTitle_shouldThrowException.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TitleNotNullRuleTest.validate_withNullTitle_shouldThrowException.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.TitleNotNullRuleTest.validate_withValidTitle_shouldNotThrowException.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UploadDateDefaultRuleTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UploadDateRuleTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.DoNoteRegisterUserIfEmailIsDuplicate.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.authenticateUserIfEmailAndPassword.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.UserServiceTest.deleteUserById.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.emailVerifiedTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.getUserByEmailTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.getUserById.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.getUserByUsername.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.registerUserIfEmailIsNotDuplicate.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.UserServiceTest.shouldReturnUserNSuspendUserTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.suspendUserTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.testDummy.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.updateAccountStatusTest.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.UserServiceTest.updatePassword.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.updateProfile.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserUtilTest (1).executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserUtilTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserUtilTest.isAdult_shouldReturnFalseForInValidAge.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserUtilTest.isAdult_shouldReturnTrueForValidAge.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserUtilTest.isStrongPassword_shouldReturnFalseForWeakPassword.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserUtilTest.isStrongPassword_shouldReturnTrueForStrongPassword.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserUtilTest.isVerified_shouldReturnFalseForUnverifiedEmail.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserUtilTest.isVerified_shouldReturnTrueForVerifiedEmail.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserUtilTest.testGenericPrintUserInfo.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ValidationPipelineTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.VideoDefaultApplierTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.VideoDefaultApplierTest.testApplyDoesNotOverrideExistingValues.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.VideoDefaultPipelineTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.VideoFileServiceImplTest.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.VideoIdDefaultRuleTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.VideoMapperTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.VideoMetadataServiceImplTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.VideoValidatorTest.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;OverrideImplement.generate.javadoc&quot;: &quot;true&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.SubscriptionServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_directory_selection&quot;: &quot;/Users/kartiksingh/Desktop/YouTube/Youtube-clone/reaction/src/test&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/kartiksingh/Desktop/YouTube/Youtube-clone&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/kartiksingh/Desktop/YouTube/Youtube-clone/src/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.annotationProcessors&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "Application.Admin.executor": "Debug",
+    "Application.AppBootstrap.executor": "Debug",
+    "Application.CommentRepositoryImpl.executor": "Run",
+    "Application.com.youtubeclone.Repositories.comment.CommentRepositoryImpl.executor": "Debug",
+    "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.CommentDefaultApplierTest.executor": "Run",
+    "JUnit.CommentDefaultPipelineTest.executor": "Run",
+    "JUnit.CommentValidatorPipelineTest.executor": "Run",
+    "JUnit.CommentValidatorPipelineTest.shouldThrowForProfanity.executor": "Run",
+    "JUnit.CommentValidatorPipelineTest.shouldThrowForTooLongContent.executor": "Run",
+    "JUnit.CommentValidatorTest.executor": "Run",
+    "JUnit.MetadataDefaultRuleTest (1).executor": "Run",
+    "JUnit.MetadataDefaultRuleTest.executor": "Run",
+    "JUnit.MetadataRuleTest.executor": "Run",
+    "JUnit.MetadataRuleTest.validate_withValidMetadata_shouldNotThrowException.executor": "Run",
+    "JUnit.SubscriptionServiceTest (1).executor": "Run",
+    "JUnit.SubscriptionServiceTest (2).executor": "Run",
+    "JUnit.SubscriptionServiceTest.executor": "Run",
+    "JUnit.SubscriptionServiceTest.testGetSubscriberCount.executor": "Run",
+    "JUnit.SubscriptionServiceTest.testSubscribeAndCheckIsUserSubscribed (1).executor": "Run",
+    "JUnit.SubscriptionServiceTest.testSubscribeAndCheckIsUserSubscribed.executor": "Run",
+    "JUnit.TitleDefaultRuleTest.executor": "Run",
+    "JUnit.TitleNotNullRuleTest.executor": "Run",
+    "JUnit.TitleNotNullRuleTest.validate_withEmptyTitle_shouldThrowException.executor": "Run",
+    "JUnit.TitleNotNullRuleTest.validate_withNullTitle_shouldThrowException.executor": "Debug",
+    "JUnit.TitleNotNullRuleTest.validate_withValidTitle_shouldNotThrowException.executor": "Run",
+    "JUnit.UploadDateDefaultRuleTest.executor": "Run",
+    "JUnit.UploadDateRuleTest.executor": "Run",
+    "JUnit.UserServiceTest.DoNoteRegisterUserIfEmailIsDuplicate.executor": "Run",
+    "JUnit.UserServiceTest.authenticateUserIfEmailAndPassword.executor": "Debug",
+    "JUnit.UserServiceTest.deleteUserById.executor": "Run",
+    "JUnit.UserServiceTest.emailVerifiedTest.executor": "Run",
+    "JUnit.UserServiceTest.executor": "Run",
+    "JUnit.UserServiceTest.getUserByEmailTest.executor": "Run",
+    "JUnit.UserServiceTest.getUserById.executor": "Run",
+    "JUnit.UserServiceTest.getUserByUsername.executor": "Run",
+    "JUnit.UserServiceTest.registerUserIfEmailIsNotDuplicate.executor": "Debug",
+    "JUnit.UserServiceTest.shouldReturnUserNSuspendUserTest.executor": "Run",
+    "JUnit.UserServiceTest.suspendUserTest.executor": "Run",
+    "JUnit.UserServiceTest.testDummy.executor": "Run",
+    "JUnit.UserServiceTest.updateAccountStatusTest.executor": "Debug",
+    "JUnit.UserServiceTest.updatePassword.executor": "Run",
+    "JUnit.UserServiceTest.updateProfile.executor": "Run",
+    "JUnit.UserUtilTest (1).executor": "Run",
+    "JUnit.UserUtilTest.executor": "Run",
+    "JUnit.UserUtilTest.isAdult_shouldReturnFalseForInValidAge.executor": "Run",
+    "JUnit.UserUtilTest.isAdult_shouldReturnTrueForValidAge.executor": "Run",
+    "JUnit.UserUtilTest.isStrongPassword_shouldReturnFalseForWeakPassword.executor": "Run",
+    "JUnit.UserUtilTest.isStrongPassword_shouldReturnTrueForStrongPassword.executor": "Run",
+    "JUnit.UserUtilTest.isVerified_shouldReturnFalseForUnverifiedEmail.executor": "Run",
+    "JUnit.UserUtilTest.isVerified_shouldReturnTrueForVerifiedEmail.executor": "Run",
+    "JUnit.UserUtilTest.testGenericPrintUserInfo.executor": "Run",
+    "JUnit.ValidationPipelineTest.executor": "Run",
+    "JUnit.VideoDefaultApplierTest.executor": "Run",
+    "JUnit.VideoDefaultApplierTest.testApplyDoesNotOverrideExistingValues.executor": "Run",
+    "JUnit.VideoDefaultPipelineTest.executor": "Run",
+    "JUnit.VideoFileServiceImplTest.executor": "Debug",
+    "JUnit.VideoIdDefaultRuleTest.executor": "Run",
+    "JUnit.VideoMapperTest.executor": "Run",
+    "JUnit.VideoMetadataServiceImplTest.executor": "Run",
+    "JUnit.VideoValidatorTest.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "OverrideImplement.generate.javadoc": "true",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.SubscriptionServiceApplication.executor": "Run",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_directory_selection": "/Users/kartiksingh/Desktop/YouTube/Youtube-clone/reaction/src/test",
+    "last_opened_file_path": "/Users/kartiksingh/Desktop/YouTube/Youtube-clone",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "/Users/kartiksingh/Desktop/YouTube/Youtube-clone/src/Main.java",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.youtube_clone.reaction.services" />
@@ -298,11 +288,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.SubscriptionServiceTest (2)" />
-        <item itemvalue="JUnit.SubscriptionServiceTest.testSubscribeAndCheckIsUserSubscribed (1)" />
-        <item itemvalue="JUnit.SubscriptionServiceTest (1)" />
-        <item itemvalue="JUnit.SubscriptionServiceTest" />
         <item itemvalue="JUnit.SubscriptionServiceTest.testSubscribeAndCheckIsUserSubscribed" />
+        <item itemvalue="JUnit.SubscriptionServiceTest.testSubscribeAndCheckIsUserSubscribed (1)" />
+        <item itemvalue="JUnit.SubscriptionServiceTest" />
+        <item itemvalue="JUnit.SubscriptionServiceTest (2)" />
+        <item itemvalue="JUnit.SubscriptionServiceTest (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -390,30 +380,9 @@
       <workItem from="1759946122224" duration="65000" />
       <workItem from="1759946190689" duration="595000" />
       <workItem from="1759946872207" duration="931000" />
-    </task>
-    <task id="LOCAL-00167" summary="feat : rule for the pipeline">
-      <option name="closed" value="true" />
-      <created>1758550242845</created>
-      <option name="number" value="00167" />
-      <option name="presentableId" value="LOCAL-00167" />
-      <option name="project" value="LOCAL" />
-      <updated>1758550242845</updated>
-    </task>
-    <task id="LOCAL-00168" summary="feat : rule for the pipeline">
-      <option name="closed" value="true" />
-      <created>1758550245651</created>
-      <option name="number" value="00168" />
-      <option name="presentableId" value="LOCAL-00168" />
-      <option name="project" value="LOCAL" />
-      <updated>1758550245651</updated>
-    </task>
-    <task id="LOCAL-00169" summary="Feat : This is global exception handler where make sure to handle the HTTPS errors and gives the code in response to the error accordingly.">
-      <option name="closed" value="true" />
-      <created>1758550282404</created>
-      <option name="number" value="00169" />
-      <option name="presentableId" value="LOCAL-00169" />
-      <option name="project" value="LOCAL" />
-      <updated>1758550282404</updated>
+      <workItem from="1759947817990" duration="3015000" />
+      <workItem from="1759950863136" duration="186000" />
+      <workItem from="1759951064523" duration="1233000" />
     </task>
     <task id="LOCAL-00170" summary="feat : Dto for the subscription">
       <option name="closed" value="true" />
@@ -783,7 +752,31 @@
       <option name="project" value="LOCAL" />
       <updated>1759945289014</updated>
     </task>
-    <option name="localTasksCounter" value="216" />
+    <task id="LOCAL-00216" summary="chore : clean-up">
+      <option name="closed" value="true" />
+      <created>1759948901194</created>
+      <option name="number" value="00216" />
+      <option name="presentableId" value="LOCAL-00216" />
+      <option name="project" value="LOCAL" />
+      <updated>1759948901194</updated>
+    </task>
+    <task id="LOCAL-00217" summary=" &quot;Add Reaction as a normal directory&quot;">
+      <option name="closed" value="true" />
+      <created>1759949388582</created>
+      <option name="number" value="00217" />
+      <option name="presentableId" value="LOCAL-00217" />
+      <option name="project" value="LOCAL" />
+      <updated>1759949388582</updated>
+    </task>
+    <task id="LOCAL-00218" summary="feat : This creates the Reaction Table with multiple columns and deactivate function to delete the reaction uses the @Entity Data Index and etc annotation">
+      <option name="closed" value="true" />
+      <created>1759950064353</created>
+      <option name="number" value="00218" />
+      <option name="presentableId" value="LOCAL-00218" />
+      <option name="project" value="LOCAL" />
+      <updated>1759950064353</updated>
+    </task>
+    <option name="localTasksCounter" value="219" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -801,8 +794,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore : I don't know what this file is" />
-    <MESSAGE value="test : This is test class where we are using &#10;@Autowired for the DI &#10;@DataJpaTest for the in-memory test" />
     <MESSAGE value="test : this uses the mockito for mocking the bean of SubscriptionValidator" />
     <MESSAGE value="refactor : Added the @component which add the bean of this class to the ApplicationContext" />
     <MESSAGE value="refactor : changed the real db_user and pass to the enviorment variables" />
@@ -826,7 +817,9 @@
     <MESSAGE value="feat : Enum for the reactiontype" />
     <MESSAGE value="feat : This is the base class, model class or we can say database class" />
     <MESSAGE value="chore : clean-up" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore : clean-up" />
+    <MESSAGE value=" &quot;Add Reaction as a normal directory&quot;" />
+    <MESSAGE value="feat : This creates the Reaction Table with multiple columns and deactivate function to delete the reaction uses the @Entity Data Index and etc annotation" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat : This creates the Reaction Table with multiple columns and deactivate function to delete the reaction uses the @Entity Data Index and etc annotation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -890,5 +883,9 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

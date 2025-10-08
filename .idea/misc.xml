@@ -6,6 +6,7 @@
       <list>
         <option value="$PROJECT_DIR$/subscription-service/pom.xml" />
         <option value="$PROJECT_DIR$/../../IntelliJ/Reaction/pom.xml" />
+        <option value="$PROJECT_DIR$/Reaction/pom.xml" />
       </list>
     </option>
   </component>

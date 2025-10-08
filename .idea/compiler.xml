@@ -10,7 +10,6 @@
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.40/lombok-1.18.40.jar" />
         </processorPath>
         <module name="Reaction" />
-        <module name="demo" />
       </profile>
     </annotationProcessing>
   </component>
