@@ -4,17 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="71a1b3b7-8ac3-4034-a5be-aba9b9835dc7" name="Changes" comment="feat : This creates the Reaction Table with multiple columns and deactivate function to delete the reaction uses the @Entity Data Index and etc annotation">
-      <change afterPath="$PROJECT_DIR$/Reaction/src/main/java/com/youtube_clone/entities/ReactionType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Reaction/src/main/java/com/youtube_clone/exceptions/ReactionNotFoundException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="71a1b3b7-8ac3-4034-a5be-aba9b9835dc7" name="Changes" comment="chore : clean-up">
       <change beforePath="$PROJECT_DIR$/Reaction/src/main/java/com/youtube_clone/ReactionApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reaction/src/main/java/com/youtube_clone/ReactionApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Reaction/src/main/java/com/youtube_clone/entities/Reaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reaction/src/main/java/com/youtube_clone/entities/Reaction.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -382,47 +373,7 @@
       <workItem from="1759946872207" duration="931000" />
       <workItem from="1759947817990" duration="3015000" />
       <workItem from="1759950863136" duration="186000" />
-      <workItem from="1759951064523" duration="1233000" />
-    </task>
-    <task id="LOCAL-00170" summary="feat : Dto for the subscription">
-      <option name="closed" value="true" />
-      <created>1758550301915</created>
-      <option name="number" value="00170" />
-      <option name="presentableId" value="LOCAL-00170" />
-      <option name="project" value="LOCAL" />
-      <updated>1758550301915</updated>
-    </task>
-    <task id="LOCAL-00171" summary="feat : Validator calss which uses the pipeline">
-      <option name="closed" value="true" />
-      <created>1758550319174</created>
-      <option name="number" value="00171" />
-      <option name="presentableId" value="LOCAL-00171" />
-      <option name="project" value="LOCAL" />
-      <updated>1758550319174</updated>
-    </task>
-    <task id="LOCAL-00172" summary="feat : this is used to only send request">
-      <option name="closed" value="true" />
-      <created>1758722205572</created>
-      <option name="number" value="00172" />
-      <option name="presentableId" value="LOCAL-00172" />
-      <option name="project" value="LOCAL" />
-      <updated>1758722205572</updated>
-    </task>
-    <task id="LOCAL-00173" summary="Feat : This is mapper which convert the dto to entity and vice-versa">
-      <option name="closed" value="true" />
-      <created>1758722229495</created>
-      <option name="number" value="00173" />
-      <option name="presentableId" value="LOCAL-00173" />
-      <option name="project" value="LOCAL" />
-      <updated>1758722229495</updated>
-    </task>
-    <task id="LOCAL-00174" summary="chore : clean-up">
-      <option name="closed" value="true" />
-      <created>1758723479618</created>
-      <option name="number" value="00174" />
-      <option name="presentableId" value="LOCAL-00174" />
-      <option name="project" value="LOCAL" />
-      <updated>1758723479618</updated>
+      <workItem from="1759951064523" duration="1650000" />
     </task>
     <task id="LOCAL-00175" summary="feat : created the SubsctiptionController class which handles with the HTTPS methods">
       <option name="closed" value="true" />
@@ -776,7 +727,47 @@
       <option name="project" value="LOCAL" />
       <updated>1759950064353</updated>
     </task>
-    <option name="localTasksCounter" value="219" />
+    <task id="LOCAL-00219" summary="chore : configuration files">
+      <option name="closed" value="true" />
+      <created>1759952653202</created>
+      <option name="number" value="00219" />
+      <option name="presentableId" value="LOCAL-00219" />
+      <option name="project" value="LOCAL" />
+      <updated>1759952653202</updated>
+    </task>
+    <task id="LOCAL-00220" summary="feat : This creates the Reaction Table with multiple columns and deactivate function to delete the reaction uses the @Entity Data Index and etc annotation">
+      <option name="closed" value="true" />
+      <created>1759952659546</created>
+      <option name="number" value="00220" />
+      <option name="presentableId" value="LOCAL-00220" />
+      <option name="project" value="LOCAL" />
+      <updated>1759952659546</updated>
+    </task>
+    <task id="LOCAL-00221" summary="feat : enum for the reaction type">
+      <option name="closed" value="true" />
+      <created>1759952678802</created>
+      <option name="number" value="00221" />
+      <option name="presentableId" value="LOCAL-00221" />
+      <option name="project" value="LOCAL" />
+      <updated>1759952678802</updated>
+    </task>
+    <task id="LOCAL-00222" summary="feat : Unchecked exceptionfile when we don't know which reaction has been given by client">
+      <option name="closed" value="true" />
+      <created>1759952699401</created>
+      <option name="number" value="00222" />
+      <option name="presentableId" value="LOCAL-00222" />
+      <option name="project" value="LOCAL" />
+      <updated>1759952699401</updated>
+    </task>
+    <task id="LOCAL-00223" summary="chore : clean-up">
+      <option name="closed" value="true" />
+      <created>1759952710977</created>
+      <option name="number" value="00223" />
+      <option name="presentableId" value="LOCAL-00223" />
+      <option name="project" value="LOCAL" />
+      <updated>1759952710977</updated>
+    </task>
+    <option name="localTasksCounter" value="224" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -794,9 +785,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="test : this uses the mockito for mocking the bean of SubscriptionValidator" />
-    <MESSAGE value="refactor : Added the @component which add the bean of this class to the ApplicationContext" />
-    <MESSAGE value="refactor : changed the real db_user and pass to the enviorment variables" />
     <MESSAGE value="refactor : used the GlobalResponse class for the error handling" />
     <MESSAGE value="feat : This helps us to connect between different services with each" />
     <MESSAGE value="fix : Added the Index to the table" />
@@ -816,10 +804,13 @@
     <MESSAGE value="chore : These are the setup files for the reacton service" />
     <MESSAGE value="feat : Enum for the reactiontype" />
     <MESSAGE value="feat : This is the base class, model class or we can say database class" />
-    <MESSAGE value="chore : clean-up" />
     <MESSAGE value=" &quot;Add Reaction as a normal directory&quot;" />
+    <MESSAGE value="chore : configuration files" />
     <MESSAGE value="feat : This creates the Reaction Table with multiple columns and deactivate function to delete the reaction uses the @Entity Data Index and etc annotation" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat : This creates the Reaction Table with multiple columns and deactivate function to delete the reaction uses the @Entity Data Index and etc annotation" />
+    <MESSAGE value="feat : enum for the reaction type" />
+    <MESSAGE value="feat : Unchecked exceptionfile when we don't know which reaction has been given by client" />
+    <MESSAGE value="chore : clean-up" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore : clean-up" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
