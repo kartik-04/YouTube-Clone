@@ -43,7 +43,7 @@ public class Reaction {
 
     @Enumerated(EnumType.STRING)
     @Column(name="reaction_type", nullable = false)
-    private String reactionType; // e.g., "like", "dislike", "love", etc.
+    private ReactionType type; // e.g., "like", "dislike", "love", etc.
 
     @Column(name="timestamp", nullable = false)
     private LocalDateTime ReactedAt = LocalDateTime.now();
@@ -55,8 +55,13 @@ public class Reaction {
     @Column(name="updated_at", nullable = false)
     private LocalDateTime updatedAt;
 
+    /**
+     * Soft delete the reaction by setting the active flag to false and
+     * updating the updatedAt field to the current timestamp.
+     */
     public void deactivate(){
         this.active = false;
         this.updatedAt = LocalDateTime.now();
     }
 }
+
