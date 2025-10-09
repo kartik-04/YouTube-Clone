@@ -28,6 +28,10 @@ target/
 build/
 !**/src/main/**/build/
 !**/src/test/**/build/
+compiler.xml
+dataSources.xml
+modules.xml
+workspace.xml
 
 ### VS Code ###
 .vscode/

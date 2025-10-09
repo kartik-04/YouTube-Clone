@@ -3,15 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.53">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <Grants>1||-9223372036854775808|c|G
-1||10|c|G
-1||10|C|G
-1||10|T|G
-14224||-9223372036854775808|c|G
-14224||10|c|G
-14224||10|C|G
-14224||10|T|G</Grants>
-      <IntrospectionStateNumber>745</IntrospectionStateNumber>
+      <IntrospectionStateNumber>755</IntrospectionStateNumber>
       <ServerVersion>14.19</ServerVersion>
       <StartupTime>1759606219</StartupTime>
       <TimeZones>true ACDT
@@ -819,7 +811,7 @@ false Zulu
 13859||10|C|G
 13859||-9223372036854775808|U|G
 13859||10|U|G</Grants>
-      <IntrospectionStateNumber>745</IntrospectionStateNumber>
+      <IntrospectionStateNumber>755</IntrospectionStateNumber>
       <ObjectId>16384</ObjectId>
       <OwnerName>kartiklsingh</OwnerName>
     </database>
@@ -4262,8 +4254,8 @@ false Zulu
     <schema id="264" parent="4" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>745</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2025-10-08.18:42:45</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>755</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2025-10-09.06:35:30</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>526</StateNumber>
       <OwnerName>kartiklsingh</OwnerName>
@@ -4375,101 +4367,223 @@ false Zulu
       <LanguageName>c</LanguageName>
       <OwnerName>kartiklsingh</OwnerName>
     </routine>
-    <table id="275" parent="264" name="subscriptions">
+    <table id="275" parent="264" name="reactions">
+      <ObjectId>16405</ObjectId>
+      <StateNumber>748</StateNumber>
+      <AccessMethodId>2</AccessMethodId>
+      <OwnerName>kartiklsingh</OwnerName>
+    </table>
+    <table id="276" parent="264" name="subscriptions">
       <ObjectId>16386</ObjectId>
       <StateNumber>736</StateNumber>
       <AccessMethodId>2</AccessMethodId>
       <OwnerName>kartiklsingh</OwnerName>
     </table>
-    <argument id="276" parent="265">
+    <argument id="277" parent="265">
       <ArgumentDirection>R</ArgumentDirection>
       <StoredType>uuid|0s</StoredType>
     </argument>
-    <argument id="277" parent="266">
+    <argument id="278" parent="266">
       <ArgumentDirection>R</ArgumentDirection>
       <StoredType>uuid|0s</StoredType>
     </argument>
-    <argument id="278" parent="267">
+    <argument id="279" parent="267">
       <ArgumentDirection>R</ArgumentDirection>
       <StoredType>uuid|0s</StoredType>
     </argument>
-    <argument id="279" parent="267" name="namespace">
+    <argument id="280" parent="267" name="namespace">
       <Position>1</Position>
       <StoredType>uuid|0s</StoredType>
     </argument>
-    <argument id="280" parent="267" name="name">
+    <argument id="281" parent="267" name="name">
       <Position>2</Position>
       <StoredType>text|0s</StoredType>
     </argument>
-    <argument id="281" parent="268">
+    <argument id="282" parent="268">
       <ArgumentDirection>R</ArgumentDirection>
       <StoredType>uuid|0s</StoredType>
     </argument>
-    <argument id="282" parent="269">
+    <argument id="283" parent="269">
       <ArgumentDirection>R</ArgumentDirection>
       <StoredType>uuid|0s</StoredType>
     </argument>
-    <argument id="283" parent="269" name="namespace">
+    <argument id="284" parent="269" name="namespace">
       <Position>1</Position>
       <StoredType>uuid|0s</StoredType>
     </argument>
-    <argument id="284" parent="269" name="name">
+    <argument id="285" parent="269" name="name">
       <Position>2</Position>
       <StoredType>text|0s</StoredType>
     </argument>
-    <argument id="285" parent="270">
+    <argument id="286" parent="270">
       <ArgumentDirection>R</ArgumentDirection>
       <StoredType>uuid|0s</StoredType>
     </argument>
-    <argument id="286" parent="271">
+    <argument id="287" parent="271">
       <ArgumentDirection>R</ArgumentDirection>
       <StoredType>uuid|0s</StoredType>
     </argument>
-    <argument id="287" parent="272">
+    <argument id="288" parent="272">
       <ArgumentDirection>R</ArgumentDirection>
       <StoredType>uuid|0s</StoredType>
     </argument>
-    <argument id="288" parent="273">
+    <argument id="289" parent="273">
       <ArgumentDirection>R</ArgumentDirection>
       <StoredType>uuid|0s</StoredType>
     </argument>
-    <argument id="289" parent="274">
+    <argument id="290" parent="274">
       <ArgumentDirection>R</ArgumentDirection>
       <StoredType>uuid|0s</StoredType>
     </argument>
-    <column id="290" parent="275" name="id">
+    <check id="291" parent="275" name="reactions_reaction_type_check">
+      <ColNames>reaction_type</ColNames>
+      <ObjectId>16408</ObjectId>
+      <Predicate>(reaction_type)::text = ANY ((ARRAY[&apos;LIKE&apos;::character varying, &apos;DISLIKE&apos;::character varying, &apos;LOVE&apos;::character varying, &apos;ANGRY&apos;::character varying, &apos;SAD&apos;::character varying])::text[])</Predicate>
+      <StateNumber>748</StateNumber>
+    </check>
+    <column id="292" parent="275" name="id">
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+      <StateNumber>748</StateNumber>
+      <StoredType>uuid|0s</StoredType>
+      <TypeId>2950</TypeId>
+    </column>
+    <column id="293" parent="275" name="timestamp">
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+      <StateNumber>748</StateNumber>
+      <StoredType>timestamp(6)|0s</StoredType>
+      <TypeId>1114</TypeId>
+    </column>
+    <column id="294" parent="275" name="active">
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+      <StateNumber>748</StateNumber>
+      <StoredType>boolean|0s</StoredType>
+      <TypeId>16</TypeId>
+    </column>
+    <column id="295" parent="275" name="comment_id">
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+      <StateNumber>748</StateNumber>
+      <StoredType>uuid|0s</StoredType>
+      <TypeId>2950</TypeId>
+    </column>
+    <column id="296" parent="275" name="reaction_type">
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+      <StateNumber>748</StateNumber>
+      <StoredType>varchar(255)|0s</StoredType>
+      <TypeId>1043</TypeId>
+    </column>
+    <column id="297" parent="275" name="updated_at">
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+      <StateNumber>748</StateNumber>
+      <StoredType>timestamp(6)|0s</StoredType>
+      <TypeId>1114</TypeId>
+    </column>
+    <column id="298" parent="275" name="user_id">
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+      <StateNumber>748</StateNumber>
+      <StoredType>uuid|0s</StoredType>
+      <TypeId>2950</TypeId>
+    </column>
+    <column id="299" parent="275" name="video_id">
+      <NotNull>1</NotNull>
+      <Position>8</Position>
+      <StateNumber>748</StateNumber>
+      <StoredType>uuid|0s</StoredType>
+      <TypeId>2950</TypeId>
+    </column>
+    <index id="300" parent="275" name="reactions_pkey">
+      <ColNames>id</ColNames>
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16409</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>748</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <index id="301" parent="275" name="uk_user_comment">
+      <ColNames>user_id
+comment_id</ColNames>
+      <ObjectId>16415</ObjectId>
+      <StateNumber>754</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <index id="302" parent="275" name="uk_user_video">
+      <ColNames>user_id
+video_id</ColNames>
+      <ObjectId>16413</ObjectId>
+      <StateNumber>752</StateNumber>
+      <Unique>1</Unique>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <index id="303" parent="275" name="idx_comment_id">
+      <ColNames>comment_id</ColNames>
+      <ObjectId>16412</ObjectId>
+      <StateNumber>750</StateNumber>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <index id="304" parent="275" name="idx_video_id">
+      <ColNames>video_id</ColNames>
+      <ObjectId>16411</ObjectId>
+      <StateNumber>749</StateNumber>
+      <AccessMethodId>403</AccessMethodId>
+    </index>
+    <key id="305" parent="275" name="reactions_pkey">
+      <NameSurrogate>1</NameSurrogate>
+      <ObjectId>16410</ObjectId>
+      <Primary>1</Primary>
+      <StateNumber>748</StateNumber>
+      <UnderlyingIndexId>16409</UnderlyingIndexId>
+    </key>
+    <key id="306" parent="275" name="uk_user_comment">
+      <ObjectId>16416</ObjectId>
+      <StateNumber>754</StateNumber>
+      <UnderlyingIndexId>16415</UnderlyingIndexId>
+    </key>
+    <key id="307" parent="275" name="uk_user_video">
+      <ObjectId>16414</ObjectId>
+      <StateNumber>752</StateNumber>
+      <UnderlyingIndexId>16413</UnderlyingIndexId>
+    </key>
+    <column id="308" parent="276" name="id">
       <NotNull>1</NotNull>
       <Position>1</Position>
       <StateNumber>736</StateNumber>
       <StoredType>uuid|0s</StoredType>
       <TypeId>2950</TypeId>
     </column>
-    <column id="291" parent="275" name="active">
+    <column id="309" parent="276" name="active">
       <NotNull>1</NotNull>
       <Position>2</Position>
       <StateNumber>736</StateNumber>
       <StoredType>boolean|0s</StoredType>
       <TypeId>16</TypeId>
     </column>
-    <column id="292" parent="275" name="creator_id">
+    <column id="310" parent="276" name="creator_id">
       <Position>3</Position>
       <StateNumber>736</StateNumber>
       <StoredType>uuid|0s</StoredType>
       <TypeId>2950</TypeId>
     </column>
-    <column id="293" parent="275" name="subscribed_at">
+    <column id="311" parent="276" name="subscribed_at">
       <Position>4</Position>
       <StateNumber>736</StateNumber>
       <StoredType>timestamp(6)|0s</StoredType>
       <TypeId>1114</TypeId>
     </column>
-    <column id="294" parent="275" name="user_id">
+    <column id="312" parent="276" name="user_id">
       <Position>5</Position>
       <StateNumber>736</StateNumber>
       <StoredType>uuid|0s</StoredType>
       <TypeId>2950</TypeId>
     </column>
-    <index id="295" parent="275" name="subscriptions_pkey">
+    <index id="313" parent="276" name="subscriptions_pkey">
       <ColNames>id</ColNames>
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16389</ObjectId>
@@ -4478,7 +4592,7 @@ false Zulu
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="296" parent="275" name="idx_user_creator">
+    <index id="314" parent="276" name="idx_user_creator">
       <ColNames>user_id
 creator_id</ColNames>
       <ObjectId>16392</ObjectId>
@@ -4486,20 +4600,20 @@ creator_id</ColNames>
       <Unique>1</Unique>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <index id="297" parent="275" name="idx_creator_id">
+    <index id="315" parent="276" name="idx_creator_id">
       <ColNames>creator_id</ColNames>
       <ObjectId>16391</ObjectId>
       <StateNumber>737</StateNumber>
       <AccessMethodId>403</AccessMethodId>
     </index>
-    <key id="298" parent="275" name="subscriptions_pkey">
+    <key id="316" parent="276" name="subscriptions_pkey">
       <NameSurrogate>1</NameSurrogate>
       <ObjectId>16390</ObjectId>
       <Primary>1</Primary>
       <StateNumber>736</StateNumber>
       <UnderlyingIndexId>16389</UnderlyingIndexId>
     </key>
-    <key id="299" parent="275" name="idx_user_creator">
+    <key id="317" parent="276" name="idx_user_creator">
       <ObjectId>16393</ObjectId>
       <StateNumber>739</StateNumber>
       <UnderlyingIndexId>16392</UnderlyingIndexId>

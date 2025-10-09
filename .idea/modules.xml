@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Reaction/Reaction.iml" filepath="$PROJECT_DIR$/Reaction/Reaction.iml" />
       <module fileurl="file://$PROJECT_DIR$/plain-java-services/src/Test/Test.iml" filepath="$PROJECT_DIR$/plain-java-services/src/Test/Test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/subscription-service/demo.iml" filepath="$PROJECT_DIR$/subscription-service/demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/plain-java-services/src/main/main.iml" filepath="$PROJECT_DIR$/plain-java-services/src/main/main.iml" />
     </modules>
   </component>

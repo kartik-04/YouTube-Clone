@@ -5,7 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="71a1b3b7-8ac3-4034-a5be-aba9b9835dc7" name="Changes" comment="chore : clean-up">
+      <change afterPath="$PROJECT_DIR$/Reaction/src/main/java/com/youtube_clone/repositories/ReactionRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reaction/src/main/java/com/youtube_clone/services/ReactionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/266bb6ec-d1f9-48df-be13-e3b55085a377.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/266bb6ec-d1f9-48df-be13-e3b55085a377.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/266bb6ec-d1f9-48df-be13-e3b55085a377/storage_v2/_src_/database/youtube_clone.QUXT3Q/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/266bb6ec-d1f9-48df-be13-e3b55085a377/storage_v2/_src_/database/youtube_clone.QUXT3Q/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reaction/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Reaction/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Reaction/src/main/java/com/youtube_clone/ReactionApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reaction/src/main/java/com/youtube_clone/ReactionApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reaction/src/main/java/com/youtube_clone/entities/Reaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reaction/src/main/java/com/youtube_clone/entities/Reaction.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,10 +42,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Enum" />
         <option value="Class" />
         <option value="Exception" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -140,6 +150,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.ReactionApplication.executor": "Run",
     "Spring Boot.SubscriptionServiceApplication.executor": "Run",
     "git-widget-placeholder": "main",
     "junie.onboarding.icon.badge.shown": "true",
@@ -155,6 +166,7 @@
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "run.code.analysis.last.selected.profile": "pProject Default",
+    "run.configurations.included.in.services": "true",
     "settings.editor.selected.configurable": "preferences.pluginManager",
     "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true"
@@ -177,7 +189,17 @@
       <recent name="com.youtube_clone.subscription.services" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.SubscriptionServiceTest (2)">
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="KtorApplicationConfigurationType" />
+        <option value="MicronautRunConfigurationType" />
+        <option value="QuarkusRunConfigurationType" />
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.ReactionApplication">
     <configuration name="SubscriptionServiceTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="demo" />
       <extension name="coverage">
@@ -266,6 +288,14 @@
     <configuration name="LikeDislikeServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="like-dislike-service.main" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="org.youtubeclone.likedislikeservice.LikeDislikeServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReactionApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="Reaction" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.youtube_clone.ReactionApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -373,15 +403,7 @@
       <workItem from="1759946872207" duration="931000" />
       <workItem from="1759947817990" duration="3015000" />
       <workItem from="1759950863136" duration="186000" />
-      <workItem from="1759951064523" duration="1650000" />
-    </task>
-    <task id="LOCAL-00175" summary="feat : created the SubsctiptionController class which handles with the HTTPS methods">
-      <option name="closed" value="true" />
-      <created>1759335697858</created>
-      <option name="number" value="00175" />
-      <option name="presentableId" value="LOCAL-00175" />
-      <option name="project" value="LOCAL" />
-      <updated>1759335697859</updated>
+      <workItem from="1759951064523" duration="6972000" />
     </task>
     <task id="LOCAL-00176" summary="refactor : Added the dependency for the spring boot starter">
       <option name="closed" value="true" />
@@ -767,7 +789,15 @@
       <option name="project" value="LOCAL" />
       <updated>1759952710977</updated>
     </task>
-    <option name="localTasksCounter" value="224" />
+    <task id="LOCAL-00224" summary="chore : clean-up">
+      <option name="closed" value="true" />
+      <created>1759952777276</created>
+      <option name="number" value="00224" />
+      <option name="presentableId" value="LOCAL-00224" />
+      <option name="project" value="LOCAL" />
+      <updated>1759952777276</updated>
+    </task>
+    <option name="localTasksCounter" value="225" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
