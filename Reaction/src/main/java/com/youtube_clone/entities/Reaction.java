@@ -35,10 +35,10 @@ public class Reaction {
     @Column(name="user_id", nullable = false)
     private UUID userId;
 
-    @Column(name="video_id", nullable = false)
+    @Column(name="video_id", nullable = true)
     private UUID videoId;
 
-    @Column(name="comment_id", nullable = false)
+    @Column(name="comment_id", nullable = true)
     private  UUID commentId;
 
     @Enumerated(EnumType.STRING)
@@ -46,7 +46,7 @@ public class Reaction {
     private ReactionType type; // e.g., "like", "dislike", "love", etc.
 
     @Column(name="timestamp", nullable = false)
-    private LocalDateTime ReactedAt = LocalDateTime.now();
+    private LocalDateTime reactedAt = LocalDateTime.now();
 
     @Column(name="active", nullable = false)
     private boolean active = true;      // Soft delete flag
@@ -62,6 +62,16 @@ public class Reaction {
     public void deactivate(){
         this.active = false;
         this.updatedAt = LocalDateTime.now();
+    }
+
+    @PrePersist
+    @PreUpdate
+    private void validateTarget(){
+        boolean hasVideo = this.videoId != null;
+        boolean hasComment = this.commentId != null;
+        if (hasVideo == hasComment) {
+            throw new IllegalStateException("Reaction must target exactly one of videoId or commentId");
+        }
     }
 }
 
