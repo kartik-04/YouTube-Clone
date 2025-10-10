@@ -1,4 +1,4 @@
-package com.youtube_clone.entities;
+package com.youtube_clone.reaction.entities;
 
 public enum ReactionType {
     LIKE,
