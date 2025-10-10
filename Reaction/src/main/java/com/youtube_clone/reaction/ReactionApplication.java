@@ -1,4 +1,4 @@
-package com.youtube_clone;
+package com.youtube_clone.reaction;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
