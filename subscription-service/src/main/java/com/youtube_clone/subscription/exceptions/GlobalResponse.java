@@ -1,4 +1,4 @@
-package com.youtube_clone.subscription.dtos;
+package com.youtube_clone.subscription.exceptions;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

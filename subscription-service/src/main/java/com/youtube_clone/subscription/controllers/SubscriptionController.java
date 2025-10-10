@@ -1,7 +1,7 @@
 package com.youtube_clone.subscription.controllers;
 
 import com.youtube_clone.subscription.dtos.CreateSubscriptionRequest;
-import com.youtube_clone.subscription.dtos.GlobalResponse;
+import com.youtube_clone.subscription.exceptions.GlobalResponse;
 import com.youtube_clone.subscription.dtos.SubscriptionDTO;
 import com.youtube_clone.subscription.entities.Subscription;
 import com.youtube_clone.subscription.mappers.SubscriptionMapper;
