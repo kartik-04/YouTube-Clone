@@ -4,11 +4,42 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="71a1b3b7-8ac3-4034-a5be-aba9b9835dc7" name="Changes" comment="refactor : In &#10;           Reaction&#10;            entity, allow either videoId or commentId to be null (a reaction targets exactly one), so nullable = true on both columns to avoid constraint violations when reacting to only a video or only a comment.">
-      <change afterPath="$PROJECT_DIR$/Reaction/src/main/java/com/youtube_clone/repositories/ReactionRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Reaction/src/main/java/com/youtube_clone/services/ReactionService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Reaction/src/main/java/com/youtube_clone/services/ReactionServiceImpl.java" afterDir="false" />
+    <list default="true" id="71a1b3b7-8ac3-4034-a5be-aba9b9835dc7" name="Changes" comment="chore : clean-up">
+      <change afterPath="$PROJECT_DIR$/Reaction/src/main/java/com/youtube_clone/reaction/entities/ErrorCode.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reaction/src/main/java/com/youtube_clone/reaction/exceptions/ApiResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reaction/src/main/java/com/youtube_clone/reaction/exceptions/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reaction/src/main/java/com/youtube_clone/reaction/exceptions/InvalidReactionException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reaction/src/main/java/com/youtube_clone/reaction/exceptions/ResourceNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reaction/src/main/java/com/youtube_clone/reaction/repositories/ReactionRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reaction/src/main/java/com/youtube_clone/reaction/services/ReactionService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reaction/src/main/java/com/youtube_clone/reaction/services/ReactionServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reaction/src/main/java/com/youtube_clone/ReactionApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reaction/src/main/java/com/youtube_clone/reaction/ReactionApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reaction/src/main/java/com/youtube_clone/entities/Reaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reaction/src/main/java/com/youtube_clone/reaction/entities/Reaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reaction/src/main/java/com/youtube_clone/entities/ReactionType.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reaction/src/main/java/com/youtube_clone/reaction/entities/ReactionType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reaction/src/main/java/com/youtube_clone/exceptions/ReactionNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reaction/src/main/java/com/youtube_clone/reaction/exceptions/ReactionNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/subscription-service/src/main/java/com/youtube_clone/subscription/SubscriptionServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/subscription-service/src/main/java/com/youtube_clone/reaction/subscription/SubscriptionServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/subscription-service/src/main/java/com/youtube_clone/subscription/config/OpenAPIConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/subscription-service/src/main/java/com/youtube_clone/reaction/subscription/config/OpenAPIConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/subscription-service/src/main/java/com/youtube_clone/subscription/controllers/SubscriptionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/subscription-service/src/main/java/com/youtube_clone/reaction/subscription/controllers/SubscriptionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/subscription-service/src/main/java/com/youtube_clone/subscription/dtos/CreateSubscriptionRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/subscription-service/src/main/java/com/youtube_clone/reaction/subscription/dtos/CreateSubscriptionRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/subscription-service/src/main/java/com/youtube_clone/subscription/dtos/GlobalResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/subscription-service/src/main/java/com/youtube_clone/reaction/subscription/dtos/GlobalResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/subscription-service/src/main/java/com/youtube_clone/subscription/dtos/SubscriptionDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/subscription-service/src/main/java/com/youtube_clone/reaction/subscription/dtos/SubscriptionDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/subscription-service/src/main/java/com/youtube_clone/subscription/entities/Subscription.java" beforeDir="false" afterPath="$PROJECT_DIR$/subscription-service/src/main/java/com/youtube_clone/reaction/subscription/entities/Subscription.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/subscription-service/src/main/java/com/youtube_clone/subscription/exceptions/AlreadySubscribedException.java" beforeDir="false" afterPath="$PROJECT_DIR$/subscription-service/src/main/java/com/youtube_clone/reaction/subscription/exceptions/AlreadySubscribedException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/subscription-service/src/main/java/com/youtube_clone/subscription/exceptions/GlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/subscription-service/src/main/java/com/youtube_clone/reaction/subscription/exceptions/GlobalExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/subscription-service/src/main/java/com/youtube_clone/subscription/exceptions/InvalidSubscriptionException.java" beforeDir="false" afterPath="$PROJECT_DIR$/subscription-service/src/main/java/com/youtube_clone/reaction/subscription/exceptions/InvalidSubscriptionException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/subscription-service/src/main/java/com/youtube_clone/subscription/exceptions/SubscriptionNotFoundException.java" beforeDir="false" afterPath="$PROJECT_DIR$/subscription-service/src/main/java/com/youtube_clone/reaction/subscription/exceptions/SubscriptionNotFoundException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/subscription-service/src/main/java/com/youtube_clone/subscription/mappers/SubscriptionMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/subscription-service/src/main/java/com/youtube_clone/reaction/subscription/mappers/SubscriptionMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/subscription-service/src/main/java/com/youtube_clone/subscription/repositories/SubscriptionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/subscription-service/src/main/java/com/youtube_clone/reaction/subscription/repositories/SubscriptionRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/subscription-service/src/main/java/com/youtube_clone/subscription/services/SubscriptionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/subscription-service/src/main/java/com/youtube_clone/reaction/subscription/services/SubscriptionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/subscription-service/src/main/java/com/youtube_clone/subscription/services/SubscriptionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/subscription-service/src/main/java/com/youtube_clone/reaction/subscription/services/SubscriptionServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/subscription-service/src/main/java/com/youtube_clone/subscription/validation/SubscriptionValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/subscription-service/src/main/java/com/youtube_clone/reaction/subscription/validation/SubscriptionValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/subscription-service/src/main/java/com/youtube_clone/subscription/validation/ValidationPipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/subscription-service/src/main/java/com/youtube_clone/reaction/subscription/validation/ValidationPipeline.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/subscription-service/src/main/java/com/youtube_clone/subscription/validation/ValidationRule.java" beforeDir="false" afterPath="$PROJECT_DIR$/subscription-service/src/main/java/com/youtube_clone/reaction/subscription/validation/ValidationRule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/subscription-service/src/main/java/com/youtube_clone/subscription/validation/rules/AlreadySubscribedRule.java" beforeDir="false" afterPath="$PROJECT_DIR$/subscription-service/src/main/java/com/youtube_clone/reaction/subscription/validation/rules/AlreadySubscribedRule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/subscription-service/src/main/java/com/youtube_clone/subscription/validation/rules/CannotSubscribeSelfRule.java" beforeDir="false" afterPath="$PROJECT_DIR$/subscription-service/src/main/java/com/youtube_clone/reaction/subscription/validation/rules/CannotSubscribeSelfRule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/subscription-service/src/main/java/com/youtube_clone/subscription/validation/rules/CreatorIdNotNullRule.java" beforeDir="false" afterPath="$PROJECT_DIR$/subscription-service/src/main/java/com/youtube_clone/reaction/subscription/validation/rules/CreatorIdNotNullRule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/subscription-service/src/main/java/com/youtube_clone/subscription/validation/rules/UserIDNotNullRule.java" beforeDir="false" afterPath="$PROJECT_DIR$/subscription-service/src/main/java/com/youtube_clone/reaction/subscription/validation/rules/UserIDNotNullRule.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,10 +66,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
-        <option value="Exception" />
         <option value="Interface" />
+        <option value="Exception" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -381,15 +412,7 @@
       <workItem from="1759946872207" duration="931000" />
       <workItem from="1759947817990" duration="3015000" />
       <workItem from="1759950863136" duration="186000" />
-      <workItem from="1759951064523" duration="22724000" />
-    </task>
-    <task id="LOCAL-00182" summary="refactor : made some changes to the pox.xml">
-      <option name="closed" value="true" />
-      <created>1759515449837</created>
-      <option name="number" value="00182" />
-      <option name="presentableId" value="LOCAL-00182" />
-      <option name="project" value="LOCAL" />
-      <updated>1759515449837</updated>
+      <workItem from="1759951064523" duration="28510000" />
     </task>
     <task id="LOCAL-00183" summary="refactor : changed the @annotation to the Repository">
       <option name="closed" value="true" />
@@ -775,7 +798,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760034977144</updated>
     </task>
-    <option name="localTasksCounter" value="231" />
+    <task id="LOCAL-00231" summary="chore : clean-up">
+      <option name="closed" value="true" />
+      <created>1760077971563</created>
+      <option name="number" value="00231" />
+      <option name="presentableId" value="LOCAL-00231" />
+      <option name="project" value="LOCAL" />
+      <updated>1760077971564</updated>
+    </task>
+    <option name="localTasksCounter" value="232" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -813,12 +844,12 @@
     <MESSAGE value="feat : This creates the Reaction Table with multiple columns and deactivate function to delete the reaction uses the @Entity Data Index and etc annotation" />
     <MESSAGE value="feat : enum for the reaction type" />
     <MESSAGE value="feat : Unchecked exceptionfile when we don't know which reaction has been given by client" />
-    <MESSAGE value="chore : clean-up" />
     <MESSAGE value="refactor : configuration changes" />
     <MESSAGE value="refactor : solved the issue of IntelliJ not recongnizing the tables for the Reaction" />
     <MESSAGE value="feat : Entry point for the Reaction service" />
     <MESSAGE value="refactor : In &#10;           Reaction&#10;            entity, allow either videoId or commentId to be null (a reaction targets exactly one), so nullable = true on both columns to avoid constraint violations when reacting to only a video or only a comment." />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor : In &#10;           Reaction&#10;            entity, allow either videoId or commentId to be null (a reaction targets exactly one), so nullable = true on both columns to avoid constraint violations when reacting to only a video or only a comment." />
+    <MESSAGE value="chore : clean-up" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore : clean-up" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

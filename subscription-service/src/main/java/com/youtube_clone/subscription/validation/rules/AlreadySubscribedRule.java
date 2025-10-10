@@ -1,9 +1,9 @@
-package com.youtube_clone.reaction.subscription.validation.rules;
+package com.youtube_clone.subscription.validation.rules;
 
-import com.youtube_clone.reaction.subscription.entities.Subscription;
-import com.youtube_clone.reaction.subscription.exceptions.AlreadySubscribedException;
-import com.youtube_clone.reaction.subscription.repositories.SubscriptionRepository;
-import com.youtube_clone.reaction.subscription.validation.ValidationRule;
+import com.youtube_clone.subscription.entities.Subscription;
+import com.youtube_clone.subscription.exceptions.AlreadySubscribedException;
+import com.youtube_clone.subscription.repositories.SubscriptionRepository;
+import com.youtube_clone.subscription.validation.ValidationRule;
 
 public class AlreadySubscribedRule implements ValidationRule {
     /** Checks for the user id if already subscribed to the creatorId
