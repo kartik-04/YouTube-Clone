@@ -19,6 +19,25 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 import java.util.UUID;
 
+/**
+ * REST controller exposing endpoints to manage reactions on videos and comments.
+ *
+ * Endpoints:
+ * - POST   /api/v1/reactions/video/{videoId}      -> create or update a user's reaction on a video
+ * - DELETE /api/v1/reactions/video/{videoId}      -> remove a user's reaction from a video
+ * - GET    /api/v1/reactions/video/{videoId}/count -> aggregated counts of reactions on a video
+ * - GET    /api/v1/reactions/user/{userId}/video/{videoId} -> fetch a user's reaction on a video
+ * - GET    /api/v1/reactions/video/{videoId}/page  -> paginated reactions for a video
+ * - POST   /api/v1/reactions/comment/{commentId}   -> create or update a user's reaction on a comment
+ * - DELETE /api/v1/reactions/comemnt/{commentId}   -> remove a user's reaction from a comment
+ * - GET    /api/v1/reactions/comment/{commentId}/count -> aggregated counts for a comment
+ * - GET    /api/v1/reactions/user/{userId}/comment/{commentId} -> fetch a user's reaction on a comment
+ * - GET    /api/v1/reactions/comment/{commentId}/page -> paginated reactions for a comment
+ *
+ * Notes:
+ * - Uses SLF4J for logging.
+ * - Wraps responses in {@link ApiResponse}.
+ */
 @RestController
 @RequestMapping("/api/v1/reactions")
 @RequiredArgsConstructor
@@ -27,7 +46,16 @@ public class ReactionController {
     private final ReactionService reactionService;
     private final Logger logger = LoggerFactory.getLogger(ReactionController.class);
 
+
+
+
+
     //--------------------------------------------Video - Reaction -------------------------------------------------//
+
+
+
+
+
 
     @PostMapping("/video/{videoId}")
     public ResponseEntity<ApiResponse<ReactionDTO>> reactToVideo(
@@ -88,7 +116,15 @@ public class ReactionController {
         return ResponseEntity.ok(ApiResponse.success("Reactions found", dtoPage));
     }
 
+
+
+
     // ----------------------------------------------Comment - Reaction ---------------------------------------------//
+
+
+
+
+
 
     @PostMapping("/comment/{commentId}")
     public ResponseEntity<ApiResponse<ReactionDTO>> reactToComment(
