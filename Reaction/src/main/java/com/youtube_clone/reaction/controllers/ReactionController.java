@@ -79,6 +79,8 @@ public class ReactionController {
         return ResponseEntity.ok(ApiResponse.success("Reaction added successfully", ReactionMapper.toDTO(reaction)));
     }
 
+
+
     @DeleteMapping("/video/{videoId}")
     public ResponseEntity<ApiResponse<Void>> removeReactionFromVideo(
             @PathVariable UUID videoId,
@@ -88,6 +90,8 @@ public class ReactionController {
         return ResponseEntity.ok(ApiResponse.success("Reaction removed successfully", null));
     }
 
+
+
     @GetMapping("/video/{videoId}/count")
     public ResponseEntity<ApiResponse<Map<ReactionType, Long>>> reactionCountForVideo(
             @PathVariable UUID videoId
@@ -95,6 +99,8 @@ public class ReactionController {
         Map<ReactionType, Long> reactionCount = reactionService.getReactionCountForVideo(videoId);
         return ResponseEntity.ok(ApiResponse.success("Count of video given successfully", reactionCount));
     }
+
+
 
     @GetMapping("/user/{userId}/video/{videoId}")
     public ResponseEntity<ApiResponse<ReactionDTO>> getUserReactionForVideo(
@@ -104,6 +110,8 @@ public class ReactionController {
         Reaction reaction = reactionService.getUserReactionForVideo(userId, videoId);
         return ResponseEntity.ok(ApiResponse.success("Reaction found", ReactionMapper.toDTO(reaction)));
     }
+
+
 
     @GetMapping("/video/{videoId}/page")
     public ResponseEntity<ApiResponse<Page<ReactionDTO>>> getReactionForVideo(
@@ -115,6 +123,8 @@ public class ReactionController {
         Page<ReactionDTO> dtoPage = reactionPage.map(ReactionMapper::toDTO);
         return ResponseEntity.ok(ApiResponse.success("Reactions found", dtoPage));
     }
+
+
 
 
 
@@ -149,6 +159,7 @@ public class ReactionController {
     }
 
 
+
     @DeleteMapping("/comemnt/{commentId}")
     public ResponseEntity<ApiResponse<Void>> removeReactionFromComment(
             @PathVariable UUID commentId,
@@ -158,6 +169,8 @@ public class ReactionController {
         return ResponseEntity.ok(ApiResponse.success("Reaction removed successfully", null));
     }
 
+
+
     @GetMapping("/comment/{commentId}/count")
     public ResponseEntity<ApiResponse<Map<ReactionType, Long>>> reactionCountForComment(
             @PathVariable UUID commentId
@@ -165,6 +178,8 @@ public class ReactionController {
         Map<ReactionType, Long> reactionCount = reactionService.getReactionCountForComment(commentId);
         return ResponseEntity.ok(ApiResponse.success("Count of comment given successfully", reactionCount));
     }
+
+
 
     @GetMapping("/user/{userId}/comment/{commentId}")
     public ResponseEntity<ApiResponse<ReactionDTO>> getUserReactionForComment(
@@ -174,6 +189,9 @@ public class ReactionController {
         Reaction reaction = reactionService.getUserReactionForComment(userId, commentId);
         return ResponseEntity.ok(ApiResponse.success("Reaction found", ReactionMapper.toDTO(reaction)));
     }
+
+
+
 
     @GetMapping("/comment/{commentId}/page")
     public ResponseEntity<ApiResponse<Page<ReactionDTO>>> getReactionForComment(
@@ -185,4 +203,5 @@ public class ReactionController {
         Page<ReactionDTO> dtoPage = reactionPage.map(ReactionMapper::toDTO);
         return ResponseEntity.ok(ApiResponse.success("Reactions found", dtoPage));
     }
+
 }
