@@ -15,6 +15,9 @@ public class CreateReactionRequest {
     @NotNull(message = "UserId cannot be null")
     private String userId;
 
+    private String videoId;
+    private String commentId;
+
     @NotNull(message = "ReactionType cannot be null")
     private String type; // e.g., LIKE, DISLIKE
 }
