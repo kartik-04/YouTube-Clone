@@ -63,7 +63,7 @@ public class ReactionServiceImpl implements ReactionService{
      * @return the created or updated Reaction entity
      */
     @Override
-    public Reaction reactToComment(UUID userId, UUID commentId, ReactionType type) {
+    public Reaction  reactToComment(UUID userId, UUID commentId, ReactionType type) {
         Optional<Reaction> existing = reactionRepository.findByUserIdAndCommentId(userId,commentId);
         if(existing.isPresent()){
             Reaction r = existing.get();
