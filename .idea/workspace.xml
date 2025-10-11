@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="71a1b3b7-8ac3-4034-a5be-aba9b9835dc7" name="Changes" comment="fix : Added the Javadoc">
+    <list default="true" id="71a1b3b7-8ac3-4034-a5be-aba9b9835dc7" name="Changes" comment="chore : clean-up">
       <change afterPath="$PROJECT_DIR$/Reaction/src/test/java/com/youtube_clone/reaction/integration/ReactionServiceImplTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Reaction/src/test/java/com/youtube_clone/reaction/unit/ReactionServiceImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/266bb6ec-d1f9-48df-be13-e3b55085a377.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/266bb6ec-d1f9-48df-be13-e3b55085a377.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/266bb6ec-d1f9-48df-be13-e3b55085a377/storage_v2/_src_/database/youtube_clone.QUXT3Q/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/266bb6ec-d1f9-48df-be13-e3b55085a377/storage_v2/_src_/database/youtube_clone.QUXT3Q/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Reaction/src/main/java/com/youtube_clone/reaction/controllers/ReactionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reaction/src/main/java/com/youtube_clone/reaction/controllers/ReactionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reaction/src/main/java/com/youtube_clone/reaction/repositories/ReactionRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reaction/src/main/java/com/youtube_clone/reaction/repositories/ReactionRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Reaction/src/main/java/com/youtube_clone/reaction/services/ReactionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reaction/src/main/java/com/youtube_clone/reaction/services/ReactionServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -48,6 +47,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="JavaAutoRunManager">
+    <enabled-run-configurations>
+      <run-configuration type="JUnit" name="ReactionServiceImplTest.shouldReturnReactionCountsForVideo" />
+      <run-configuration type="JUnit" name="ReactionServiceImplTest.shouldReturnReactionCountsForVideo (1)" />
+    </enabled-run-configurations>
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -94,6 +99,11 @@
     "JUnit.ReactionServiceImplTest.shouldCreateAndDeactivateReactionForComment.executor": "Debug",
     "JUnit.ReactionServiceImplTest.shouldCreateReactionForComment (1).executor": "Debug",
     "JUnit.ReactionServiceImplTest.shouldCreateReactionForComment.executor": "Debug",
+    "JUnit.ReactionServiceImplTest.shouldDeactivateReactionForVideo.executor": "Debug",
+    "JUnit.ReactionServiceImplTest.shouldReturnReactionCountsForComment (1).executor": "Debug",
+    "JUnit.ReactionServiceImplTest.shouldReturnReactionCountsForComment.executor": "Run",
+    "JUnit.ReactionServiceImplTest.shouldReturnReactionCountsForVideo (1).executor": "Debug",
+    "JUnit.ReactionServiceImplTest.shouldReturnReactionCountsForVideo.executor": "Debug",
     "JUnit.SubscriptionServiceTest (1).executor": "Run",
     "JUnit.SubscriptionServiceTest (2).executor": "Run",
     "JUnit.SubscriptionServiceTest.executor": "Run",
@@ -201,26 +211,11 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ReactionServiceImplTest.shouldCreateAndDeactivateReactionForComment">
+  <component name="RunManager" selected="JUnit.ReactionServiceImplTest (1)">
     <configuration name="ReactionServiceImplTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Reaction" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.youtube_clone.reaction.integration.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.youtube_clone.reaction.integration" />
-      <option name="MAIN_CLASS_NAME" value="com.youtube_clone.reaction.integration.ReactionServiceImplTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ReactionServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Reaction" />
-      <extension name="coverage">
-        <pattern>
           <option name="PATTERN" value="com.youtube_clone.reaction.unit.*" />
           <option name="ENABLED" value="true" />
         </pattern>
@@ -232,7 +227,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ReactionServiceImplTest.shouldCheckIfTheGivenReactionIsRightOrNot" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ReactionServiceImplTest.shouldDeactivateReactionForVideo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Reaction" />
       <extension name="coverage">
         <pattern>
@@ -242,40 +237,57 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.youtube_clone.reaction.unit" />
       <option name="MAIN_CLASS_NAME" value="com.youtube_clone.reaction.unit.ReactionServiceImplTest" />
-      <option name="METHOD_NAME" value="shouldCheckIfTheGivenReactionIsRightOrNot(com.youtube_clone.reaction.entities.ReactionType)" />
+      <option name="METHOD_NAME" value="shouldDeactivateReactionForVideo" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ReactionServiceImplTest.shouldCreateAndDeactivateReactionForComment" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ReactionServiceImplTest.shouldReturnReactionCountsForComment (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Reaction" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.youtube_clone.reaction.integration.*" />
+          <option name="PATTERN" value="com.youtube_clone.reaction.unit.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.youtube_clone.reaction.integration" />
-      <option name="MAIN_CLASS_NAME" value="com.youtube_clone.reaction.integration.ReactionServiceImplTest" />
-      <option name="METHOD_NAME" value="shouldCreateAndDeactivateReactionForComment" />
+      <option name="PACKAGE_NAME" value="com.youtube_clone.reaction.unit" />
+      <option name="MAIN_CLASS_NAME" value="com.youtube_clone.reaction.unit.ReactionServiceImplTest" />
+      <option name="METHOD_NAME" value="shouldReturnReactionCountsForComment" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ReactionServiceImplTest.shouldCreateReactionForComment" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ReactionServiceImplTest.shouldReturnReactionCountsForVideo (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Reaction" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.youtube_clone.reaction.integration.*" />
+          <option name="PATTERN" value="com.youtube_clone.reaction.unit.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.youtube_clone.reaction.Integration" />
-      <option name="MAIN_CLASS_NAME" value="com.youtube_clone.reaction.integration.ReactionServiceImplTest" />
-      <option name="METHOD_NAME" value="shouldCreateReactionForComment" />
+      <option name="PACKAGE_NAME" value="com.youtube_clone.reaction.unit" />
+      <option name="MAIN_CLASS_NAME" value="com.youtube_clone.reaction.unit.ReactionServiceImplTest" />
+      <option name="METHOD_NAME" value="shouldReturnReactionCountsForVideo" />
       <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReactionServiceImplTest.shouldReturnReactionCountsForVideo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Reaction" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.youtube_clone.reaction.unit.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.youtube_clone.reaction.unit" />
+      <option name="MAIN_CLASS_NAME" value="com.youtube_clone.reaction.unit.ReactionServiceImplTest" />
+      <option name="METHOD_NAME" value="shouldReturnReactionCountsForVideo" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-XX:+EnableDynamicAgentLoading" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -303,13 +315,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="JUnit.ReactionServiceImplTest (1)" />
+      <item itemvalue="JUnit.ReactionServiceImplTest.shouldDeactivateReactionForVideo" />
+      <item itemvalue="JUnit.ReactionServiceImplTest.shouldReturnReactionCountsForComment (1)" />
+      <item itemvalue="JUnit.ReactionServiceImplTest.shouldReturnReactionCountsForVideo (1)" />
+      <item itemvalue="JUnit.ReactionServiceImplTest.shouldReturnReactionCountsForVideo" />
+      <item itemvalue="Spring Boot.ReactionApplication" />
+      <item itemvalue="Spring Boot.ReactionApplication (1)" />
+      <item itemvalue="Spring Boot.SubscriptionServiceApplication" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ReactionServiceImplTest.shouldCreateAndDeactivateReactionForComment" />
         <item itemvalue="JUnit.ReactionServiceImplTest (1)" />
-        <item itemvalue="JUnit.ReactionServiceImplTest.shouldCreateReactionForComment (1)" />
-        <item itemvalue="JUnit.ReactionServiceImplTest.shouldCheckIfTheGivenReactionIsRightOrNot" />
-        <item itemvalue="JUnit.ReactionServiceImplTest" />
+        <item itemvalue="JUnit.ReactionServiceImplTest.shouldReturnReactionCountsForComment (1)" />
+        <item itemvalue="JUnit.ReactionServiceImplTest.shouldDeactivateReactionForVideo" />
+        <item itemvalue="JUnit.ReactionServiceImplTest.shouldReturnReactionCountsForVideo (1)" />
+        <item itemvalue="JUnit.ReactionServiceImplTest.shouldReturnReactionCountsForVideo" />
       </list>
     </recent_temporary>
   </component>
@@ -399,23 +421,7 @@
       <workItem from="1759946872207" duration="931000" />
       <workItem from="1759947817990" duration="3015000" />
       <workItem from="1759950863136" duration="186000" />
-      <workItem from="1759951064523" duration="58805000" />
-    </task>
-    <task id="LOCAL-00209" summary="chore : clean-up">
-      <option name="closed" value="true" />
-      <created>1759780423625</created>
-      <option name="number" value="00209" />
-      <option name="presentableId" value="LOCAL-00209" />
-      <option name="project" value="LOCAL" />
-      <updated>1759780423626</updated>
-    </task>
-    <task id="LOCAL-00210" summary="chore : clean-up">
-      <option name="closed" value="true" />
-      <created>1759782138957</created>
-      <option name="number" value="00210" />
-      <option name="presentableId" value="LOCAL-00210" />
-      <option name="project" value="LOCAL" />
-      <updated>1759782138958</updated>
+      <workItem from="1759951064523" duration="65883000" />
     </task>
     <task id="LOCAL-00211" summary="chore : These are the setup files for the reacton service">
       <option name="closed" value="true" />
@@ -793,7 +799,23 @@
       <option name="project" value="LOCAL" />
       <updated>1760118780654</updated>
     </task>
-    <option name="localTasksCounter" value="258" />
+    <task id="LOCAL-00258" summary="chore : clean-up">
+      <option name="closed" value="true" />
+      <created>1760201330711</created>
+      <option name="number" value="00258" />
+      <option name="presentableId" value="LOCAL-00258" />
+      <option name="project" value="LOCAL" />
+      <updated>1760201330711</updated>
+    </task>
+    <task id="LOCAL-00259" summary="chore : clean-up">
+      <option name="closed" value="true" />
+      <created>1760201334262</created>
+      <option name="number" value="00259" />
+      <option name="presentableId" value="LOCAL-00259" />
+      <option name="project" value="LOCAL" />
+      <updated>1760201334263</updated>
+    </task>
+    <option name="localTasksCounter" value="260" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -826,7 +848,6 @@
     <MESSAGE value="feat : Global exception handler class which handles the exception class" />
     <MESSAGE value="refactor : entity" />
     <MESSAGE value="chore : path changed for GlobalResponse" />
-    <MESSAGE value="chore : clean-up" />
     <MESSAGE value="feat : this class has the success and error message which helps with the RestAPI" />
     <MESSAGE value="feat : Dto for the request" />
     <MESSAGE value="feat : RestAPI constroller for the Reaction service" />
@@ -836,7 +857,8 @@
     <MESSAGE value="fix : added the Spring boot dependency for the Swagger" />
     <MESSAGE value="feat : This is the entry point for the Service" />
     <MESSAGE value="fix : Added the Javadoc" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix : Added the Javadoc" />
+    <MESSAGE value="chore : clean-up" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore : clean-up" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -878,13 +900,13 @@
           <option name="timeStamp" value="18" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/Reaction/src/test/java/com/youtube_clone/reaction/integration/ReactionServiceImplTest.java</url>
-          <line>24</line>
-          <properties class="com.youtube_clone.reaction.integration.ReactionServiceImplTest" method="shouldCreateAndDeactivateReactionForComment">
+          <url>file://$PROJECT_DIR$/Reaction/src/test/java/com/youtube_clone/reaction/unit/ReactionServiceImplTest.java</url>
+          <line>143</line>
+          <properties class="com.youtube_clone.reaction.unit.ReactionServiceImplTest" method="shouldReturnReactionCountsForComment">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
-          <option name="timeStamp" value="27" />
+          <option name="timeStamp" value="55" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Test/java/com/youtubeclone/video/validationTest/MetadataRuleTest.java</url>
@@ -908,24 +930,19 @@
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Reaction/src/test/java/com/youtube_clone/reaction/integration/ReactionServiceImplTest.java</url>
-          <line>38</line>
-          <option name="timeStamp" value="32" />
+          <url>file://$PROJECT_DIR$/Reaction/src/main/java/com/youtube_clone/reaction/repositories/ReactionRepository.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="46" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Reaction/src/test/java/com/youtube_clone/reaction/integration/ReactionServiceImplTest.java</url>
-          <line>39</line>
-          <option name="timeStamp" value="33" />
+          <url>file://$PROJECT_DIR$/Reaction/src/test/java/com/youtube_clone/reaction/unit/ReactionServiceImplTest.java</url>
+          <line>149</line>
+          <option name="timeStamp" value="56" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Reaction/src/test/java/com/youtube_clone/reaction/integration/ReactionServiceImplTest.java</url>
-          <line>40</line>
-          <option name="timeStamp" value="34" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Reaction/src/test/java/com/youtube_clone/reaction/integration/ReactionServiceImplTest.java</url>
-          <line>41</line>
-          <option name="timeStamp" value="37" />
+          <url>file://$PROJECT_DIR$/Reaction/src/test/java/com/youtube_clone/reaction/unit/ReactionServiceImplTest.java</url>
+          <line>154</line>
+          <option name="timeStamp" value="57" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
