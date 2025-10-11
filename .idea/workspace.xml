@@ -4,8 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="71a1b3b7-8ac3-4034-a5be-aba9b9835dc7" name="Changes" comment="chore : path changed for GlobalResponse">
-      <change beforePath="$PROJECT_DIR$/Reaction/src/main/java/com/youtube_clone/ReactionApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reaction/src/main/java/com/youtube_clone/reaction/ReactionApplication.java" afterDir="false" />
+    <list default="true" id="71a1b3b7-8ac3-4034-a5be-aba9b9835dc7" name="Changes" comment="fix : Added the Javadoc">
+      <change afterPath="$PROJECT_DIR$/Reaction/src/test/java/com/youtube_clone/reaction/integration/ReactionServiceImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Reaction/src/test/java/com/youtube_clone/reaction/unit/ReactionServiceImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/266bb6ec-d1f9-48df-be13-e3b55085a377.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/266bb6ec-d1f9-48df-be13-e3b55085a377.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/266bb6ec-d1f9-48df-be13-e3b55085a377/storage_v2/_src_/database/youtube_clone.QUXT3Q/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/266bb6ec-d1f9-48df-be13-e3b55085a377/storage_v2/_src_/database/youtube_clone.QUXT3Q/schema/public.abK9xQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reaction/src/main/java/com/youtube_clone/reaction/controllers/ReactionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reaction/src/main/java/com/youtube_clone/reaction/controllers/ReactionController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reaction/src/main/java/com/youtube_clone/reaction/services/ReactionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Reaction/src/main/java/com/youtube_clone/reaction/services/ReactionServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,8 +40,8 @@
       <list>
         <option value="Interface" />
         <option value="Exception" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -64,104 +70,110 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
-    &quot;Application.Admin.executor&quot;: &quot;Debug&quot;,
-    &quot;Application.AppBootstrap.executor&quot;: &quot;Debug&quot;,
-    &quot;Application.CommentRepositoryImpl.executor&quot;: &quot;Run&quot;,
-    &quot;Application.com.youtubeclone.Repositories.comment.CommentRepositoryImpl.executor&quot;: &quot;Debug&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;JUnit.CommentDefaultApplierTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CommentDefaultPipelineTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CommentValidatorPipelineTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CommentValidatorPipelineTest.shouldThrowForProfanity.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CommentValidatorPipelineTest.shouldThrowForTooLongContent.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CommentValidatorTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MetadataDefaultRuleTest (1).executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MetadataDefaultRuleTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MetadataRuleTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MetadataRuleTest.validate_withValidMetadata_shouldNotThrowException.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.SubscriptionServiceTest (1).executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.SubscriptionServiceTest (2).executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.SubscriptionServiceTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.SubscriptionServiceTest.testGetSubscriberCount.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.SubscriptionServiceTest.testSubscribeAndCheckIsUserSubscribed (1).executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.SubscriptionServiceTest.testSubscribeAndCheckIsUserSubscribed.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TitleDefaultRuleTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TitleNotNullRuleTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TitleNotNullRuleTest.validate_withEmptyTitle_shouldThrowException.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TitleNotNullRuleTest.validate_withNullTitle_shouldThrowException.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.TitleNotNullRuleTest.validate_withValidTitle_shouldNotThrowException.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UploadDateDefaultRuleTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UploadDateRuleTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.DoNoteRegisterUserIfEmailIsDuplicate.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.authenticateUserIfEmailAndPassword.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.UserServiceTest.deleteUserById.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.emailVerifiedTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.getUserByEmailTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.getUserById.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.getUserByUsername.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.registerUserIfEmailIsNotDuplicate.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.UserServiceTest.shouldReturnUserNSuspendUserTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.suspendUserTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.testDummy.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.updateAccountStatusTest.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.UserServiceTest.updatePassword.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserServiceTest.updateProfile.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserUtilTest (1).executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserUtilTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserUtilTest.isAdult_shouldReturnFalseForInValidAge.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserUtilTest.isAdult_shouldReturnTrueForValidAge.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserUtilTest.isStrongPassword_shouldReturnFalseForWeakPassword.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserUtilTest.isStrongPassword_shouldReturnTrueForStrongPassword.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserUtilTest.isVerified_shouldReturnFalseForUnverifiedEmail.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserUtilTest.isVerified_shouldReturnTrueForVerifiedEmail.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.UserUtilTest.testGenericPrintUserInfo.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ValidationPipelineTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.VideoDefaultApplierTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.VideoDefaultApplierTest.testApplyDoesNotOverrideExistingValues.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.VideoDefaultPipelineTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.VideoFileServiceImplTest.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.VideoIdDefaultRuleTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.VideoMapperTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.VideoMetadataServiceImplTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.VideoValidatorTest.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;OverrideImplement.generate.javadoc&quot;: &quot;true&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Spring Boot.ReactionApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Spring Boot.SubscriptionServiceApplication.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_directory_selection&quot;: &quot;/Users/kartiksingh/Desktop/YouTube/Youtube-clone/reaction/src/test&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/kartiksingh/Desktop/YouTube/Youtube-clone&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;/Users/kartiksingh/Desktop/YouTube/Youtube-clone/src/Main.java&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "Application.Admin.executor": "Debug",
+    "Application.AppBootstrap.executor": "Debug",
+    "Application.CommentRepositoryImpl.executor": "Run",
+    "Application.com.youtubeclone.Repositories.comment.CommentRepositoryImpl.executor": "Debug",
+    "Downloaded.Files.Path.Enabled": "false",
+    "JUnit.CommentDefaultApplierTest.executor": "Run",
+    "JUnit.CommentDefaultPipelineTest.executor": "Run",
+    "JUnit.CommentValidatorPipelineTest.executor": "Run",
+    "JUnit.CommentValidatorPipelineTest.shouldThrowForProfanity.executor": "Run",
+    "JUnit.CommentValidatorPipelineTest.shouldThrowForTooLongContent.executor": "Run",
+    "JUnit.CommentValidatorTest.executor": "Run",
+    "JUnit.MetadataDefaultRuleTest (1).executor": "Run",
+    "JUnit.MetadataDefaultRuleTest.executor": "Run",
+    "JUnit.MetadataRuleTest.executor": "Run",
+    "JUnit.MetadataRuleTest.validate_withValidMetadata_shouldNotThrowException.executor": "Run",
+    "JUnit.ReactionServiceImplTest (1).executor": "Run",
+    "JUnit.ReactionServiceImplTest.executor": "Run",
+    "JUnit.ReactionServiceImplTest.shouldCheckIfTheGivenReactionIsRightOrNot.executor": "Run",
+    "JUnit.ReactionServiceImplTest.shouldCreateAndDeactivateReactionForComment.executor": "Debug",
+    "JUnit.ReactionServiceImplTest.shouldCreateReactionForComment (1).executor": "Debug",
+    "JUnit.ReactionServiceImplTest.shouldCreateReactionForComment.executor": "Debug",
+    "JUnit.SubscriptionServiceTest (1).executor": "Run",
+    "JUnit.SubscriptionServiceTest (2).executor": "Run",
+    "JUnit.SubscriptionServiceTest.executor": "Run",
+    "JUnit.SubscriptionServiceTest.testGetSubscriberCount.executor": "Run",
+    "JUnit.SubscriptionServiceTest.testSubscribeAndCheckIsUserSubscribed (1).executor": "Run",
+    "JUnit.SubscriptionServiceTest.testSubscribeAndCheckIsUserSubscribed.executor": "Run",
+    "JUnit.TitleDefaultRuleTest.executor": "Run",
+    "JUnit.TitleNotNullRuleTest.executor": "Run",
+    "JUnit.TitleNotNullRuleTest.validate_withEmptyTitle_shouldThrowException.executor": "Run",
+    "JUnit.TitleNotNullRuleTest.validate_withNullTitle_shouldThrowException.executor": "Debug",
+    "JUnit.TitleNotNullRuleTest.validate_withValidTitle_shouldNotThrowException.executor": "Run",
+    "JUnit.UploadDateDefaultRuleTest.executor": "Run",
+    "JUnit.UploadDateRuleTest.executor": "Run",
+    "JUnit.UserServiceTest.DoNoteRegisterUserIfEmailIsDuplicate.executor": "Run",
+    "JUnit.UserServiceTest.authenticateUserIfEmailAndPassword.executor": "Debug",
+    "JUnit.UserServiceTest.deleteUserById.executor": "Run",
+    "JUnit.UserServiceTest.emailVerifiedTest.executor": "Run",
+    "JUnit.UserServiceTest.executor": "Run",
+    "JUnit.UserServiceTest.getUserByEmailTest.executor": "Run",
+    "JUnit.UserServiceTest.getUserById.executor": "Run",
+    "JUnit.UserServiceTest.getUserByUsername.executor": "Run",
+    "JUnit.UserServiceTest.registerUserIfEmailIsNotDuplicate.executor": "Debug",
+    "JUnit.UserServiceTest.shouldReturnUserNSuspendUserTest.executor": "Run",
+    "JUnit.UserServiceTest.suspendUserTest.executor": "Run",
+    "JUnit.UserServiceTest.testDummy.executor": "Run",
+    "JUnit.UserServiceTest.updateAccountStatusTest.executor": "Debug",
+    "JUnit.UserServiceTest.updatePassword.executor": "Run",
+    "JUnit.UserServiceTest.updateProfile.executor": "Run",
+    "JUnit.UserUtilTest (1).executor": "Run",
+    "JUnit.UserUtilTest.executor": "Run",
+    "JUnit.UserUtilTest.isAdult_shouldReturnFalseForInValidAge.executor": "Run",
+    "JUnit.UserUtilTest.isAdult_shouldReturnTrueForValidAge.executor": "Run",
+    "JUnit.UserUtilTest.isStrongPassword_shouldReturnFalseForWeakPassword.executor": "Run",
+    "JUnit.UserUtilTest.isStrongPassword_shouldReturnTrueForStrongPassword.executor": "Run",
+    "JUnit.UserUtilTest.isVerified_shouldReturnFalseForUnverifiedEmail.executor": "Run",
+    "JUnit.UserUtilTest.isVerified_shouldReturnTrueForVerifiedEmail.executor": "Run",
+    "JUnit.UserUtilTest.testGenericPrintUserInfo.executor": "Run",
+    "JUnit.ValidationPipelineTest.executor": "Run",
+    "JUnit.VideoDefaultApplierTest.executor": "Run",
+    "JUnit.VideoDefaultApplierTest.testApplyDoesNotOverrideExistingValues.executor": "Run",
+    "JUnit.VideoDefaultPipelineTest.executor": "Run",
+    "JUnit.VideoFileServiceImplTest.executor": "Debug",
+    "JUnit.VideoIdDefaultRuleTest.executor": "Run",
+    "JUnit.VideoMapperTest.executor": "Run",
+    "JUnit.VideoMetadataServiceImplTest.executor": "Run",
+    "JUnit.VideoValidatorTest.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "OverrideImplement.generate.javadoc": "true",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Spring Boot.ReactionApplication.executor": "Run",
+    "Spring Boot.SubscriptionServiceApplication.executor": "Run",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_directory_selection": "/Users/kartiksingh/Desktop/YouTube/Youtube-clone/reaction/src/test",
+    "last_opened_file_path": "/Users/kartiksingh/Desktop/YouTube/Youtube-clone",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "onboarding.tips.debug.path": "/Users/kartiksingh/Desktop/YouTube/Youtube-clone/src/Main.java",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "run.configurations.included.in.services": "true",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.youtube_clone.reaction.services" />
@@ -189,80 +201,89 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.ReactionApplication">
-    <configuration name="SubscriptionServiceTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="demo" />
+  <component name="RunManager" selected="JUnit.ReactionServiceImplTest.shouldCreateAndDeactivateReactionForComment">
+    <configuration name="ReactionServiceImplTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Reaction" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="java.com.youtube_clone.service.*" />
+          <option name="PATTERN" value="com.youtube_clone.reaction.integration.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="java.com.youtube_clone.service" />
-      <option name="MAIN_CLASS_NAME" value="java.com.youtube_clone.service.SubscriptionServiceTest" />
+      <option name="PACKAGE_NAME" value="com.youtube_clone.reaction.integration" />
+      <option name="MAIN_CLASS_NAME" value="com.youtube_clone.reaction.integration.ReactionServiceImplTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SubscriptionServiceTest (2)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="demo" />
+    <configuration name="ReactionServiceImplTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Reaction" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.youtube_clone.subscription.services.*" />
+          <option name="PATTERN" value="com.youtube_clone.reaction.unit.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.youtube_clone.subscription.services" />
-      <option name="MAIN_CLASS_NAME" value="com.youtube_clone.subscription.services.SubscriptionServiceTest" />
+      <option name="PACKAGE_NAME" value="com.youtube_clone.reaction.unit" />
+      <option name="MAIN_CLASS_NAME" value="com.youtube_clone.reaction.unit.ReactionServiceImplTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SubscriptionServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="demo" />
+    <configuration name="ReactionServiceImplTest.shouldCheckIfTheGivenReactionIsRightOrNot" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Reaction" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.youtube_clone.service.*" />
+          <option name="PATTERN" value="com.youtube_clone.reaction.unit.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.youtube_clone.service" />
-      <option name="MAIN_CLASS_NAME" value="com.youtube_clone.service.SubscriptionServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SubscriptionServiceTest.testSubscribeAndCheckIsUserSubscribed (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="demo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.youtube_clone.subscription.services.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.youtube_clone.subscription.services" />
-      <option name="MAIN_CLASS_NAME" value="com.youtube_clone.subscription.services.SubscriptionServiceTest" />
-      <option name="METHOD_NAME" value="testSubscribeAndCheckIsUserSubscribed" />
+      <option name="PACKAGE_NAME" value="com.youtube_clone.reaction.unit" />
+      <option name="MAIN_CLASS_NAME" value="com.youtube_clone.reaction.unit.ReactionServiceImplTest" />
+      <option name="METHOD_NAME" value="shouldCheckIfTheGivenReactionIsRightOrNot(com.youtube_clone.reaction.entities.ReactionType)" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SubscriptionServiceTest.testSubscribeAndCheckIsUserSubscribed" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="demo" />
+    <configuration name="ReactionServiceImplTest.shouldCreateAndDeactivateReactionForComment" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Reaction" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.youtube_clone.service.*" />
+          <option name="PATTERN" value="com.youtube_clone.reaction.integration.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.youtube_clone.service" />
-      <option name="MAIN_CLASS_NAME" value="com.youtube_clone.service.SubscriptionServiceTest" />
-      <option name="METHOD_NAME" value="testSubscribeAndCheckIsUserSubscribed" />
+      <option name="PACKAGE_NAME" value="com.youtube_clone.reaction.integration" />
+      <option name="MAIN_CLASS_NAME" value="com.youtube_clone.reaction.integration.ReactionServiceImplTest" />
+      <option name="METHOD_NAME" value="shouldCreateAndDeactivateReactionForComment" />
       <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReactionServiceImplTest.shouldCreateReactionForComment" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Reaction" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.youtube_clone.reaction.integration.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.youtube_clone.reaction.Integration" />
+      <option name="MAIN_CLASS_NAME" value="com.youtube_clone.reaction.integration.ReactionServiceImplTest" />
+      <option name="METHOD_NAME" value="shouldCreateReactionForComment" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReactionApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="Reaction" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.youtube_clone.reaction.ReactionApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -284,11 +305,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.SubscriptionServiceTest.testSubscribeAndCheckIsUserSubscribed" />
-        <item itemvalue="JUnit.SubscriptionServiceTest.testSubscribeAndCheckIsUserSubscribed (1)" />
-        <item itemvalue="JUnit.SubscriptionServiceTest" />
-        <item itemvalue="JUnit.SubscriptionServiceTest (2)" />
-        <item itemvalue="JUnit.SubscriptionServiceTest (1)" />
+        <item itemvalue="JUnit.ReactionServiceImplTest.shouldCreateAndDeactivateReactionForComment" />
+        <item itemvalue="JUnit.ReactionServiceImplTest (1)" />
+        <item itemvalue="JUnit.ReactionServiceImplTest.shouldCreateReactionForComment (1)" />
+        <item itemvalue="JUnit.ReactionServiceImplTest.shouldCheckIfTheGivenReactionIsRightOrNot" />
+        <item itemvalue="JUnit.ReactionServiceImplTest" />
       </list>
     </recent_temporary>
   </component>
@@ -378,95 +399,7 @@
       <workItem from="1759946872207" duration="931000" />
       <workItem from="1759947817990" duration="3015000" />
       <workItem from="1759950863136" duration="186000" />
-      <workItem from="1759951064523" duration="29218000" />
-    </task>
-    <task id="LOCAL-00198" summary="chore :">
-      <option name="closed" value="true" />
-      <created>1759663197776</created>
-      <option name="number" value="00198" />
-      <option name="presentableId" value="LOCAL-00198" />
-      <option name="project" value="LOCAL" />
-      <updated>1759663197776</updated>
-    </task>
-    <task id="LOCAL-00199" summary="refactor : added the spring-boot-starter-actuator to the pom.xml">
-      <option name="closed" value="true" />
-      <created>1759663234537</created>
-      <option name="number" value="00199" />
-      <option name="presentableId" value="LOCAL-00199" />
-      <option name="project" value="LOCAL" />
-      <updated>1759663234537</updated>
-    </task>
-    <task id="LOCAL-00200" summary="fix : Added the method for the pagination">
-      <option name="closed" value="true" />
-      <created>1759663268579</created>
-      <option name="number" value="00200" />
-      <option name="presentableId" value="LOCAL-00200" />
-      <option name="project" value="LOCAL" />
-      <updated>1759663268579</updated>
-    </task>
-    <task id="LOCAL-00201" summary="fix : Added the method for the pagination">
-      <option name="closed" value="true" />
-      <created>1759663278319</created>
-      <option name="number" value="00201" />
-      <option name="presentableId" value="LOCAL-00201" />
-      <option name="project" value="LOCAL" />
-      <updated>1759663278319</updated>
-    </task>
-    <task id="LOCAL-00202" summary="fix : Added the dependency for the logging, swagger">
-      <option name="closed" value="true" />
-      <created>1759768662532</created>
-      <option name="number" value="00202" />
-      <option name="presentableId" value="LOCAL-00202" />
-      <option name="project" value="LOCAL" />
-      <updated>1759768662532</updated>
-    </task>
-    <task id="LOCAL-00203" summary="feat : This help in getting the visual of the API of SubscriptionController">
-      <option name="closed" value="true" />
-      <created>1759768747482</created>
-      <option name="number" value="00203" />
-      <option name="presentableId" value="LOCAL-00203" />
-      <option name="project" value="LOCAL" />
-      <updated>1759768747482</updated>
-    </task>
-    <task id="LOCAL-00204" summary="fix : dependency of swaggger added">
-      <option name="closed" value="true" />
-      <created>1759768778984</created>
-      <option name="number" value="00204" />
-      <option name="presentableId" value="LOCAL-00204" />
-      <option name="project" value="LOCAL" />
-      <updated>1759768778984</updated>
-    </task>
-    <task id="LOCAL-00205" summary="refactor : added the logger">
-      <option name="closed" value="true" />
-      <created>1759768797473</created>
-      <option name="number" value="00205" />
-      <option name="presentableId" value="LOCAL-00205" />
-      <option name="project" value="LOCAL" />
-      <updated>1759768797473</updated>
-    </task>
-    <task id="LOCAL-00206" summary="chore : logs created">
-      <option name="closed" value="true" />
-      <created>1759768845922</created>
-      <option name="number" value="00206" />
-      <option name="presentableId" value="LOCAL-00206" />
-      <option name="project" value="LOCAL" />
-      <updated>1759768845922</updated>
-    </task>
-    <task id="LOCAL-00207" summary="fix : Added few more confidential files">
-      <option name="closed" value="true" />
-      <created>1759779801197</created>
-      <option name="number" value="00207" />
-      <option name="presentableId" value="LOCAL-00207" />
-      <option name="project" value="LOCAL" />
-      <updated>1759779801197</updated>
-    </task>
-    <task id="LOCAL-00208" summary="chore : clean-up">
-      <option name="closed" value="true" />
-      <created>1759779822640</created>
-      <option name="number" value="00208" />
-      <option name="presentableId" value="LOCAL-00208" />
-      <option name="project" value="LOCAL" />
-      <updated>1759779822640</updated>
+      <workItem from="1759951064523" duration="58805000" />
     </task>
     <task id="LOCAL-00209" summary="chore : clean-up">
       <option name="closed" value="true" />
@@ -772,7 +705,95 @@
       <option name="project" value="LOCAL" />
       <updated>1760084460651</updated>
     </task>
-    <option name="localTasksCounter" value="247" />
+    <task id="LOCAL-00247" summary="chore : clean-up">
+      <option name="closed" value="true" />
+      <created>1760084947896</created>
+      <option name="number" value="00247" />
+      <option name="presentableId" value="LOCAL-00247" />
+      <option name="project" value="LOCAL" />
+      <updated>1760084947896</updated>
+    </task>
+    <task id="LOCAL-00248" summary="chore : clean-up">
+      <option name="closed" value="true" />
+      <created>1760084971098</created>
+      <option name="number" value="00248" />
+      <option name="presentableId" value="LOCAL-00248" />
+      <option name="project" value="LOCAL" />
+      <updated>1760084971098</updated>
+    </task>
+    <task id="LOCAL-00249" summary="feat : this class has the success and error message which helps with the RestAPI">
+      <option name="closed" value="true" />
+      <created>1760106920472</created>
+      <option name="number" value="00249" />
+      <option name="presentableId" value="LOCAL-00249" />
+      <option name="project" value="LOCAL" />
+      <updated>1760106920472</updated>
+    </task>
+    <task id="LOCAL-00250" summary="feat : Dto for the request">
+      <option name="closed" value="true" />
+      <created>1760106935946</created>
+      <option name="number" value="00250" />
+      <option name="presentableId" value="LOCAL-00250" />
+      <option name="project" value="LOCAL" />
+      <updated>1760106935946</updated>
+    </task>
+    <task id="LOCAL-00251" summary="feat : RestAPI constroller for the Reaction service">
+      <option name="closed" value="true" />
+      <created>1760106959231</created>
+      <option name="number" value="00251" />
+      <option name="presentableId" value="LOCAL-00251" />
+      <option name="project" value="LOCAL" />
+      <updated>1760106959231</updated>
+    </task>
+    <task id="LOCAL-00252" summary="feat : Dto for the reaction class">
+      <option name="closed" value="true" />
+      <created>1760106971666</created>
+      <option name="number" value="00252" />
+      <option name="presentableId" value="LOCAL-00252" />
+      <option name="project" value="LOCAL" />
+      <updated>1760106971666</updated>
+    </task>
+    <task id="LOCAL-00253" summary="feat : helps to convert Dto to entity and vice versa">
+      <option name="closed" value="true" />
+      <created>1760107067699</created>
+      <option name="number" value="00253" />
+      <option name="presentableId" value="LOCAL-00253" />
+      <option name="project" value="LOCAL" />
+      <updated>1760107067699</updated>
+    </task>
+    <task id="LOCAL-00254" summary="chore : Added the javadoc to it">
+      <option name="closed" value="true" />
+      <created>1760118720230</created>
+      <option name="number" value="00254" />
+      <option name="presentableId" value="LOCAL-00254" />
+      <option name="project" value="LOCAL" />
+      <updated>1760118720230</updated>
+    </task>
+    <task id="LOCAL-00255" summary="fix : added the Spring boot dependency for the Swagger">
+      <option name="closed" value="true" />
+      <created>1760118746460</created>
+      <option name="number" value="00255" />
+      <option name="presentableId" value="LOCAL-00255" />
+      <option name="project" value="LOCAL" />
+      <updated>1760118746460</updated>
+    </task>
+    <task id="LOCAL-00256" summary="feat : This is the entry point for the Service">
+      <option name="closed" value="true" />
+      <created>1760118763591</created>
+      <option name="number" value="00256" />
+      <option name="presentableId" value="LOCAL-00256" />
+      <option name="project" value="LOCAL" />
+      <updated>1760118763591</updated>
+    </task>
+    <task id="LOCAL-00257" summary="fix : Added the Javadoc">
+      <option name="closed" value="true" />
+      <created>1760118780654</created>
+      <option name="number" value="00257" />
+      <option name="presentableId" value="LOCAL-00257" />
+      <option name="project" value="LOCAL" />
+      <updated>1760118780654</updated>
+    </task>
+    <option name="localTasksCounter" value="258" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -790,15 +811,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="chore : logs created" />
-    <MESSAGE value="fix : Added few more confidential files" />
-    <MESSAGE value="chore : These are the setup files for the reacton service" />
-    <MESSAGE value="feat : Enum for the reactiontype" />
-    <MESSAGE value="feat : This is the base class, model class or we can say database class" />
-    <MESSAGE value=" &quot;Add Reaction as a normal directory&quot;" />
-    <MESSAGE value="chore : configuration files" />
-    <MESSAGE value="feat : This creates the Reaction Table with multiple columns and deactivate function to delete the reaction uses the @Entity Data Index and etc annotation" />
-    <MESSAGE value="feat : enum for the reaction type" />
     <MESSAGE value="feat : Unchecked exceptionfile when we don't know which reaction has been given by client" />
     <MESSAGE value="refactor : configuration changes" />
     <MESSAGE value="refactor : solved the issue of IntelliJ not recongnizing the tables for the Reaction" />
@@ -813,9 +825,18 @@
     <MESSAGE value="feat : enum for Error code" />
     <MESSAGE value="feat : Global exception handler class which handles the exception class" />
     <MESSAGE value="refactor : entity" />
-    <MESSAGE value="chore : clean-up" />
     <MESSAGE value="chore : path changed for GlobalResponse" />
-    <option name="LAST_COMMIT_MESSAGE" value="chore : path changed for GlobalResponse" />
+    <MESSAGE value="chore : clean-up" />
+    <MESSAGE value="feat : this class has the success and error message which helps with the RestAPI" />
+    <MESSAGE value="feat : Dto for the request" />
+    <MESSAGE value="feat : RestAPI constroller for the Reaction service" />
+    <MESSAGE value="feat : Dto for the reaction class" />
+    <MESSAGE value="feat : helps to convert Dto to entity and vice versa" />
+    <MESSAGE value="chore : Added the javadoc to it" />
+    <MESSAGE value="fix : added the Spring boot dependency for the Swagger" />
+    <MESSAGE value="feat : This is the entry point for the Service" />
+    <MESSAGE value="fix : Added the Javadoc" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix : Added the Javadoc" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -856,6 +877,15 @@
           </properties>
           <option name="timeStamp" value="18" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/Reaction/src/test/java/com/youtube_clone/reaction/integration/ReactionServiceImplTest.java</url>
+          <line>24</line>
+          <properties class="com.youtube_clone.reaction.integration.ReactionServiceImplTest" method="shouldCreateAndDeactivateReactionForComment">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Test/java/com/youtubeclone/video/validationTest/MetadataRuleTest.java</url>
           <line>54</line>
@@ -876,6 +906,26 @@
             <option name="lambda-ordinal" value="-1" />
           </properties>
           <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Reaction/src/test/java/com/youtube_clone/reaction/integration/ReactionServiceImplTest.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Reaction/src/test/java/com/youtube_clone/reaction/integration/ReactionServiceImplTest.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Reaction/src/test/java/com/youtube_clone/reaction/integration/ReactionServiceImplTest.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Reaction/src/test/java/com/youtube_clone/reaction/integration/ReactionServiceImplTest.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="37" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

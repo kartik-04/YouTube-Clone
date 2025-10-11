@@ -3,7 +3,7 @@
   <database-model serializer="dbm" dbms="POSTGRES" family-id="POSTGRES" format-version="4.53">
     <root id="1">
       <DateStyle>mdy</DateStyle>
-      <IntrospectionStateNumber>755</IntrospectionStateNumber>
+      <IntrospectionStateNumber>759</IntrospectionStateNumber>
       <ServerVersion>14.19</ServerVersion>
       <StartupTime>1759606219</StartupTime>
       <TimeZones>true ACDT
@@ -811,7 +811,7 @@ false Zulu
 13859||10|C|G
 13859||-9223372036854775808|U|G
 13859||10|U|G</Grants>
-      <IntrospectionStateNumber>755</IntrospectionStateNumber>
+      <IntrospectionStateNumber>759</IntrospectionStateNumber>
       <ObjectId>16384</ObjectId>
       <OwnerName>kartiklsingh</OwnerName>
     </database>
@@ -4254,8 +4254,8 @@ false Zulu
     <schema id="264" parent="4" name="public">
       <Comment>standard public schema</Comment>
       <Current>1</Current>
-      <IntrospectionStateNumber>755</IntrospectionStateNumber>
-      <LastIntrospectionLocalTimestamp>2025-10-09.06:35:30</LastIntrospectionLocalTimestamp>
+      <IntrospectionStateNumber>759</IntrospectionStateNumber>
+      <LastIntrospectionLocalTimestamp>2025-10-11.14:50:39</LastIntrospectionLocalTimestamp>
       <ObjectId>2200</ObjectId>
       <StateNumber>526</StateNumber>
       <OwnerName>kartiklsingh</OwnerName>
@@ -4463,9 +4463,8 @@ false Zulu
       <TypeId>16</TypeId>
     </column>
     <column id="295" parent="275" name="comment_id">
-      <NotNull>1</NotNull>
       <Position>4</Position>
-      <StateNumber>748</StateNumber>
+      <StateNumber>756</StateNumber>
       <StoredType>uuid|0s</StoredType>
       <TypeId>2950</TypeId>
     </column>
@@ -4491,9 +4490,8 @@ false Zulu
       <TypeId>2950</TypeId>
     </column>
     <column id="299" parent="275" name="video_id">
-      <NotNull>1</NotNull>
       <Position>8</Position>
-      <StateNumber>748</StateNumber>
+      <StateNumber>758</StateNumber>
       <StoredType>uuid|0s</StoredType>
       <TypeId>2950</TypeId>
     </column>
