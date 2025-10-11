@@ -54,7 +54,7 @@ public class ReactionServiceImpl implements ReactionService{
 
     /**
      * Creates or updates a user's reaction to a comment.
-     * If an existing reaction is found for the (userId, commentId), its type is updated and the
+     * If an existing reaction is found for the (userId, commentId), its type is updated, and the
      * reaction timestamp is refreshed; otherwise, a new active reaction is created and persisted.
      *
      * @param userId the unique identifier of the user reacting to the comment
@@ -78,7 +78,8 @@ public class ReactionServiceImpl implements ReactionService{
                 .reactedAt(LocalDateTime.now())
                 .active(true)
                 .build();
-        return reactionRepository.save(reaction);
+        reactionRepository.save(reaction);
+        return reaction;
     }
 
     /**
