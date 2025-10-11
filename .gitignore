@@ -29,5 +29,8 @@ application.properties
 ### VS Code ###
 .vscode/
 
+### IntelliJ IDEA ###
+.idea/workspace.xml
+
 ### Mac OS ###
 .DS_Store
