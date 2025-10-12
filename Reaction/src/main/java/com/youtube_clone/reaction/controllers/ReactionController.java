@@ -50,7 +50,7 @@ public class ReactionController {
 
 
 
-    //--------------------------------------------Video - Reaction -------------------------------------------------//
+    //--------------------------------------------Video-------------------------------------------------//
 
 
 
@@ -60,148 +60,100 @@ public class ReactionController {
     @PostMapping("/video/{videoId}")
     public ResponseEntity<ApiResponse<ReactionDTO>> reactToVideo(
             @PathVariable UUID videoId,
-            @RequestBody @Valid CreateReactionRequest request
-            ){
-        ReactionType type;
-        try{
-            type = ReactionType.valueOf(request.getType().toUpperCase());
-        }catch(IllegalArgumentException e){
-            logger.error("Invalid Reaction type: {}", request.getType());
-            return ResponseEntity.badRequest()
-                    .body(ApiResponse.error("Invalid reaction type: " , request.getType()));
-        }
+            @RequestBody @Valid CreateReactionRequest request) {
+
+        ReactionType type = ReactionType.valueOf(request.getType().toUpperCase());
         Reaction reaction = reactionService.reactToVideo(
-                UUID.fromString(request.getUserId()),
-                videoId,
-                type
-        );
+                UUID.fromString(request.getUserId()), videoId, type);
+
         logger.info("User {} reacted to video {} with {}", request.getUserId(), videoId, type);
         return ResponseEntity.ok(ApiResponse.success("Reaction added successfully", ReactionMapper.toDTO(reaction)));
     }
 
-
-
     @DeleteMapping("/video/{videoId}")
     public ResponseEntity<ApiResponse<Void>> removeReactionFromVideo(
             @PathVariable UUID videoId,
-            @RequestBody @Valid CreateReactionRequest request
-    ){
-        reactionService.removeReactionFromVideo(videoId, UUID.fromString(request.getUserId()));
+            @RequestBody @Valid CreateReactionRequest request) {
+
+        reactionService.removeReactionFromVideo(UUID.fromString(request.getUserId()), videoId);
         return ResponseEntity.ok(ApiResponse.success("Reaction removed successfully", null));
     }
 
-
-
     @GetMapping("/video/{videoId}/count")
-    public ResponseEntity<ApiResponse<Map<ReactionType, Long>>> reactionCountForVideo(
-            @PathVariable UUID videoId
-    ){
+    public ResponseEntity<ApiResponse<Map<ReactionType, Long>>> reactionCountForVideo(@PathVariable UUID videoId) {
         Map<ReactionType, Long> reactionCount = reactionService.getReactionCountForVideo(videoId);
-        return ResponseEntity.ok(ApiResponse.success("Count of video given successfully", reactionCount));
+        return ResponseEntity.ok(ApiResponse.success("Reaction counts fetched successfully", reactionCount));
     }
-
-
 
     @GetMapping("/user/{userId}/video/{videoId}")
     public ResponseEntity<ApiResponse<ReactionDTO>> getUserReactionForVideo(
             @PathVariable UUID userId,
-            @PathVariable UUID videoId
-    ){
+            @PathVariable UUID videoId) {
+
         Reaction reaction = reactionService.getUserReactionForVideo(userId, videoId);
         return ResponseEntity.ok(ApiResponse.success("Reaction found", ReactionMapper.toDTO(reaction)));
     }
-
-
 
     @GetMapping("/video/{videoId}/page")
     public ResponseEntity<ApiResponse<Page<ReactionDTO>>> getReactionForVideo(
             @PathVariable UUID videoId,
             @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "20") int size
-    ){
+            @RequestParam(defaultValue = "20") int size) {
+
         Page<Reaction> reactionPage = reactionService.getReactionForVideo(videoId, PageRequest.of(page, size));
         Page<ReactionDTO> dtoPage = reactionPage.map(ReactionMapper::toDTO);
         return ResponseEntity.ok(ApiResponse.success("Reactions found", dtoPage));
     }
 
-
-
-
-
-
-    // ----------------------------------------------Comment - Reaction ---------------------------------------------//
-
-
-
-
-
+    //-------------------------------------------- Comment --------------------------------------------//
 
     @PostMapping("/comment/{commentId}")
     public ResponseEntity<ApiResponse<ReactionDTO>> reactToComment(
             @PathVariable UUID commentId,
-            @RequestBody @Valid CreateReactionRequest request
-    ){
-        ReactionType type;
-        try{
-            type = ReactionType.valueOf(request.getType().toUpperCase());
-        }catch(IllegalArgumentException e){
-            logger.error("Invalid Reaction type: {}", request.getType());
-            return ResponseEntity.badRequest()
-                    .body(ApiResponse.error("Invalid reaction type: " , request.getType()));
-        }
+            @RequestBody @Valid CreateReactionRequest request) {
+
+        ReactionType type = ReactionType.valueOf(request.getType().toUpperCase());
         Reaction reaction = reactionService.reactToComment(
-                UUID.fromString(request.getUserId()),
-                commentId,
-                type
-        );
+                UUID.fromString(request.getUserId()), commentId, type);
+
         logger.info("User {} reacted to comment {} with {}", request.getUserId(), commentId, type);
         return ResponseEntity.ok(ApiResponse.success("Reaction added successfully", ReactionMapper.toDTO(reaction)));
     }
 
-
-
-    @DeleteMapping("/comemnt/{commentId}")
+    @DeleteMapping("/comment/{commentId}")
     public ResponseEntity<ApiResponse<Void>> removeReactionFromComment(
             @PathVariable UUID commentId,
-            @RequestBody @Valid CreateReactionRequest request
-    ){
-        reactionService.removeReactionFromComment(commentId, UUID.fromString(request.getUserId()));
+            @RequestBody @Valid CreateReactionRequest request) {
+
+        reactionService.removeReactionFromComment(UUID.fromString(request.getUserId()), commentId);
         return ResponseEntity.ok(ApiResponse.success("Reaction removed successfully", null));
     }
 
-
-
     @GetMapping("/comment/{commentId}/count")
     public ResponseEntity<ApiResponse<Map<ReactionType, Long>>> reactionCountForComment(
-            @PathVariable UUID commentId
-    ){
+            @PathVariable UUID commentId) {
+
         Map<ReactionType, Long> reactionCount = reactionService.getReactionCountForComment(commentId);
-        return ResponseEntity.ok(ApiResponse.success("Count of comment given successfully", reactionCount));
+        return ResponseEntity.ok(ApiResponse.success("Reaction counts fetched successfully", reactionCount));
     }
-
-
 
     @GetMapping("/user/{userId}/comment/{commentId}")
     public ResponseEntity<ApiResponse<ReactionDTO>> getUserReactionForComment(
             @PathVariable UUID userId,
-            @PathVariable UUID commentId
-    ){
+            @PathVariable UUID commentId) {
+
         Reaction reaction = reactionService.getUserReactionForComment(userId, commentId);
         return ResponseEntity.ok(ApiResponse.success("Reaction found", ReactionMapper.toDTO(reaction)));
     }
-
-
-
 
     @GetMapping("/comment/{commentId}/page")
     public ResponseEntity<ApiResponse<Page<ReactionDTO>>> getReactionForComment(
             @PathVariable UUID commentId,
             @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "20") int size
-    ){
+            @RequestParam(defaultValue = "20") int size) {
+
         Page<Reaction> reactionPage = reactionService.getReactionForComment(commentId, PageRequest.of(page, size));
         Page<ReactionDTO> dtoPage = reactionPage.map(ReactionMapper::toDTO);
         return ResponseEntity.ok(ApiResponse.success("Reactions found", dtoPage));
     }
-
 }
