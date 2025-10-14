@@ -52,6 +52,9 @@ public class WatchHistory {
     @Column(nullable = false)
     private boolean ownerViewCounted; // true if it’s owner’s counted lifetime view
 
+    @Column(name = "last_watched", nullable = false)
+    private LocalDateTime lastWatched;
+
     @CreatedDate
     @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
