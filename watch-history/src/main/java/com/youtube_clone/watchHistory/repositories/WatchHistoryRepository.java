@@ -7,14 +7,13 @@ import org.springframework.stereotype.Repository;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 @Repository
 public interface WatchHistoryRepository extends JpaRepository<WatchHistory, UUID> {
     List<WatchHistory> findByUserIdOrderByLastWatchedDesc(UUID userId);
 
-    Optional<WatchHistory> findByUserIdAndVideoId(UUID userId, UUID videoId);
+    List<WatchHistory> findByUserIdAndVideoId(UUID userId, UUID videoId);
 
     @Query("SELECT COUNT(w) FROM WatchHistory w WHERE w.userId = :userId " +
             "AND w.videoId = :videoId AND w.lastWatched >= :since")
