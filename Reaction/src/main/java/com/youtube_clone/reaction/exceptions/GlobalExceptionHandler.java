@@ -24,8 +24,8 @@ public class GlobalExceptionHandler {
                 .body(ApiResponse.error(ErrorCode.VALIDATION_FAILED.getCode(), message));
     }
 
-    @ExceptionHandler(ResourceNotFoundException.class)
-    public ResponseEntity<ApiResponse<Void>> handleResourceNotFound(ResourceNotFoundException ex) {
+    @ExceptionHandler(ReactionNotFoundException.class)
+    public ResponseEntity<ApiResponse<Void>> handleResourceNotFound(ReactionNotFoundException ex) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND)
                 .body(ApiResponse.error(ErrorCode.REACTION_NOT_FOUND.getCode(), ex.getMessage()));
     }
