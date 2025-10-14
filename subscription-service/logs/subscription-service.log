@@ -1,20 +1,36 @@
-2025-10-06T00:08:39.146+05:30  WARN 15527 --- [subscription-service] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m23s940ms).
-2025-10-06T02:04:29.980+05:30  WARN 15527 --- [subscription-service] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h55m50s834ms).
-2025-10-06T04:35:18.589+05:30  WARN 15527 --- [subscription-service] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h30m48s609ms).
-2025-10-06T08:24:05.165+05:30  WARN 15527 --- [subscription-service] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3h48m46s577ms).
-2025-10-06T11:27:03.036+05:30  WARN 15527 --- [subscription-service] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3h2m57s870ms).
-2025-10-06T13:49:34.098+05:30  WARN 15527 --- [subscription-service] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2h22m31s62ms).
-2025-10-06T14:15:49.036+05:30  WARN 15527 --- [subscription-service] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=19m44s905ms).
-2025-10-06T15:57:09.283+05:30  WARN 15527 --- [subscription-service] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h41m20s248ms).
-2025-10-06T16:12:01.171+05:30  WARN 15527 --- [subscription-service] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=14m51s888ms).
-2025-10-06T17:52:10.255+05:30  WARN 15527 --- [subscription-service] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h40m9s84ms).
-2025-10-06T19:39:28.332+05:30  WARN 15527 --- [subscription-service] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h47m18s75ms).
-2025-10-06T19:59:21.561+05:30  WARN 15527 --- [subscription-service] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=6m53s141ms).
-2025-10-06T20:00:56.102+05:30  WARN 15527 --- [subscription-service] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m34s541ms).
-2025-10-06T20:37:10.390+05:30  WARN 15527 --- [subscription-service] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=16m44s223ms).
-2025-10-06T20:50:10.062+05:30  WARN 15527 --- [subscription-service] [HikariPool-1:housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m59s622ms).
-2025-10-06T22:11:59.687+05:30  INFO 15527 --- [subscription-service] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2025-10-06T22:12:01.730+05:30  INFO 15527 --- [subscription-service] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2025-10-06T22:12:01.758+05:30  INFO 15527 --- [subscription-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-10-06T22:12:01.778+05:30  INFO 15527 --- [subscription-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2025-10-06T22:12:01.786+05:30  INFO 15527 --- [subscription-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-10-15T05:16:39.761+05:30  INFO 97385 --- [subscription-service] [main] c.y.s.SubscriptionServiceApplication     : Starting SubscriptionServiceApplication using Java 21 with PID 97385 (/Users/kartiksingh/Desktop/YouTube/Youtube-clone/subscription-service/target/classes started by kartiklsingh in /Users/kartiksingh/Desktop/YouTube/Youtube-clone/subscription-service)
+2025-10-15T05:16:39.766+05:30 DEBUG 97385 --- [subscription-service] [main] c.y.s.SubscriptionServiceApplication     : Running with Spring Boot v3.5.6, Spring v6.2.11
+2025-10-15T05:16:39.767+05:30  INFO 97385 --- [subscription-service] [main] c.y.s.SubscriptionServiceApplication     : No active profile set, falling back to 1 default profile: "default"
+2025-10-15T05:16:40.428+05:30  INFO 97385 --- [subscription-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-15T05:16:40.463+05:30  INFO 97385 --- [subscription-service] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 29 ms. Found 1 JPA repository interface.
+2025-10-15T05:16:40.792+05:30  INFO 97385 --- [subscription-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-10-15T05:16:40.810+05:30  INFO 97385 --- [subscription-service] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-15T05:16:40.810+05:30  INFO 97385 --- [subscription-service] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.46]
+2025-10-15T05:16:40.877+05:30  INFO 97385 --- [subscription-service] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-15T05:16:40.878+05:30  INFO 97385 --- [subscription-service] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1083 ms
+2025-10-15T05:16:41.040+05:30  INFO 97385 --- [subscription-service] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-15T05:16:41.079+05:30  INFO 97385 --- [subscription-service] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.29.Final
+2025-10-15T05:16:41.107+05:30  INFO 97385 --- [subscription-service] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-10-15T05:16:41.289+05:30  INFO 97385 --- [subscription-service] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-15T05:16:41.309+05:30  INFO 97385 --- [subscription-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-15T05:16:41.428+05:30  INFO 97385 --- [subscription-service] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@27a0e6ce
+2025-10-15T05:16:41.429+05:30  INFO 97385 --- [subscription-service] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-10-15T05:16:41.464+05:30  WARN 97385 --- [subscription-service] [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-15T05:16:41.478+05:30  INFO 97385 --- [subscription-service] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 14.19
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-15T05:16:42.012+05:30  INFO 97385 --- [subscription-service] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-15T05:16:42.081+05:30  INFO 97385 --- [subscription-service] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-15T05:16:42.380+05:30  WARN 97385 --- [subscription-service] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-15T05:16:42.740+05:30  INFO 97385 --- [subscription-service] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2025-10-15T05:16:42.801+05:30  INFO 97385 --- [subscription-service] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-10-15T05:16:42.816+05:30  INFO 97385 --- [subscription-service] [main] c.y.s.SubscriptionServiceApplication     : Started SubscriptionServiceApplication in 3.364 seconds (process running for 3.634)
+2025-10-15T05:16:51.826+05:30  INFO 97385 --- [subscription-service] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-15T05:16:51.827+05:30  INFO 97385 --- [subscription-service] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-10-15T05:16:51.836+05:30  INFO 97385 --- [subscription-service] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2025-10-15T05:17:03.422+05:30  INFO 97385 --- [subscription-service] [http-nio-8080-exec-5] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 243 ms
