@@ -8,13 +8,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class WatchHistorDTO {
+public class WatchHistoryDTO {
     private String id;
 
     @NotNull(message = "User ID is required")
