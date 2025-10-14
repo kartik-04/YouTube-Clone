@@ -54,6 +54,14 @@ public class WatchHistoryServiceImpl implements WatchHistoryService {
     public WatchHistory recordWatch(UUID userId, UUID videoId, String ipAddress,
                                   LocalDateTime sessionStartTime, LocalDateTime sessionEndTime,
                                   UUID videoOwnerId) {
+        log.info("Recording watch session - User: {}, Video: {}, Start: {}, End: {}", 
+                userId, videoId, sessionStartTime, sessionEndTime);
+                
+        if (userId == null || videoId == null || sessionStartTime == null || sessionEndTime == null) {
+            log.error("Invalid parameters - userId: {}, videoId: {}, sessionStartTime: {}, sessionEndTime: {}", 
+                    userId, videoId, sessionStartTime, sessionEndTime);
+            throw new IllegalArgumentException("Required parameters cannot be null");
+        }
 
         boolean counted = false;
         boolean ownerViewCounted = false;
@@ -69,26 +77,40 @@ public class WatchHistoryServiceImpl implements WatchHistoryService {
                 .build();
         // Check minimum duration
         if (!shouldCountAsView(sessionStartTime, sessionEndTime)) {
-            log.info("View duration is less than 30 seconds");
+            long duration = Duration.between(sessionStartTime, sessionEndTime).getSeconds();
+            log.info("View duration of {} seconds is less than minimum required {} seconds. View not counted.", 
+                    duration, MINIMUM_VIEW_DURATION);
             watchHistory.setCounted(false);
-            return null; // Ignore under-30s views
+            return null;
         }
 
         if (userId.equals(videoOwnerId)) {
+            log.debug("Processing view from video owner: {}", userId);
             List<WatchHistory> ownerList = watchHistoryRepository
                     .findByUserIdAndVideoId(userId, videoId);
             long ownerCountedViews = ownerList.stream()
                     .filter(WatchHistory::isCounted)
                     .count();
             if (ownerCountedViews < 5) {
+                log.debug("Owner view counted. Current owner view count: {}", ownerCountedViews + 1);
                 counted = true;
                 ownerViewCounted = true;
+            } else {
+                log.info("Maximum owner view count (5) reached for user: {}, video: {}", userId, videoId);
             }
-        }else{
+        } else {
             LocalDateTime last24h = LocalDateTime.now().minusHours(24);
             long countedViewIn24h = watchHistoryRepository.countViewsInLast24Hours(userId, videoId, last24h);
-            if (countedViewIn24h < MAXIMUM_DAILY_VIEWS_PER_USER){
+            log.debug("User {} has {} counted views for video {} in last 24 hours", 
+                    userId, countedViewIn24h, videoId);
+                    
+            if (countedViewIn24h < MAXIMUM_DAILY_VIEWS_PER_USER) {
+                log.debug("View counted. Current daily view count: {}/{}", 
+                        countedViewIn24h + 1, MAXIMUM_DAILY_VIEWS_PER_USER);
                 counted = true;
+            } else {
+                log.info("Daily view limit of {} reached for user: {}, video: {}", 
+                        MAXIMUM_DAILY_VIEWS_PER_USER, userId, videoId);
             }
         }
 
@@ -96,7 +118,9 @@ public class WatchHistoryServiceImpl implements WatchHistoryService {
         watchHistory.setOwnerViewCounted(ownerViewCounted);
         // count existing valid view in 24 hours
 
-        return watchHistoryRepository.save(watchHistory);
+        WatchHistory savedHistory = watchHistoryRepository.save(watchHistory);
+        log.debug("Successfully saved watch history record with ID: {}", savedHistory.getId());
+        return savedHistory;
     }
 
     /**
@@ -108,7 +132,10 @@ public class WatchHistoryServiceImpl implements WatchHistoryService {
      */
     @Override
     public List<WatchHistory> getWatchHistoryForUser(UUID userId) {
-        return watchHistoryRepository.findByUserIdOrderByLastWatchedDesc(userId);
+        log.debug("Fetching watch history for user: {}", userId);
+        List<WatchHistory> history = watchHistoryRepository.findByUserIdOrderByLastWatchedDesc(userId);
+        log.debug("Found {} watch history records for user: {}", history.size(), userId);
+        return history;
     }
 
     /**
@@ -121,7 +148,11 @@ public class WatchHistoryServiceImpl implements WatchHistoryService {
      */
     @Override
     public List<WatchHistory> getRecentWatchHistory(UUID userId, UUID videoId) {
-        return watchHistoryRepository.findByUserIdAndVideoId(userId, videoId);
+        log.debug("Fetching watch history for user: {} and video: {}", userId, videoId);
+        List<WatchHistory> history = watchHistoryRepository.findByUserIdAndVideoId(userId, videoId);
+        log.debug("Found {} watch history records for user: {} and video: {}", 
+                history.size(), userId, videoId);
+        return history;
     }
 
     /**
@@ -135,8 +166,12 @@ public class WatchHistoryServiceImpl implements WatchHistoryService {
      */
     @Override
     public long getValidViewInLast24Hours(UUID userId, UUID videoId) {
+        log.debug("Counting valid views in last 24 hours for user: {}, video: {}", userId, videoId);
         LocalDateTime since = LocalDateTime.now().minusHours(24);
-        return watchHistoryRepository.countViewsInLast24Hours(userId, videoId, since);
+        long count = watchHistoryRepository.countViewsInLast24Hours(userId, videoId, since);
+        log.debug("Found {} valid views in last 24 hours for user: {}, video: {}", 
+                count, userId, videoId);
+        return count;
     }
 
     /**
@@ -148,7 +183,10 @@ public class WatchHistoryServiceImpl implements WatchHistoryService {
      */
     @Override
     public long getUniqueViewers(UUID videoId) {
-        return watchHistoryRepository.countUniqueViewers(videoId);
+        log.debug("Counting unique viewers for video: {}", videoId);
+        long count = watchHistoryRepository.countUniqueViewers(videoId);
+        log.info("Found {} unique viewers for video: {}", count, videoId);
+        return count;
     }
 
     /**
@@ -160,7 +198,18 @@ public class WatchHistoryServiceImpl implements WatchHistoryService {
      */
     @Override
     public void cleanupOldEntries(LocalDateTime cutoff) {
-        watchHistoryRepository.deleteByLastWatchedBefore(cutoff);
+        log.info("Initiating cleanup of watch history entries older than: {}", cutoff);
+        try {
+            long countBefore = watchHistoryRepository.count();
+            watchHistoryRepository.deleteByLastWatchedBefore(cutoff);
+            long countAfter = watchHistoryRepository.count();
+            long deletedCount = countBefore - countAfter;
+            log.info("Cleanup completed. Removed {} old watch history entries", deletedCount);
+        } catch (Exception e) {
+            log.error("Error during cleanup of watch history entries older than {}: {}", 
+                    cutoff, e.getMessage(), e);
+            throw e;
+        }
     }
 
 
@@ -175,6 +224,19 @@ public class WatchHistoryServiceImpl implements WatchHistoryService {
      */
     @Override
     public boolean shouldCountAsView(LocalDateTime sessionStart, LocalDateTime sessionEnd) {
-        return Duration.between(sessionStart, sessionEnd).getSeconds() >= MINIMUM_VIEW_DURATION;
+        if (sessionStart == null || sessionEnd == null) {
+            log.warn("Invalid session times - start: {}, end: {}", sessionStart, sessionEnd);
+            return false;
+        }
+        
+        long duration = Duration.between(sessionStart, sessionEnd).getSeconds();
+        boolean isValid = duration >= MINIMUM_VIEW_DURATION;
+        
+        if (!isValid) {
+            log.debug("View duration of {} seconds is below minimum threshold of {} seconds", 
+                    duration, MINIMUM_VIEW_DURATION);
+        }
+        
+        return isValid;
     }
 }
