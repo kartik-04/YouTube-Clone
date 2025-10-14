@@ -39,7 +39,7 @@ public class WatchHistory {
     private LocalDateTime sessionEndTime;
 
     @Column(nullable = false)
-    private Long watchDuration; // seconds
+    private Long duration; // seconds
 
     @Column(nullable = false)
     private boolean counted; // if true -> contributes to view count
@@ -55,17 +55,9 @@ public class WatchHistory {
     @Column(name = "last_watched", nullable = false)
     private LocalDateTime lastWatched;
 
-    @CreatedDate
-    @Column(nullable = false, updatable = false)
-    private LocalDateTime createdAt;
-
-    @LastModifiedDate
-    @Column(nullable = false)
-    private LocalDateTime updatedAt;
-
     public void updateWatchDuration() {
         if (sessionStartTime != null && sessionEndTime != null) {
-            this.watchDuration = java.time.Duration.between(sessionStartTime, sessionEndTime).getSeconds();
+            this.duration = java.time.Duration.between(sessionStartTime, sessionEndTime).getSeconds();
         }
     }
 }
