@@ -35,6 +35,8 @@ public class WatchHistoryMapper {
                 .sessionStartTime(request.getSessionStartTime())
                 .sessionEndTime(request.getSessionEndTime())
                 .duration(request.getDuration())
+                .counted(request.isCounted())
+                .ownerViewCounted(request.isOwnerViewCounted())
                 .build();
     }
 }
