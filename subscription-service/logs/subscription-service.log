@@ -34,3 +34,8 @@
 2025-10-15T05:16:51.827+05:30  INFO 97385 --- [subscription-service] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2025-10-15T05:16:51.836+05:30  INFO 97385 --- [subscription-service] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
 2025-10-15T05:17:03.422+05:30  INFO 97385 --- [subscription-service] [http-nio-8080-exec-5] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 243 ms
+2025-10-15T05:19:49.942+05:30  INFO 97385 --- [subscription-service] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-10-15T05:19:51.962+05:30  INFO 97385 --- [subscription-service] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-10-15T05:19:51.974+05:30  INFO 97385 --- [subscription-service] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-15T05:19:51.988+05:30  INFO 97385 --- [subscription-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-10-15T05:19:51.991+05:30  INFO 97385 --- [subscription-service] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

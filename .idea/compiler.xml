@@ -3,7 +3,7 @@
   <component name="CompilerConfiguration">
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
-      <profile name="Annotation profile for Reaction" enabled="true">
+      <profile name="Annotation profile for watch-history" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
@@ -11,6 +11,8 @@
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.40/lombok-1.18.40.jar" />
         </processorPath>
         <module name="Reaction" />
+        <module name="demo" />
+        <module name="watch-history" />
       </profile>
     </annotationProcessing>
   </component>
@@ -18,6 +20,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Reaction" options="-parameters" />
       <module name="demo" options="-parameters" />
+      <module name="watch-history" options="-parameters" />
     </option>
   </component>
 </project>
