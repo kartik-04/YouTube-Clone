@@ -183,7 +183,7 @@ public class ReactionServiceImplTest {
         assertEquals(3, page2.getTotalPages(), "Should still have 3 total pages");
         assertEquals(5, page2.getTotalElements(), "Should still have 5 total reactions");
 
-        // When - get third page (page index 2 for 0-based indexing) with same page size
+        // When - get third page (page index 2 for 0-based indexing) with the same page size
         var page3 = reactionService.getReactionForVideo(videoId, Pageable.ofSize(2).withPage(2));
 
         // Then
@@ -247,7 +247,7 @@ public class ReactionServiceImplTest {
         assertEquals(3, page2.getTotalPages(), "Should still have 3 total pages");
         assertEquals(5, page2.getTotalElements(), "Should still have 5 total reactions");
 
-        // When - get third page (page index 2 for 0-based indexing) with same page size
+        // When - get third page (page index 2 for 0-based indexing) with the same page size
         var page3 = reactionService.getReactionForComment(commentId, Pageable.ofSize(2).withPage(2));
 
         // Then
