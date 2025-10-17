@@ -73,7 +73,7 @@ public class WatchHistoryServiceImpl implements WatchHistoryService {
                 .sessionStartTime(sessionStartTime)
                 .sessionEndTime(sessionEndTime)
                 .duration(Duration.between(sessionStartTime, sessionEndTime).getSeconds())
-                .lastWatched(LocalDateTime.now())
+                .lastWatched(sessionEndTime)
                 .viewDate(sessionStartTime.toLocalDate())
                 .build();
         // Check minimum duration
