@@ -74,6 +74,7 @@ public class WatchHistoryServiceImpl implements WatchHistoryService {
                 .sessionEndTime(sessionEndTime)
                 .duration(Duration.between(sessionStartTime, sessionEndTime).getSeconds())
                 .lastWatched(LocalDateTime.now())
+                .viewDate(sessionStartTime.toLocalDate())
                 .build();
         // Check minimum duration
         if (!shouldCountAsView(sessionStartTime, sessionEndTime)) {
@@ -81,7 +82,7 @@ public class WatchHistoryServiceImpl implements WatchHistoryService {
             log.info("View duration of {} seconds is less than minimum required {} seconds. View not counted.", 
                     duration, MINIMUM_VIEW_DURATION);
             watchHistory.setCounted(false);
-            return null;
+            return watchHistory;
         }
 
         if (userId.equals(videoOwnerId)) {
@@ -100,17 +101,15 @@ public class WatchHistoryServiceImpl implements WatchHistoryService {
             }
         } else {
             LocalDateTime last24h = LocalDateTime.now().minusHours(24);
-            long countedViewIn24h = watchHistoryRepository.countViewsInLast24Hours(userId, videoId, last24h);
+            long countedViewIn24h = watchHistoryRepository.countCountedViewsInLast24Hours(userId, videoId, last24h);
             log.debug("User {} has {} counted views for video {} in last 24 hours", 
                     userId, countedViewIn24h, videoId);
-                    
-            if (countedViewIn24h < MAXIMUM_DAILY_VIEWS_PER_USER) {
-                log.debug("View counted. Current daily view count: {}/{}", 
-                        countedViewIn24h + 1, MAXIMUM_DAILY_VIEWS_PER_USER);
-                counted = true;
-            } else {
-                log.info("Daily view limit of {} reached for user: {}, video: {}", 
+
+            if (countedViewIn24h >= MAXIMUM_DAILY_VIEWS_PER_USER) {
+                log.info("Daily view limit of {} reached for user: {}, video: {}",
                         MAXIMUM_DAILY_VIEWS_PER_USER, userId, videoId);
+            } else {
+                counted = true;
             }
         }
 
@@ -168,7 +167,7 @@ public class WatchHistoryServiceImpl implements WatchHistoryService {
     public long getValidViewInLast24Hours(UUID userId, UUID videoId) {
         log.debug("Counting valid views in last 24 hours for user: {}, video: {}", userId, videoId);
         LocalDateTime since = LocalDateTime.now().minusHours(24);
-        long count = watchHistoryRepository.countViewsInLast24Hours(userId, videoId, since);
+        long count = watchHistoryRepository.countCountedViewsInLast24Hours(userId, videoId, since);
         log.debug("Found {} valid views in last 24 hours for user: {}, video: {}", 
                 count, userId, videoId);
         return count;
