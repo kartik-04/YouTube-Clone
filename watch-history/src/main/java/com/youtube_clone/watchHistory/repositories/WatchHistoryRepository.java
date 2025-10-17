@@ -16,8 +16,8 @@ public interface WatchHistoryRepository extends JpaRepository<WatchHistory, UUID
     List<WatchHistory> findByUserIdAndVideoId(UUID userId, UUID videoId);
 
     @Query("SELECT COUNT(w) FROM WatchHistory w WHERE w.userId = :userId " +
-            "AND w.videoId = :videoId AND w.lastWatched >= :since")
-    long countViewsInLast24Hours(UUID userId, UUID videoId, LocalDateTime since);
+            "AND w.videoId = :videoId AND w.lastWatched >= :since AND w.counted = true")
+    long countCountedViewsInLast24Hours(UUID userId, UUID videoId, LocalDateTime since);
 
     @Query("SELECT COUNT(DISTINCT w.userId) FROM WatchHistory w " +
             "WHERE w.videoId = :videoId")
