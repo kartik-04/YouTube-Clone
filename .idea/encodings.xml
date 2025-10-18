@@ -3,8 +3,12 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/../../IntelliJ/Reaction/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/Reaction/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/comment-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/plain-java-services/src/main/user-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/plain-java-services/src/main/video-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/subscription-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/user-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/video-service/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/watch-history/src/main/java" charset="UTF-8" />
   </component>
 </project>

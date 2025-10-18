@@ -3,7 +3,7 @@
   <component name="CompilerConfiguration">
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
-      <profile name="Annotation profile for Reaction" enabled="true">
+      <profile name="Annotation profile for video-service" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
@@ -12,6 +12,7 @@
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.40/lombok-1.18.40.jar" />
         </processorPath>
         <module name="Reaction" />
+        <module name="video-service" />
       </profile>
       <profile name="Annotation profile for watch-history" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -22,17 +23,17 @@
         </processorPath>
         <module name="demo" />
         <module name="watch-history" />
+        <module name="user-service" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="user-service" target="21" />
-    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Reaction" options="-parameters" />
+      <module name="comment-service" options="-parameters" />
       <module name="demo" options="-parameters" />
       <module name="user-service" options="-parameters" />
+      <module name="video-service" options="-parameters" />
       <module name="watch-history" options="-parameters" />
     </option>
   </component>
