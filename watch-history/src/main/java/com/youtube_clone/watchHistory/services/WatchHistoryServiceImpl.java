@@ -1,6 +1,6 @@
-package com.youtube_clone.watchHistory.service;
+package com.youtube_clone.watchHistory.services;
 
-import com.youtube_clone.watchHistory.entity.WatchHistory;
+import com.youtube_clone.watchHistory.entities.WatchHistory;
 import com.youtube_clone.watchHistory.repositories.WatchHistoryRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

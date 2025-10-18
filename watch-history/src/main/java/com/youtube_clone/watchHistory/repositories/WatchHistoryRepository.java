@@ -1,6 +1,6 @@
 package com.youtube_clone.watchHistory.repositories;
 
-import com.youtube_clone.watchHistory.entity.WatchHistory;
+import com.youtube_clone.watchHistory.entities.WatchHistory;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

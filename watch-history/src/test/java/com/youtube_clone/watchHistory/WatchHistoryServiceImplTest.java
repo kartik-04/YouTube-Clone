@@ -1,8 +1,8 @@
 package com.youtube_clone.watchHistory;
 
-import com.youtube_clone.watchHistory.entity.WatchHistory;
+import com.youtube_clone.watchHistory.entities.WatchHistory;
 import com.youtube_clone.watchHistory.repositories.WatchHistoryRepository;
-import com.youtube_clone.watchHistory.service.WatchHistoryServiceImpl;
+import com.youtube_clone.watchHistory.services.WatchHistoryServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

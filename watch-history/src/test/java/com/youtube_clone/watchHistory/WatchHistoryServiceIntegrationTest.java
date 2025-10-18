@@ -1,8 +1,8 @@
 package com.youtube_clone.watchHistory;
 
-import com.youtube_clone.watchHistory.entity.WatchHistory;
+import com.youtube_clone.watchHistory.entities.WatchHistory;
 import com.youtube_clone.watchHistory.repositories.WatchHistoryRepository;
-import com.youtube_clone.watchHistory.service.WatchHistoryService;
+import com.youtube_clone.watchHistory.services.WatchHistoryService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -155,7 +155,6 @@ public class WatchHistoryServiceIntegrationTest {
     void shouldDeleteByLastWatchBefore() {
         UUID userId = UUID.randomUUID();
         UUID videoId = UUID.randomUUID();
-
         for (int i = 0; i < 6; i++) {
             watchHistoryService.recordWatch(
                     userId, videoId, "192.168.1.100",

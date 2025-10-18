@@ -1,7 +1,7 @@
-package com.youtube_clone.watchHistory.mapper;
+package com.youtube_clone.watchHistory.mappers;
 
 import com.youtube_clone.watchHistory.dtos.WatchHistoryDTO;
-import com.youtube_clone.watchHistory.entity.WatchHistory;
+import com.youtube_clone.watchHistory.entities.WatchHistory;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

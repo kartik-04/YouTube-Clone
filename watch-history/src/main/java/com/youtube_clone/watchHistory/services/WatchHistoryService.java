@@ -1,6 +1,6 @@
-package com.youtube_clone.watchHistory.service;
+package com.youtube_clone.watchHistory.services;
 
-import com.youtube_clone.watchHistory.entity.WatchHistory;
+import com.youtube_clone.watchHistory.entities.WatchHistory;
 
 import java.time.LocalDateTime;
 import java.util.List;

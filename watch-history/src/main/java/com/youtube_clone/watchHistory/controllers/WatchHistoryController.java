@@ -1,11 +1,12 @@
-package com.youtube_clone.watchHistory.controller;
+package com.youtube_clone.watchHistory.controllers;
 
 import com.youtube_clone.watchHistory.dtos.CreateWatchHistoryRequest;
 import com.youtube_clone.watchHistory.dtos.WatchHistoryDTO;
-import com.youtube_clone.watchHistory.entity.WatchHistory;
+import com.youtube_clone.watchHistory.entities.WatchHistory;
 import com.youtube_clone.watchHistory.exceptions.ApiResponse;
-import com.youtube_clone.watchHistory.mapper.WatchHistoryMapper;
-import com.youtube_clone.watchHistory.service.WatchHistoryService;
+import com.youtube_clone.watchHistory.mappers.WatchHistoryMapper;
+import com.youtube_clone.watchHistory.services.WatchHistoryService;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
@@ -29,8 +30,13 @@ public class WatchHistoryController {
     private final WatchHistoryService watchHistoryService;
     private final Logger logger = LoggerFactory.getLogger(WatchHistoryController.class);
 
-    @PostMapping
-    public ResponseEntity<ApiResponse<WatchHistoryDTO>> logWatchSession(
+    @Operation(
+            summary = "Record a watch session",
+            description = "Logs a user's video watch activity. Only counts the view if duration ≥ 30s. "
+                    + "For video owners, only 5 lifetime views are counted."
+    )
+    @PostMapping("/record")
+    public ResponseEntity<ApiResponse<WatchHistoryDTO>> recordWatchHistory(
             @Valid @RequestBody CreateWatchHistoryRequest request,
             @Parameter(description = "Video owner's UUID") @RequestParam UUID videoOwnerId
     ) {
@@ -53,6 +59,10 @@ public class WatchHistoryController {
         ));
     }
 
+    @Operation(
+            summary = "Gives the List of WatchHistory for UserId",
+            description = "Takes int the userId and then provides the detailed watch-history for the user."
+    )
     @GetMapping("/user/{userId}")
     public ResponseEntity<ApiResponse<List<WatchHistoryDTO>>> getUserWatchHistory(
             @Parameter(description = "User ID") @PathVariable UUID userId
@@ -73,6 +83,10 @@ public class WatchHistoryController {
     // -----------------------------------------------------
     // 3️⃣ Get total unique viewers for a video
     // -----------------------------------------------------
+    @Operation(
+            summary = "Gives out the unique viewer count for a video",
+            description = "Takes in the videoId and then provides the unique viewer count for the video."
+    )
     @GetMapping("/video/{videoId}/views")
     public ResponseEntity<ApiResponse<Long>> getUniqueViewers(
             @Parameter(description = "Video ID") @PathVariable UUID videoId
@@ -85,6 +99,10 @@ public class WatchHistoryController {
     // -----------------------------------------------------
     // 4️⃣ Maintenance cleanup
     // -----------------------------------------------------
+    @Operation(
+            summary = "Deletes watch history entries older than the specified number of days.",
+            description = "Deletes watch history entries older than the specified number of days."
+    )
     @DeleteMapping("/cleanup")
     public ResponseEntity<ApiResponse<Void>> cleanupOldHistory(
             @Parameter(description = "Days threshold (e.g., 30)") @RequestParam int days
