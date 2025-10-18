@@ -1,30 +1,35 @@
 package com.youtubeclone.videoService.validators;
 
 import com.youtubeclone.Models.video.Video;
-import com.youtubeclone.validators.video.rules.MetadataRule;
-import com.youtubeclone.validators.video.rules.ThumbnailRule;
-import com.youtubeclone.validators.video.rules.TitleNotNullRule;
-import com.youtubeclone.validators.video.rules.UploadDateRule;
+import com.youtubeclone.videoService.validators.rules.MetadataRule;
+import com.youtubeclone.videoService.validators.rules.ThumbnailRule;
+import com.youtubeclone.videoService.validators.rules.TitleNotNullRule;
+import com.youtubeclone.videoService.validators.rules.UploadDateRule;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  * VideoValidator wires together a set of validation rules
  * into a single pipeline. It delegates validation of a Video
  * object to the pipeline at runtime.
  */
-
-public class VideoValidator{
+@Component
+public class VideoValidator {
     private final ValidationPipeline pipeline;
 
     /**
-     * Constructs a VideoValidator and configures the pipeline
-     * with all required rules (e.g., metadata, title, thumbnail).
+     * Constructs a VideoValidator with all required validation rules.
      */
-    public VideoValidator(){
-       pipeline = new ValidationPipeline();
-       pipeline.addRule(new MetadataRule());
-       pipeline.addRule(new ThumbnailRule());
-       pipeline.addRule(new TitleNotNullRule());
-       pipeline.addRule(new UploadDateRule());
+    @Autowired
+    public VideoValidator(MetadataRule metadataRule, 
+                         ThumbnailRule thumbnailRule, 
+                         TitleNotNullRule titleNotNullRule, 
+                         UploadDateRule uploadDateRule) {
+        this.pipeline = new ValidationPipeline();
+        this.pipeline.addRule(metadataRule);
+        this.pipeline.addRule(thumbnailRule);
+        this.pipeline.addRule(titleNotNullRule);
+        this.pipeline.addRule(uploadDateRule);
     }
 
     /**

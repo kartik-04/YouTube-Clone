@@ -1,12 +1,14 @@
 package com.youtubeclone.videoService.validators.rules;
 
-import com.youtubeclone.Models.video.Video;
-import com.youtubeclone.exceptions.ValidationException;
-import com.youtubeclone.validators.video.ValidationRule;
+import com.youtubeclone.videoService.entities.Video;
+import com.youtubeclone.videoService.exceptions.ValidationException;
+import com.youtubeclone.videoService.validators.ValidationRule;
+import org.springframework.stereotype.Component;
 
 import java.net.MalformedURLException;
 import java.net.URL;
 
+@Component
 public class ThumbnailRule implements ValidationRule {
 
     public void validate(Video video) {

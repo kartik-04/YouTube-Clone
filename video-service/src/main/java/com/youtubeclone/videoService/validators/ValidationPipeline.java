@@ -1,6 +1,7 @@
 package com.youtubeclone.videoService.validators;
 
-import com.youtubeclone.Models.video.Video;
+import com.youtubeclone.videoService.entities.Video;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.List;
  * ValidationPipeline represents a sequence of validation rules
  * that are applied to a Video object. Each rule is executed in order.
  */
-
+@Component
 public class ValidationPipeline {
     private final List<ValidationRule> rules;
 
@@ -37,7 +38,7 @@ public class ValidationPipeline {
      */
     public void validate(Video video) {
         for(ValidationRule rule : rules){
-            rule.validate(video);                           // If any one fail exception will be thrown
+            rule.validate(video);                           // If any fail exception will be thrown
         }
     }
 }

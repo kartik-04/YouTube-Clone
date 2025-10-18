@@ -1,10 +1,12 @@
 package com.youtubeclone.videoService.validators.rules;
 
-import com.youtubeclone.Models.video.Video;
-import com.youtubeclone.Models.video.VideoMetadata;
-import com.youtubeclone.exceptions.ValidationException;
-import com.youtubeclone.validators.video.ValidationRule;
+import com.youtubeclone.videoService.entities.Video;
+import com.youtubeclone.videoService.entities.VideoMetadata;
+import com.youtubeclone.videoService.exceptions.ValidationException;
+import com.youtubeclone.videoService.validators.ValidationRule;
+import org.springframework.stereotype.Component;
 
+@Component
 public class MetadataRule implements ValidationRule {
 
     public void validate(Video video) {

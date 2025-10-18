@@ -1,6 +1,7 @@
 package com.youtubeclone.videoService.validators;
 
-import com.youtubeclone.Models.video.Video;
+
+import com.youtubeclone.videoService.entities.Video;
 
 public interface ValidationRule {
     void validate(Video video);
