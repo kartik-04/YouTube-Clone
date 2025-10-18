@@ -13,6 +13,7 @@
         <option value="$PROJECT_DIR$/user-service/pom.xml" />
         <option value="$PROJECT_DIR$/comment-service/pom.xml" />
         <option value="$PROJECT_DIR$/plain-java-services/src/main/video-service/pom.xml" />
+        <option value="$PROJECT_DIR$/plain-java-services/src/main/comment-service/pom.xml" />
       </list>
     </option>
   </component>

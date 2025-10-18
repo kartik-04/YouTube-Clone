@@ -3,7 +3,7 @@
   <component name="CompilerConfiguration">
     <annotationProcessing>
       <profile default="true" name="Default" enabled="true" />
-      <profile name="Annotation profile for video-service" enabled="true">
+      <profile name="Annotation profile for Reaction" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
@@ -12,7 +12,6 @@
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.40/lombok-1.18.40.jar" />
         </processorPath>
         <module name="Reaction" />
-        <module name="video-service" />
       </profile>
       <profile name="Annotation profile for watch-history" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -21,9 +20,11 @@
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.40/lombok-1.18.40.jar" />
         </processorPath>
+        <module name="comment-service" />
+        <module name="user-service" />
+        <module name="video-service" />
         <module name="demo" />
         <module name="watch-history" />
-        <module name="user-service" />
       </profile>
     </annotationProcessing>
   </component>

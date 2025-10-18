@@ -1,10 +1,16 @@
 package com.youtubeclone.videoService.defaults.rules;
 
-import com.youtubeclone.Models.video.Quality;
-import com.youtubeclone.Models.video.Video;
-import com.youtubeclone.Models.video.VideoMetadata;
-import com.youtubeclone.defaults.video.VideoDefaultRule;
+import com.youtubeclone.videoService.defaults.VideoDefaultRule;
+import com.youtubeclone.videoService.entities.Quality;
+import com.youtubeclone.videoService.entities.Video;
+import com.youtubeclone.videoService.entities.VideoMetadata;
+import org.springframework.stereotype.Component;
 
+/**
+ * Rule to apply default values to video metadata.
+ * Sets default quality, caption, downloadable status, etc.
+ */
+@Component
 public class MetadataDefaultRule implements VideoDefaultRule {
     VideoMetadata metadata = new VideoMetadata();
 
