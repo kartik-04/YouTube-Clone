@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/plain-java-services/src/Test/Test.iml" filepath="$PROJECT_DIR$/plain-java-services/src/Test/Test.iml" />
       <module fileurl="file://$PROJECT_DIR$/subscription-service/demo.iml" filepath="$PROJECT_DIR$/subscription-service/demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/plain-java-services/src/main/main.iml" filepath="$PROJECT_DIR$/plain-java-services/src/main/main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/watch-history/watch-history.iml" filepath="$PROJECT_DIR$/watch-history/watch-history.iml" />
     </modules>
   </component>
 </project>
