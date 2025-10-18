@@ -1,8 +1,8 @@
 package com.youtubeclone.videoService.repositories;
 
-import com.youtubeclone.Models.video.Video;
-import com.youtubeclone.exceptions.NotFoundException;
-import com.youtubeclone.exceptions.ValidationException;
+import com.youtubeclone.videoService.entities.Video;
+import com.youtubeclone.videoService.exceptions.NotFoundException;
+import com.youtubeclone.videoService.exceptions.ValidationException;
 
 import java.util.HashMap;
 import java.util.List;
