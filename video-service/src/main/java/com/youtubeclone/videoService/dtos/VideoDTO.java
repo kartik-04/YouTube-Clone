@@ -1,127 +1,74 @@
 package com.youtubeclone.videoService.dtos;
 
-public class VideoDTO {
-    private String videoId;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.youtubeclone.videoService.entities.Visibility;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
+import java.time.LocalDate;
+import java.util.UUID;
+
+/**
+ * Data Transfer Object for Video entity.
+ * Used to transfer video data between client and server.
+ */
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class VideoDTO implements Serializable {
+    private static final long serialVersionUID = 1L;
+
+    private UUID id;
+
+    @NotBlank(message = "Video ID is required")
+    private UUID videoId;
+
+    @NotBlank(message = "Title is required")
+    @Size(max = 200, message = "Title cannot exceed 200 characters")
     private String title;
 
+    @Size(max = 5000, message = "Description cannot exceed 5000 characters")
     private String description;
 
-    private  String videoUrl;
+    @NotBlank(message = "Video URL is required")
+    private String videoUrl;
 
+    @NotBlank(message = "Thumbnail URL is required")
     private String thumbnailUrl;
 
-    private String creatorId;
+    @NotBlank(message = "Creator ID is required")
+    private UUID creatorId;
 
-    private String uploadDate;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    @NotNull(message = "Upload date is required")
+    private LocalDate uploadDate;
 
-    private String visibility;
+    @NotNull(message = "Visibility is required")
+    private Visibility visibility;
 
+    @Valid
+    @NotNull(message = "Metadata is required")
     private VideoMetadataDTO metadata;
 
-    public VideoDTO() {
-    }
-
-    public VideoDTO(String videoId, String title,
-                    String description, String videoUrl,
-                    String thumbnailUrl, String creatorId,
-                    String uploadDate, String visibility,
-                    VideoMetadataDTO metadata) {
-        this.videoId = videoId;
-        this.title = title;
-        this.description = description;
-        this.videoUrl = videoUrl;
-        this.thumbnailUrl = thumbnailUrl;
-        this.creatorId = creatorId;
-        this.uploadDate = uploadDate;
-        this.visibility = visibility;
-        this.metadata = metadata;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getVideoId() {
-        return videoId;
-    }
-
-    public void setVideoId(String videoId) {
-        this.videoId = videoId;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getThumbnailUrl() {
-        return thumbnailUrl;
-    }
-
-    public void setThumbnailUrl(String thumbnailUrl) {
-        this.thumbnailUrl = thumbnailUrl;
-    }
-
-    public String getVideoUrl() {
-        return videoUrl;
-    }
-
-    public void setVideoUrl(String videoUrl) {
-        this.videoUrl = videoUrl;
-    }
-
-    public String getCreatorId() {
-        return creatorId;
-    }
-
-    public void setCreatorId(String creatorId) {
-        this.creatorId = creatorId;
-    }
-
-    public String getUploadDate() {
-        return uploadDate;
-    }
-
-    public void setUploadDate(String uploadDate) {
-        this.uploadDate = uploadDate;
-    }
-
-    public String getVisibility() {
-        return visibility;
-    }
-
-    public void setVisibility(String visibility) {
-        this.visibility = visibility;
-    }
-
-    public VideoMetadataDTO getMetadata() {
-        return metadata;
-    }
-
-    public void setMetadata(VideoMetadataDTO metadata) {
-        this.metadata = metadata;
-    }
-
-    @Override
-    public String toString() {
-        return "VideoDTO{" +
-                "videoId='" + videoId + '\'' +
-                "title='" + title + '\'' +
-                "description='" + description + '\'' +
-                "videoUrl='" + videoUrl + '\'' +
-                "creatorId='" + creatorId + '\'' +
-                "thumbnail='" + thumbnailUrl + '\'' +
-                "uploadDate='" + uploadDate + '\'' +
-                "Visibility='" + visibility + '\'' +
-                "VideoMetadataDTO='" + metadata + '\'' +
-                "}";
+    // Builder pattern customization if needed
+    public static VideoDTOBuilder builder() {
+        return new VideoDTOBuilder() {
+            @Override
+            public VideoDTO build() {
+                VideoDTO dto = super.build();
+                // Add any custom validation or post-processing here
+                return dto;
+            }
+        };
     }
 }

@@ -1,89 +1,52 @@
 package com.youtubeclone.videoService.dtos;
 
-public class VideoMetadataDTO {
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.youtubeclone.videoService.entities.Language;
+import com.youtubeclone.videoService.entities.Quality;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-    private int lengthSeconds;
+import java.io.Serializable;
+import java.util.UUID;
 
-    private double sizeMB;
+/**
+ * Data Transfer Object for VideoMetadata.
+ * Used to transfer video metadata between client and server.
+ */
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class VideoMetadataDTO implements Serializable {
+    private static final long serialVersionUID = 1L;
 
-    private boolean caption;
+    private UUID id;
 
-    private boolean downloadable;
+    @NotNull(message = "Length in seconds is required")
+    @Min(value = 1, message = "Length must be at least 1 second")
+    private Integer lengthSeconds;
 
-    private String language;
+    @NotNull(message = "Size in MB is required")
+    @Positive(message = "Size must be a positive number")
+    private Double sizeMB;
 
-    private String quality;
+    @NotNull(message = "Caption availability must be specified")
+    private Boolean hasCaptions;
 
-    public VideoMetadataDTO() {
-    }
+    @NotNull(message = "Downloadable status must be specified")
+    private Boolean isDownloadable;
 
-    public VideoMetadataDTO(int lengthSeconds, double sizeMB, boolean caption,
-                            boolean downloadable, String language, String quality) {
-        this.lengthSeconds = lengthSeconds;
-        this.sizeMB = sizeMB;
-        this.caption = caption;
-        this.downloadable = downloadable;
-        this.language = language;
-        this.quality = quality;
-    }
+    @NotNull(message = "Language is required")
+    private Language language;
 
-    public String getQuality() {
-        return quality;
-    }
+    @NotNull(message = "Quality is required")
+    private Quality quality;
 
-    public void setQuality(String quality) {
-        this.quality = quality;
-    }
-
-    public String getLanguage() {
-        return language;
-    }
-
-    public void setLanguage(String language) {
-        this.language = language;
-    }
-
-    public boolean isDownloadable() {
-        return downloadable;
-    }
-
-    public void setDownloadable(boolean downloadable) {
-        this.downloadable = downloadable;
-    }
-
-    public boolean isCaption() {
-        return caption;
-    }
-
-    public void setCaption(boolean caption) {
-        this.caption = caption;
-    }
-
-    public double getSizeMB() {
-        return sizeMB;
-    }
-
-    public void setSizeMB(double sizeMB) {
-        this.sizeMB = sizeMB;
-    }
-
-    public int getLengthSeconds() {
-        return lengthSeconds;
-    }
-
-    public void setLengthSeconds(int lengthSeconds) {
-        this.lengthSeconds = lengthSeconds;
-    }
-
-    @Override
-    public String toString() {
-        return "VideoMetadataDTO {" +
-                "lengthSeconds='" +  lengthSeconds + '\'' +
-                "sizeMB='" +  sizeMB + '\'' +
-                "caption='"   + caption + '\'' +
-                "downloadable='" +  downloadable + '\'' +
-                "language='" +  language + '\'' +
-                "quality='" + quality + '\'' +
-                "} ";
-    }
+    // Add any additional DTO-specific methods or validations here
 }
