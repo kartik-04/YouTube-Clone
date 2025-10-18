@@ -1,142 +1,82 @@
 package com.youtubeclone.videoService.entities;
 
 
+import jakarta.persistence.*;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.Positive;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.UUID;
+
 /**
  * Represents metadata information about a video, such as
  * length, size, caption availability, language, and quality.
  * This class is used inside the {@link Video} model.
  */
-
+@Entity
+@Table(name = "video_metadata", indexes = {
+        @Index(name = "idx_metadata_quality", columnList = "quality"),
+        @Index(name = "idx_metadata_language", columnList = "language")
+})
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class VideoMetadata {
 
-    /** Creating the metadata for the video
-     * for example like length,
-     * quality, language , caption
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private UUID id;
+
+    /**
+     * Duration of the video in seconds.
+     * Must be a positive value.
      */
+    @Column(name = "length_seconds", nullable = false)
+    @Min(value = 1, message = "Video length must be at least 1 second")
     private int lengthSeconds;
 
+    /**
+     * Size of the video file in megabytes.
+     * Must be a positive value.
+     */
+    @Column(name = "size_mb", nullable = false, precision = 10, scale = 2)
+    @Positive(message = "Video size must be a positive number")
     private double sizeMB;
 
+    /**
+     * Indicates if the video has captions available.
+     */
+    @Column(name = "has_captions", nullable = false)
     private boolean caption;
 
+    /**
+     * Indicates if the video can be downloaded.
+     */
+    @Column(name = "is_downloadable", nullable = false)
     private boolean downloadable;
 
+    /**
+     * Primary language of the video content.
+     */
+    @Enumerated(EnumType.STRING)
+    @Column(name = "language", nullable = false, length = 20)
     private Language language;
 
+    /**
+     * Video resolution quality.
+     */
+    @Enumerated(EnumType.STRING)
+    @Column(name = "quality", nullable = false, length = 10)
     private Quality quality;
 
-
-    /** Default constructor
-     * sets the values of the videoMetadata to it's
-     * default values
-     * */
-
-    public VideoMetadata(){
-        this.lengthSeconds = 0;
-        this.sizeMB = 0;
-        this.caption = false;
-        this.downloadable = false;
-        this.language = Language.ENGLISH;
-        this.quality = Quality.P360;
-    }
-
-    /** Parameterized Constructor */
-
-    public VideoMetadata(int lengthSeconds, double sizeMB, boolean caption, boolean downloadable, Language language, Quality quality) {
-        this.lengthSeconds = lengthSeconds;
-        this.sizeMB = sizeMB;
-        this.caption = caption;
-        this.downloadable = downloadable;
-        this.language = language;
-        this.quality = quality;
-    }
-
-    /** copy constructor */
-
-    public VideoMetadata(VideoMetadata videoMetadata) {
-        this.lengthSeconds = videoMetadata.lengthSeconds;
-        this.sizeMB = videoMetadata.sizeMB;
-        this.caption = videoMetadata.caption;
-        this.downloadable = videoMetadata.downloadable;
-        this.language = videoMetadata.language;
-        this.quality = videoMetadata.quality;
-    }
-
-    /** setting up the getter and setter for the private fields */
-
-    public int getLengthSeconds() {
-        return this.lengthSeconds;
-    }
-
-    public  void setLengthSeconds(int lengthSeconds) {
-        this.lengthSeconds = lengthSeconds;
-    }
-
-    /** Need to create this getter and setter
-     * cause require to access this in the
-     * helper pipeline
-     * @return size of the video
-     */
-    public double getSizeMB() {
-        return this.sizeMB;
-    }
-
-    public void setSizeMB(double sizeMB) {
-        this.sizeMB = sizeMB;
-    }
-
-
     /**
-     * Sets whether captions are available.
-     *
+     * Bidirectional relationship with the Video entity.
+     * This is the inverse side of the relationship.
      */
-
-    public boolean isCaption() {
-        return this.caption;
-    }
-
-    public void setCaption(boolean caption) {
-        this.caption = caption;
-    }
-
-    /**
-     * gets the downloadable for the video
-     *  sets the state for downloading.
-     *
-     * @return downloadable true if download is possible, false otherwise
-     */
-
-    public boolean isDownloadable() {
-        return this.downloadable;
-    }
-
-
-    public void setDownloadable(boolean downloadable) {
-        this.downloadable = downloadable;
-    }
-
-    /**
-     * @return language enum
-     */
-    public Language getLanguage() {
-        return this.language;
-    }
-
-    public void setLanguage(Language language) {
-        this.language = language;
-    }
-
-    /**
-     * Gets the quality of the video.
-     *
-     * @return the quality enum value (e.g., {@link Quality#P720})
-     */
-    public Quality getQuality() {
-        return this.quality;
-    }
-
-    public void setQuality(Quality quality) {
-        this.quality = quality;
-    }
-
+    @OneToOne(mappedBy = "metadata", fetch = FetchType.LAZY)
+    private Video video;
 }

@@ -1,187 +1,60 @@
 package com.youtubeclone.videoService.entities;
 
-import com.youtubeclone.Models.video.VideoMetadata;
-import com.youtubeclone.Models.video.Visibility;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
 import java.util.UUID;
 
+/**
+ * Represents a video entity in the system.
+ * Contains core video information and relationships.
+ */
+@Entity
+@Table(name = "video_service", indexes = {
+        @Index(name = "idx_video_videoid", columnList = "videoId", unique = true),
+        @Index(name = "idx_video_creator", columnList = "creatorId"),
+        @Index(name = "idx_video_visibility", columnList = "visibility"),
+        @Index(name = "idx_video_upload_date", columnList = "uploadDate")
+})
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Video {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private UUID id;
 
-    /** Choosing UUID for random generated videoId for the video
-     * not creating setters for many
-     * of the attributes cause
-     * as in production grade
-     * application we occasionally use
-     * setter for class like Video
-     * where data is set for
-     * once and does not change
-     */
+    @Column(name = "videoId", nullable = false)
     private UUID videoId;
 
+    @Column(name = "video_title", nullable = false, length = 200)
     private String title;
 
+    @Column(name = "video_description", columnDefinition = "TEXT")
     private String description;
 
-    private  String videoUrl;
+    @Column(name = "videoUrl", nullable = false, length = 512)
+    private String videoUrl;
 
+    @Column(name = "thumbnail_url", nullable = false, length = 512)
     private String thumbnailUrl;
 
+    @Column(name = "creatorId", nullable = false)
     private UUID creatorId;
 
-    private  LocalDate uploadDate;
+    @Column(name = "video_uploadDate", nullable = false)
+    private LocalDate uploadDate;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "video_visibility", nullable = false, length = 20)
     private Visibility visibility;
 
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "metadata_id", referencedColumnName = "id")
     private VideoMetadata metadata;
-
-    /** Default Constructor */
-    public Video(){
-        this.videoId = UUID.randomUUID();
-        this.title = "";
-        this.description = "";
-        this.videoUrl = "";
-        this.thumbnailUrl = "";
-        this.creatorId = UUID.randomUUID();
-        this.uploadDate = LocalDate.now();
-        this.visibility = Visibility.PRIVATE;
-        this.metadata = new VideoMetadata();
-    }
-
-    /** Parameterized Constructor */
-    public Video(UUID id, String title, String description,
-                 String videoUrl, String thumbnailUrl,
-                 UUID creatorId, LocalDate uploadDate,
-                 Visibility visibility,
-                 VideoMetadata metadata)
-    {
-        this.videoId = id;
-        this.title = title;
-        this.description = description;
-        this.videoUrl = videoUrl;
-        this.thumbnailUrl = thumbnailUrl;
-        this.creatorId = creatorId;
-        this.uploadDate = uploadDate;
-        this.visibility = visibility;
-        this.metadata = (metadata != null) ? new VideoMetadata(metadata) : null;
-    }
-
-    /** Copy Constructor with Deep Copy */
-    public Video(Video video){
-        this.videoId = video.videoId;
-        this.title = video.title;
-        this.description = video.description;
-        this.videoUrl = video.videoUrl;
-        this.thumbnailUrl = video.thumbnailUrl;
-        this.creatorId = video.creatorId;
-        this.uploadDate = video.uploadDate;
-        this.visibility = video.visibility;
-
-        if (video.metadata != null) {
-            this.metadata = new VideoMetadata(video.metadata);
-        }
-    }
-
-
-    /**
-    Setting up the setter for the attributes,
-    Does not added setter for ID cause ID is final and should not change so there
-    is no need for setter for the same.
-    /** we will implement immutable model later in this class */
-
-    public UUID getVideoId() {
-        return videoId;
-    }
-
-    public void setVideoId(UUID videoId) {
-        this.videoId = videoId;
-    }
-
-    /** Getter and Setter for Title */
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    /** Getter and Setter for Description */
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    /** Getters for VideoUrl */
-    public String getVideoUrl() {
-        return videoUrl;
-    }
-
-    public void setVideoUrl(String videoUrl) {
-        this.videoUrl = videoUrl;
-    }
-    /** Getter and Setter for Thumbnail */
-    public String getThumbnailUrl() {
-        return thumbnailUrl;
-    }
-
-    public void setThumbnailUrl(String thumbnailUrl) {
-        this.thumbnailUrl = thumbnailUrl;
-    }
-
-    /** Getter for CreatorId */
-    public UUID getCreatorId() {
-        return creatorId;
-    }
-
-    public void setCreatorId(UUID creatorId) {
-        this.creatorId = creatorId;
-    }
-
-    /** Getter for uploadDate */
-    public LocalDate getUploadDate() {
-        return uploadDate;
-    }
-
-    public void setUploadDate(LocalDate uploadDate) {
-        this.uploadDate = uploadDate;
-    }
-    /** Getter and Setter for the enum */
-    public Visibility getVisibility() {
-        return visibility;
-    }
-
-    public void setVisibility(Visibility visibility) {
-        this.visibility = visibility;
-    }
-
-    /** Seeting up getter and setter for metadata as well */
-
-    public VideoMetadata getMetadata() {
-        return metadata;
-    }
-
-    public void setMetadata(VideoMetadata metadata) {
-        this.metadata = (metadata != null) ? metadata : new VideoMetadata();
-    }
-
-    @Override
-    public String toString() {
-        return "Video [videoId=" + videoId + ", " +
-                "title=" + title + ", " +
-                "description=" + description + ", " +
-                "videoUrl=" + videoUrl+ ", " +
-                "thumbnailUrl=" + thumbnailUrl + ", " +
-                "creatorId=" + creatorId + ", " +
-                "uploadDate=" + uploadDate + ", " +
-                "visibility=" + visibility + ", " +
-                "metadata=" + metadata + "]";
-    }
-
-    public void setThumbnail(String newThumbnailUrl) {
-        this.thumbnailUrl = newThumbnailUrl;
-    }
 }
