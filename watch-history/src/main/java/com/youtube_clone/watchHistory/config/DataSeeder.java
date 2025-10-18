@@ -1,6 +1,6 @@
 package com.youtube_clone.watchHistory.config;
 
-import com.youtube_clone.watchHistory.entity.WatchHistory;
+import com.youtube_clone.watchHistory.entities.WatchHistory;
 import com.youtube_clone.watchHistory.repositories.WatchHistoryRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
@@ -89,11 +89,10 @@ public class DataSeeder implements CommandLineRunner {
 
                     entries.add(record);
                 }
-
-                watchHistoryRepository.saveAll(entries);
-                System.out.printf("✅ Seeded %d WatchHistory records for %d users and %d videos.%n",
-                        entries.size(), users.size(), videos.size());
             }
         }
+        watchHistoryRepository.saveAll(entries);
+        System.out.printf("✅ Seeded %d WatchHistory records for %d users and %d videos.%n",
+                entries.size(), users.size(), videos.size());
     }
 }
