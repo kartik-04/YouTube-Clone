@@ -1,0 +1,10 @@
+POST http://localhost:8081/api/v1/watch-history?videoOwnerId=d981c029-504a-48cc-b996-1977a403ea74Content-Type: application/json
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2025.1.6
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2025-10-18T064042.500.json
+
+###
+

@@ -1,0 +1,7 @@
+{
+  "status": "error",
+  "message": "Internal server error",
+  "code": "Required request body is missing: public org.springframework.http.ResponseEntity<com.youtube_clone.watchHistory.exceptions.ApiResponse<com.youtube_clone.watchHistory.dtos.WatchHistoryDTO>> com.youtube_clone.watchHistory.controller.WatchHistoryController.logWatchSession(com.youtube_clone.watchHistory.dtos.CreateWatchHistoryRequest,java.util.UUID)",
+  "data": null,
+  "timestamp": "2025-10-18T06:40:42.118409"
+}
