@@ -1,6 +1,6 @@
 package com.youtubeclone.videoService.validators;
 
-import com.youtubeclone.Models.video.Video;
+import com.youtubeclone.videoService.entities.Video;
 import com.youtubeclone.videoService.validators.rules.MetadataRule;
 import com.youtubeclone.videoService.validators.rules.ThumbnailRule;
 import com.youtubeclone.videoService.validators.rules.TitleNotNullRule;
