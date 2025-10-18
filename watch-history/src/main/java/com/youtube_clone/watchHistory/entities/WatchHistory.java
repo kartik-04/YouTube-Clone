@@ -1,12 +1,10 @@
-package com.youtube_clone.watchHistory.entity;
+package com.youtube_clone.watchHistory.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDate;
@@ -14,7 +12,14 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
-@Table(name = "watch_history")
+@Table(name = "watch_history",
+    indexes = {
+            @Index(name = "idx_user_id", columnList = "user_id"),
+            @Index(name = "idx_video_id", columnList = "video_id"),
+            @Index(name = "idx_last_watched", columnList = "last_watched"),
+            @Index(name = "idx_user_video_date", columnList = "user_id, video_id, viewDate"),
+    }
+)
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
