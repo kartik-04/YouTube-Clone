@@ -1,9 +1,8 @@
 package com.youtubeclone.videoService.services;
 
-import com.youtubeclone.Repositories.video.FileRepository;
-import com.youtubeclone.Repositories.video.MetadataRepository;
-import com.youtubeclone.exceptions.StorageException;
-import com.youtubeclone.services.Interfaces.video.VideoFileService;
+import com.youtubeclone.videoService.exceptions.StorageException;
+import com.youtubeclone.videoService.repositories.FileRepository;
+import com.youtubeclone.videoService.repositories.MetadataRepository;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -15,12 +14,9 @@ import java.util.UUID;
  */
 public class VideoFileServiceImpl implements VideoFileService {
     private final FileRepository fileRepository;
-    private final MetadataRepository metadataRepository;
 
-
-    public VideoFileServiceImpl(FileRepository repository,  MetadataRepository metadataRepository) {
+    public VideoFileServiceImpl(FileRepository repository) {
         this.fileRepository = repository;
-        this.metadataRepository = metadataRepository;
     }
 
     /** Upload the actual video file over the in memory repository

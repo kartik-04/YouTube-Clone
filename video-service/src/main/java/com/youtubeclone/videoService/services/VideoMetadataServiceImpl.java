@@ -1,11 +1,10 @@
 package com.youtubeclone.videoService.services;
 
-import com.youtubeclone.Models.video.Video;
-import com.youtubeclone.Models.video.VideoMetadata;
-import com.youtubeclone.Repositories.video.MetadataRepository;
-import com.youtubeclone.defaults.video.VideoDefaultApplier;
-import com.youtubeclone.services.Interfaces.video.VideoMetadataService;
-import com.youtubeclone.validators.video.VideoValidator;
+import com.youtubeclone.videoService.defaults.VideoDefaultApplier;
+import com.youtubeclone.videoService.entities.Video;
+import com.youtubeclone.videoService.entities.VideoMetadata;
+import com.youtubeclone.videoService.repositories.MetadataRepository;
+import com.youtubeclone.videoService.validators.VideoValidator;
 
 import java.util.List;
 import java.util.UUID;
@@ -29,7 +28,7 @@ public class VideoMetadataServiceImpl implements VideoMetadataService {
      * This uses the default pipeline which
      * has the diff rules and check
      * in the pipeline and checking if defaults are set or not
-     * if not it assign the default values to it first.
+     * if not it assigns the default values to it first.
      * After default, it goes through the validate video object for the diff checks
      * Saves the video to the in memory storage for the metadata
      * @param video of the Video
@@ -68,7 +67,7 @@ public class VideoMetadataServiceImpl implements VideoMetadataService {
      * method in the Repository for the
      * metadata
      * @param creatorId is not linked to the VideoId which is stored in the repository of metadata
-     * @return List<Video> list of Video object
+     * @return List<Video> list of a Video object
      */
     @Override
     public List<Video> getVideoByCreator(UUID creatorId) {

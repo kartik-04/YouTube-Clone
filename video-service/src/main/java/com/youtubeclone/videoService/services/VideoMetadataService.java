@@ -1,7 +1,8 @@
 package com.youtubeclone.videoService.services;
 
-import com.youtubeclone.Models.video.Video;
-import com.youtubeclone.Models.video.VideoMetadata;
+
+import com.youtubeclone.videoService.entities.Video;
+import com.youtubeclone.videoService.entities.VideoMetadata;
 
 import java.util.List;
 import java.util.UUID;
