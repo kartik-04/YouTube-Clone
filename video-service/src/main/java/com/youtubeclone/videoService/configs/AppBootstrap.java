@@ -1,13 +1,15 @@
 package com.youtubeclone.videoService.configs;
 
-import com.youtubeclone.Models.video.Video;
-import com.youtubeclone.Models.video.VideoMetadata;
-import com.youtubeclone.Repositories.video.FileRepository;
-import com.youtubeclone.Repositories.video.MetadataRepository;
-import com.youtubeclone.defaults.video.VideoDefaultApplier;
-import com.youtubeclone.services.Impl.video.VideoFileServiceImpl;
-import com.youtubeclone.services.Impl.video.VideoMetadataServiceImpl;
-import com.youtubeclone.validators.video.VideoValidator;
+
+
+import com.youtubeclone.videoService.defaults.VideoDefaultApplier;
+import com.youtubeclone.videoService.entities.Video;
+import com.youtubeclone.videoService.entities.VideoMetadata;
+import com.youtubeclone.videoService.repositories.FileRepository;
+import com.youtubeclone.videoService.repositories.MetadataRepository;
+import com.youtubeclone.videoService.services.VideoFileServiceImpl;
+import com.youtubeclone.videoService.services.VideoMetadataServiceImpl;
+import com.youtubeclone.videoService.validators.VideoValidator;
 
 import java.util.UUID;
 
@@ -26,7 +28,7 @@ public class AppBootstrap {
         VideoMetadataServiceImpl metadataService =
                 new VideoMetadataServiceImpl(metadataRepository, validator, defaultApplier);
         VideoFileServiceImpl fileService =
-                new VideoFileServiceImpl(fileRepository, metadataRepository);
+                new VideoFileServiceImpl(fileRepository);
 
         // Create a demo video
         UUID videoId = UUID.randomUUID();

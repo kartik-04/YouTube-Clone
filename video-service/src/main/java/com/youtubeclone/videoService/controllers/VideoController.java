@@ -1,13 +1,13 @@
 package com.youtubeclone.videoService.controllers;
 
-import com.youtubeclone.Models.video.Video;
-import com.youtubeclone.Models.video.VideoMetadata;
-import com.youtubeclone.dtos.video.VideoDTO;
-import com.youtubeclone.exceptions.RateLimitExceededException;
-import com.youtubeclone.mappers.video.VideoMapper;
-import com.youtubeclone.security.ratelimit.RateLimiter;
-import com.youtubeclone.services.Interfaces.video.VideoFileService;
-import com.youtubeclone.services.Interfaces.video.VideoMetadataService;
+import com.youtubeclone.videoService.dtos.VideoDTO;
+import com.youtubeclone.videoService.entities.Video;
+import com.youtubeclone.videoService.entities.VideoMetadata;
+import com.youtubeclone.videoService.exceptions.RateLimitExceededException;
+import com.youtubeclone.videoService.mappers.VideoMapper;
+import com.youtubeclone.videoService.services.VideoFileService;
+import com.youtubeclone.videoService.services.VideoMetadataService;
+import org.apache.catalina.util.RateLimiter;
 
 import java.util.List;
 import java.util.UUID;
@@ -35,7 +35,7 @@ public class VideoController {
      * @return saved video DTO with generated IDs/defaults
      */
     public VideoDTO createVideo(VideoDTO dto) {
-        UUID creatorId = UUID.fromString(dto.getCreatorId());
+        UUID creatorId = dto.getCreatorId();
 
         if(!rateLimit.allowRequest(creatorId)){
             throw new RateLimitExceededException("Rate limit exceeded for creator " + creatorId);
