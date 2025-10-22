@@ -1,115 +1,83 @@
-package com.youtubeclone.videoService.services;
+package com.youtubeclone.videoService.services.impl;
 
-import com.youtubeclone.videoService.defaults.VideoDefaultApplier;
 import com.youtubeclone.videoService.entities.Video;
 import com.youtubeclone.videoService.entities.VideoMetadata;
+import com.youtubeclone.videoService.exceptions.NotFoundException;
 import com.youtubeclone.videoService.repositories.MetadataRepository;
-import com.youtubeclone.videoService.validators.VideoValidator;
+import com.youtubeclone.videoService.repositories.VideoRepository;
+import com.youtubeclone.videoService.services.VideoMetadataService;
+import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.UUID;
 
+@Service
+@RequiredArgsConstructor
+@Slf4j
+@Transactional
 public class VideoMetadataServiceImpl implements VideoMetadataService {
 
-    MetadataRepository repository;
-    VideoValidator videoValidator;
-    VideoDefaultApplier defaultApplier;
+    private final VideoRepository videoRepository;
+    private final MetadataRepository metadataRepository;
 
-
-    public VideoMetadataServiceImpl(MetadataRepository repo, VideoValidator videoValidator, VideoDefaultApplier defaultApplier) {
-        this.repository = repo;
-        this.videoValidator = videoValidator;
-        this.defaultApplier = defaultApplier;
-    }
-
-
-    public VideoMetadataServiceImpl() {}
-    /**
-     * This uses the default pipeline which
-     * has the diff rules and check
-     * in the pipeline and checking if defaults are set or not
-     * if not it assigns the default values to it first.
-     * After default, it goes through the validate video object for the diff checks
-     * Saves the video to the in memory storage for the metadata
-     * @param video of the Video
-     * @return video of Video
-     */
     @Override
     public Video createVideo(Video video) {
-        defaultApplier.apply(video);
-        videoValidator.validate(video);
-        repository.save(video);
-
-        return video;
+        log.info("Creating new video with title: {}", video.getTitle());
+        if (video.getMetadata() == null) {
+            throw new IllegalArgumentException("Video metadata cannot be null");
+        }
+        Video saved = videoRepository.save(video);
+        log.debug("Saved video with ID: {}", saved.getId());
+        return saved;
     }
 
-    /**
-     * @param videoId for the search of Video
-     */
     @Override
     public void deleteVideoMetadata(UUID videoId) {
-        repository.delete(videoId);
+        log.info("Deleting video metadata for videoId: {}", videoId);
+        Video video = videoRepository.findByVideoId(videoId)
+                .orElseThrow(() -> new NotFoundException("Video not found with id " + videoId));
+        videoRepository.delete(video);
+        log.debug("Deleted video and metadata for ID: {}", videoId);
     }
 
-    /** Over here we are creating the helper
-     * method in the interface of metadataRepository.java
-     * where we make sure to check for the null value
-     * check to maintain ocp and src
-     * @param videoId of UUID is id for the video
-     * @return video object
-     */
+    @Override
     public Video getVideoById(UUID videoId) {
-        return repository.findById(videoId);
+        log.debug("Fetching video by ID: {}", videoId);
+        return videoRepository.findByVideoId(videoId)
+                .orElseThrow(() -> new NotFoundException("Video not found with ID " + videoId));
     }
 
-    /**
-     * this method is using the ensureExists
-     * method in the Repository for the
-     * metadata
-     * @param creatorId is not linked to the VideoId which is stored in the repository of metadata
-     * @return List<Video> list of a Video object
-     */
     @Override
     public List<Video> getVideoByCreator(UUID creatorId) {
-        return repository.findByCreator(creatorId);
+        log.debug("Fetching videos for creator ID: {}", creatorId);
+        return videoRepository.findByCreatorId(creatorId);
     }
 
-    /**
-     *  change the thumbnail to new one using the defaultApplier, repository
-     * @param videoId is of UUID type
-     * @param newThumbnail of String type
-     */
     @Override
     public void changeThumbnail(UUID videoId, String newThumbnail) {
-        Video video = repository.findById(videoId);
-        defaultApplier.apply(video);
+        log.info("Changing thumbnail for videoId: {}", videoId);
+        Video video = videoRepository.findByVideoId(videoId)
+                .orElseThrow(() -> new NotFoundException("Video not found with ID " + videoId));
         video.setThumbnailUrl(newThumbnail);
-        repository.save(video);
+        videoRepository.save(video);
+        log.debug("Thumbnail updated for video ID: {}", videoId);
     }
 
-    /**
-     * @param videoId is of type videoId
-     * @return VideoMetadata object
-     */
     @Override
     public VideoMetadata getVideoMetadata(UUID videoId) {
-        Video video = repository.findById(videoId);
-        defaultApplier.apply(video);
+        log.debug("Fetching metadata for videoId: {}", videoId);
+        Video video = videoRepository.findByVideoId(videoId)
+                .orElseThrow(() -> new NotFoundException("Video not found with ID " + videoId));
         return video.getMetadata();
     }
 
-    /**
-     * @param title is of String type
-     * @return object of Video
-     */
     @Override
     public Video getVideoByTitle(String title) {
-        if (title == null || title.isBlank()) {
-            throw new IllegalArgumentException("Title cannot be null or empty");
-        }
-        Video video = repository.findByTitle(title);
-        defaultApplier.apply(video);
-        return video;
+        log.debug("Searching video by title: {}", title);
+        return videoRepository.findByTitleIgnoreCase(title)
+                .orElseThrow(() -> new NotFoundException("Video not found with title: " + title));
     }
-
 }
