@@ -1,72 +1,84 @@
 package com.youtubeclone.videoService.services;
 
-import com.youtubeclone.videoService.exceptions.StorageException;
-import com.youtubeclone.videoService.repositories.FileRepository;
-import com.youtubeclone.videoService.repositories.MetadataRepository;
+import jakarta.annotation.PostConstruct;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
-import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.UUID;
 
-/** We are working on the actual binary date for the video.
- * we are injecting the object of FileRepository to perform the CRUD action on the data
- * Also injecting the metadata object cause there is requirement of videoId
+/** We are working on the actual binary data for the video.
+ * We are injecting the object of FileRepository to perform the CRUD action on the data
+ * Also injecting the metadata object cause there is a requirement of videoId
  */
-public class VideoFileServiceImpl implements VideoFileService {
-    private final FileRepository fileRepository;
 
-    public VideoFileServiceImpl(FileRepository repository) {
-        this.fileRepository = repository;
+@Service
+@Slf4j
+public class VideoFileServiceImpl implements VideoFileService {
+
+    @Value("${video/storage/location}")
+    private String storageLocation;
+
+    private Path rootPath;
+
+    @PostConstruct
+    public void init(){
+        try {
+            rootPath = Paths.get(storageLocation).toAbsolutePath().normalize();
+            Files.createDirectories(rootPath);
+            log.info("✅ Video storage directory initialized at {}", rootPath);
+        }catch (IOException e) {
+            log.error("❌ Could not initialize video storage folder", e);
+            throw new RuntimeException("Failed to create storage directory", e);
+        }
     }
 
-    /** Upload the actual video file over the in memory repository
-     *
-     * @param videoId is making sure to track the video we are talking about
-     * @param fileData  acual binary object real video
-     */
+
     @Override
     public void uploadVideo(UUID videoId, byte[] fileData) {
-        ensureExists(videoId);
-        if(fileData == null || fileData.length == 0) {
-            throw new StorageException("File data cannot be null or empty");
+        try {
+            Path filePath = rootPath.resolve(videoId.toString() + ".mp4");
+            Files.write(filePath, fileData);
+            log.info("🎥 Uploaded video {} ({} bytes)", videoId, fileData.length);
+        } catch (IOException e) {
+            throw new RuntimeException("Error while uploading video: " + e.getMessage(), e);
         }
-        fileRepository.save(videoId,fileData);
     }
 
-    /** This check if hte videoId is null or not if yes then throws an exception using
-     * ensureExists() method.
-     *
-     * @param videoId is an object which check for matching Id in repository
-     * @return return the actual binary stream of data
-     */
     @Override
     public byte[] downloadVideo(UUID videoId) {
-        ensureExists(videoId);
-        return fileRepository.findById(videoId);
+        try {
+            Path filePath = rootPath.resolve(videoId.toString() + ".mp4");
+            return Files.readAllBytes(filePath);
+        } catch (IOException e) {
+            throw new RuntimeException("Error while downloading video: " + e.getMessage(), e);
+        }
     }
 
-    /**
-     * @param videoId is Unique Identifier for video
-     * @return sends the continuous stream of Byte value
-     */
     @Override
     public InputStream streamVideo(UUID videoId) {
-        ensureExists(videoId);
-        byte[] fileData = fileRepository.findById(videoId);
-        return new ByteArrayInputStream(fileData);
+        try {
+            Path filePath = rootPath.resolve(videoId.toString() + ".mp4");
+            return Files.newInputStream(filePath, StandardOpenOption.READ);
+        } catch (IOException e) {
+            throw new RuntimeException("Error while streaming video: " + e.getMessage(), e);
+        }
     }
 
-    /** same here check for the null value if found throws an exception
-     * @param videoId is of UUID type
-     */
     @Override
     public void deleteVideoFile(UUID videoId) {
-        ensureExists(videoId);
-        fileRepository.delete(videoId);
-    }
-
-
-    public void ensureExists(UUID videoId) {
-        fileRepository.findById(videoId);
+        try {
+            Path filePath = rootPath.resolve(videoId.toString() + ".mp4");
+            Files.deleteIfExists(filePath);
+            log.info("🗑️ Deleted video file: {}", videoId);
+        } catch (IOException e) {
+            throw new RuntimeException("Error while deleting video file: " + e.getMessage(), e);
+        }
     }
 }
