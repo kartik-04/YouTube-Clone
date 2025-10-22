@@ -13,7 +13,7 @@
         </processorPath>
         <module name="Reaction" />
       </profile>
-      <profile name="Annotation profile for watch-history" enabled="true">
+      <profile name="Annotation profile for video-service" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
