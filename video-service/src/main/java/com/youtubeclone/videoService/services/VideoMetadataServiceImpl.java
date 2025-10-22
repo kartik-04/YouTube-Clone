@@ -1,4 +1,4 @@
-package com.youtubeclone.videoService.services.impl;
+package com.youtubeclone.videoService.services;
 
 import com.youtubeclone.videoService.entities.Video;
 import com.youtubeclone.videoService.entities.VideoMetadata;
