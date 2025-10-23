@@ -12,16 +12,19 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class MetadataDefaultRule implements VideoDefaultRule {
-    VideoMetadata metadata = new VideoMetadata();
+
 
     @Override
     public void apply(Video video) {
-        if(metadata.getSizeMB() <= 0) {
-            metadata.setSizeMB(0.0);
+        VideoMetadata metadata = new VideoMetadata();
+
+        if (metadata == null) {
+            metadata = new VideoMetadata();
+            video.setMetadata(metadata);
         }
 
-        if(metadata.getLengthSeconds() <= 0){
-            metadata.setLengthSeconds(0);
+        if(metadata.getSizeMB() <= 0) {
+            metadata.setSizeMB(0.0);
         }
 
         if(!metadata.isCaption()){
