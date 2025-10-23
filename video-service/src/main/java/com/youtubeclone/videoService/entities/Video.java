@@ -14,11 +14,11 @@ import java.util.UUID;
  * Contains core video information and relationships.
  */
 @Entity
-@Table(name = "video_service", indexes = {
+@Table(name = "videos", indexes = {
         @Index(name = "idx_video_videoid", columnList = "videoId", unique = true),
         @Index(name = "idx_video_creator", columnList = "creatorId"),
-        @Index(name = "idx_video_visibility", columnList = "visibility"),
-        @Index(name = "idx_video_upload_date", columnList = "uploadDate")
+        @Index(name = "idx_video_visibility", columnList = "video_visibility"),
+        @Index(name = "idx_video_upload_date", columnList = "video_uploadDate")
 })
 @Data
 @Builder
@@ -29,7 +29,7 @@ public class Video {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
-    @Column(name = "videoId", nullable = false)
+    @Column(name = "videoId", nullable = false, unique = true)
     private UUID videoId;
 
     @Column(name = "video_title", nullable = false, length = 200)
