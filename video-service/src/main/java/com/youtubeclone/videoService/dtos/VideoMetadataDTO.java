@@ -37,10 +37,10 @@ public class VideoMetadataDTO implements Serializable {
     private Double sizeMB;
 
     @NotNull(message = "Caption availability must be specified")
-    private Boolean hasCaptions;
+    private Boolean Captions;
 
     @NotNull(message = "Downloadable status must be specified")
-    private Boolean isDownloadable;
+    private Boolean Downloadable;
 
     @NotNull(message = "Language is required")
     private Language language;
