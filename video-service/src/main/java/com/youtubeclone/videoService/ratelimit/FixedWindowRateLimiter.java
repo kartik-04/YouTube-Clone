@@ -1,22 +1,29 @@
 package com.youtubeclone.videoService.ratelimit;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
 import java.time.Instant;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
 
+@Component
 public class FixedWindowRateLimiter implements RateLimiter {
     private final int limit;
     private final long windowMillis;
-    private final Map<UUID, UserBucket> buckets = new HashMap<>();
+    private final Map<UUID, UserBucket> buckets = new ConcurrentHashMap<>();
 
-    public FixedWindowRateLimiter(int limit, long windowMillis) {
+    public FixedWindowRateLimiter(
+            @Value("${rate.limit.requests:10}") int limit,
+            @Value("${rate.limit.window.millis:60000}") long windowMillis
+    ) {
         this.limit = limit;
         this.windowMillis = windowMillis;
     }
 
     /**
-     * @param videoId an Unique qualifier for video
+     * @param videoId Unique qualifier for video
      */
     @Override
     public boolean allowRequest(UUID videoId) {
@@ -29,9 +36,9 @@ public class FixedWindowRateLimiter implements RateLimiter {
         }
         if(bucket.count < limit){
             bucket.count++;
-            return true;
+            return false;
         }
-        return false;
+        return true;
     }
 
     private static class UserBucket{
