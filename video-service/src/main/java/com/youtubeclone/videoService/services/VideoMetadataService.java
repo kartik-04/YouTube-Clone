@@ -11,7 +11,7 @@ public interface VideoMetadataService {
 
     Video createVideo(Video video);
 
-    void deleteVideoMetadata(UUID videoId);
+    void deleteVideo(UUID videoId);
 
     Video getVideoById(UUID videoId);
 
