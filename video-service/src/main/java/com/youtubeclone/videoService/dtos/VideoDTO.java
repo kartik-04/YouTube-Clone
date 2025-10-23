@@ -30,7 +30,7 @@ public class VideoDTO implements Serializable {
 
     private UUID id;
 
-    @NotBlank(message = "Video ID is required")
+    @NotNull(message = "Video ID is required")
     private UUID videoId;
 
     @NotBlank(message = "Title is required")
