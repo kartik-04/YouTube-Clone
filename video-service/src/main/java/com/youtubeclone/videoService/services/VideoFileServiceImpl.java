@@ -22,7 +22,7 @@ import java.util.UUID;
 @Slf4j
 public class VideoFileServiceImpl implements VideoFileService {
 
-    @Value("${video/storage/location}")
+    @Value("${video.storage.location:./uploads/videos}")
     private String storageLocation;
 
     private Path rootPath;
