@@ -39,8 +39,8 @@ public final class VideoMapper {
             VideoMetadataDTO metadataDTO = new VideoMetadataDTO();
             metadataDTO.setLengthSeconds(metadata.getLengthSeconds());
             metadataDTO.setSizeMB(metadata.getSizeMB());
-            metadataDTO.setHasCaptions(metadata.isCaption());
-            metadataDTO.setIsDownloadable(metadata.isDownloadable());
+            metadataDTO.setCaptions(metadata.isCaption());
+            metadataDTO.setDownloadable(metadata.isDownloadable());
             metadataDTO.setQuality(metadata.getQuality());
             metadataDTO.setLanguage(metadata.getLanguage());
             dto.setMetadata(metadataDTO);
@@ -75,13 +75,13 @@ public final class VideoMapper {
         Video video = new Video();
 
         // Map core video fields
-        video.setVideoId(UUID.fromString(String.valueOf(dto.getVideoId())));
+        video.setVideoId(dto.getVideoId());
         video.setTitle(dto.getTitle());
         video.setThumbnailUrl(dto.getThumbnailUrl());
         video.setDescription(dto.getDescription());
         video.setUploadDate(LocalDate.parse(String.valueOf(dto.getUploadDate())));
         video.setVisibility(Visibility.valueOf(String.valueOf(dto.getVisibility())));
-        video.setCreatorId(UUID.fromString(String.valueOf(dto.getCreatorId())));
+        video.setCreatorId(dto.getCreatorId());
         video.setVideoUrl(dto.getVideoUrl());
 
         // Map metadata if present
@@ -90,8 +90,8 @@ public final class VideoMapper {
             metadata.setQuality(Quality.valueOf(String.valueOf(dto.getMetadata().getQuality())));
             metadata.setLengthSeconds(dto.getMetadata().getLengthSeconds());
             metadata.setSizeMB(dto.getMetadata().getSizeMB());
-            metadata.setCaption(dto.getMetadata().getHasCaptions());
-            metadata.setDownloadable(dto.getMetadata().getIsDownloadable());
+            metadata.setCaption(dto.getMetadata().getCaptions());
+            metadata.setDownloadable(dto.getMetadata().getDownloadable());
             metadata.setLanguage(Language.valueOf(String.valueOf(dto.getMetadata().getLanguage())));
             video.setMetadata(metadata);
         } else {
