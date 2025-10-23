@@ -1,128 +1,118 @@
 package com.youtubeclone.videoService.controllers;
 
+import com.youtubeclone.videoService.defaults.VideoDefaultApplier;
+import com.youtubeclone.videoService.dtos.CreateVideoRequest;
 import com.youtubeclone.videoService.dtos.VideoDTO;
 import com.youtubeclone.videoService.entities.Video;
 import com.youtubeclone.videoService.entities.VideoMetadata;
+import com.youtubeclone.videoService.exceptions.ApiResponse;
+import com.youtubeclone.videoService.exceptions.NotFoundException;
 import com.youtubeclone.videoService.exceptions.RateLimitExceededException;
 import com.youtubeclone.videoService.mappers.VideoMapper;
-import com.youtubeclone.videoService.services.VideoFileService;
+import com.youtubeclone.videoService.ratelimit.RateLimiter;
 import com.youtubeclone.videoService.services.VideoMetadataService;
-import org.apache.catalina.util.RateLimiter;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.UUID;
 
-/**
- * Acts as the entry point for video-related operations.
- * In a real Spring Boot setup, this will become a REST Controller.
- * For now, it simulates handling DTOs and delegating to services.
- */
+@RestController
+@RequestMapping("/api/v1/videos")
+@RequiredArgsConstructor
+@Slf4j
+@Validated
 public class VideoController {
 
-    private final VideoMetadataService metadataService;
-    private final VideoFileService fileService;
-    private final RateLimiter rateLimit;
+    private final VideoMetadataService videoMetadataService;
+    private final VideoDefaultApplier videoDefaultApplier;
+    private final RateLimiter fixedRateLimiter;
 
-    public VideoController(VideoMetadataService metadataService, VideoFileService fileService, RateLimiter rateLimit) {
-        this.metadataService = metadataService;
-        this.fileService = fileService;
-        this.rateLimit = rateLimit;
-    }
+    @Operation(summary = "Upload a new video", description = "Creates a new video with metadata details.")
+    @PostMapping("/upload")
+    public ResponseEntity<ApiResponse<VideoDTO>> createVideo(
+            @RequestBody @Validated CreateVideoRequest request
+    ) {
+        log.info("Received video upload request for title: {}", request.getTitle());
 
-    /**
-     * Create a new video (metadata only).
-     * @param dto The incoming video DTO
-     * @return saved video DTO with generated IDs/defaults
-     */
-    public VideoDTO createVideo(VideoDTO dto) {
-        UUID creatorId = dto.getCreatorId();
+        VideoMetadata metadata = VideoMetadata.builder()
+                .lengthSeconds(request.getLengthSeconds())
+                .sizeMB(request.getSizeMB())
+                .caption(request.isCaption())
+                .downloadable(request.isDownloadable())
+                .language(request.getLanguage())
+                .quality(request.getQuality())
+                .build();
 
-        if(!rateLimit.allowRequest(creatorId)){
-            throw new RateLimitExceededException("Rate limit exceeded for creator " + creatorId);
+        Video video = Video.builder()
+                .videoId(UUID.randomUUID())
+                .title(request.getTitle())
+                .description(request.getDescription())
+                .videoUrl(request.getVideoUrl())
+                .thumbnailUrl(request.getThumbnailUrl())
+                .creatorId(request.getCreatorId())
+                .uploadDate(java.time.LocalDate.now())
+                .visibility(request.getVisibility())
+                .metadata(metadata)
+                .build();
+
+        if (fixedRateLimiter.allowRequest(video.getCreatorId())) {
+            throw new RateLimitExceededException("Upload limit reached for this creator");
         }
 
-        Video video = VideoMapper.toEntity(dto);
-        Video saved = metadataService.createVideo(video);
-        return VideoMapper.toDTO(saved);
+        videoDefaultApplier.apply(video);
+        Video saved = videoMetadataService.createVideo(video);
+        log.debug("Video created successfully: {}", saved.getTitle());
+        return ResponseEntity.ok(ApiResponse.success("Video created successfully", VideoMapper.toDTO(saved)));
     }
 
-    /**
-     * Delete a video by ID.
-     * @param videoId UUID of the video
-     */
-    public void deleteVideo(UUID videoId) {
-        metadataService.deleteVideoMetadata(videoId);
-        fileService.deleteVideoFile(videoId);
+    @Operation(summary = "Get video by ID")
+    @GetMapping("/{videoId}")
+    public ResponseEntity<ApiResponse<VideoDTO>> getVideoById(
+            @Parameter(description = "Unique ID of the video") @PathVariable UUID videoId
+    ) {
+        Video video = videoMetadataService.getVideoById(videoId);
+        if (video == null) {
+            throw new NotFoundException("Video not found for id: " + videoId);
+        }
+
+        if (fixedRateLimiter.allowRequest(videoId)) {
+            throw new RateLimitExceededException("Too many requests for this video");
+        }
+        return ResponseEntity.ok(ApiResponse.success("Video found", VideoMapper.toDTO(video)));
     }
 
-    /**
-     * Get video metadata by ID.
-     * @param videoId UUID of the video
-     * @return video DTO
-     */
-    public VideoDTO getVideo(UUID videoId) {
-        Video video = metadataService.getVideoById(videoId);
-        return VideoMapper.toDTO(video);
-    }
-
-    /**
-     * Get all videos by a creator.
-     * @param creatorId UUID of the creator
-     * @return list of DTOs
-     */
-    public List<VideoDTO> getVideosByCreator(UUID creatorId) {
-        return metadataService.getVideoByCreator(creatorId)
+    @Operation(summary = "Get all videos by creator")
+    @GetMapping("/creator/{creatorId}")
+    public ResponseEntity<ApiResponse<List<VideoDTO>>> getVideosByCreator(
+            @PathVariable UUID creatorId
+    ) {
+        List<VideoDTO> videos = videoMetadataService.getVideoByCreator(creatorId)
                 .stream()
                 .map(VideoMapper::toDTO)
                 .toList();
+        return ResponseEntity.ok(ApiResponse.success("Videos fetched successfully", videos));
     }
 
-    /**
-     * Update a video thumbnail.
-     * @param videoId UUID of the video
-     * @param newThumbnail new thumbnail URL
-     */
-    public void updateThumbnail(UUID videoId, String newThumbnail) {
-        metadataService.changeThumbnail(videoId, newThumbnail);
+    @Operation(summary = "Update video thumbnail")
+    @PatchMapping("/{videoId}/thumbnail")
+    public ResponseEntity<ApiResponse<Void>> updateThumbnail(
+            @PathVariable UUID videoId,
+            @RequestParam String newThumbnail
+    ) {
+        videoMetadataService.changeThumbnail(videoId, newThumbnail);
+        return ResponseEntity.ok(ApiResponse.success("Thumbnail updated successfully", null));
     }
 
-    /**
-     * Upload actual video file (binary data).
-     * @param videoId UUID of the video
-     * @param fileData binary file
-     */
-    public void uploadFile(UUID videoId, byte[] fileData) {
-        fileService.uploadVideo(videoId, fileData);
-    }
-
-    /**
-     * Download a video file.
-     * @param videoId UUID of the video
-     * @return binary data
-     */
-    public byte[] downloadFile(UUID videoId) {
-        return fileService.downloadVideo(videoId);
-    }
-
-
-    /**
-     * Fetch metadata details for a video.
-     *
-     * @param videoId the unique identifier of the video
-     * @return the video metadata object
-     */
-    public VideoMetadata getVideoMetadata(UUID videoId) {
-        return metadataService.getVideoMetadata(videoId);
-    }
-
-    /**
-     * Find a video by its title.
-     *
-     * @param title the video title
-     * @return the video as a DTO
-     */
-    public VideoDTO getVideoByTitle(String title) {
-        var video = metadataService.getVideoByTitle(title);
-        return VideoMapper.toDTO(video);
+    @Operation(summary = "Delete a video by ID")
+    @DeleteMapping("/{videoId}")
+    public ResponseEntity<ApiResponse<Void>> deleteVideo(@PathVariable UUID videoId) {
+        videoMetadataService.deleteVideo(videoId);
+        return ResponseEntity.ok(ApiResponse.success("Video deleted successfully", null));
     }
 }
