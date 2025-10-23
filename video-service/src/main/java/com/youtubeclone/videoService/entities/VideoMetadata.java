@@ -43,14 +43,14 @@ public class VideoMetadata {
      * Size of the video file in megabytes.
      * Must be a positive value.
      */
-    @Column(name = "size_mb", nullable = false, precision = 10, scale = 2)
+    @Column(name = "size_mb", nullable = false)
     @Positive(message = "Video size must be a positive number")
     private double sizeMB;
 
     /**
      * Indicates if the video has captions available.
      */
-    @Column(name = "has_captions", nullable = false)
+    @Column(name = "has_captions", nullable = false, columnDefinition = " boolean default true")
     private boolean caption;
 
     /**
