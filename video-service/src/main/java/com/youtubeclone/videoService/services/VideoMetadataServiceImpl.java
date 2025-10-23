@@ -5,7 +5,6 @@ import com.youtubeclone.videoService.entities.VideoMetadata;
 import com.youtubeclone.videoService.exceptions.NotFoundException;
 import com.youtubeclone.videoService.repositories.MetadataRepository;
 import com.youtubeclone.videoService.repositories.VideoRepository;
-import com.youtubeclone.videoService.services.VideoMetadataService;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -34,8 +33,11 @@ public class VideoMetadataServiceImpl implements VideoMetadataService {
         return saved;
     }
 
+    /**
+     * @param videoId
+     */
     @Override
-    public void deleteVideoMetadata(UUID videoId) {
+    public void deleteVideo(UUID videoId) {
         log.info("Deleting video metadata for videoId: {}", videoId);
         Video video = videoRepository.findByVideoId(videoId)
                 .orElseThrow(() -> new NotFoundException("Video not found with id " + videoId));
