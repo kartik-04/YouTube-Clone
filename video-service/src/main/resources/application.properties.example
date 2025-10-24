@@ -1,6 +1,6 @@
 # Application Configuration
 spring.application.name=video-service
-server.port=8080
+server.port=8082
 
 # Database Configuration
 spring.datasource.url=jdbc:postgresql://localhost:5432/your_database_name
