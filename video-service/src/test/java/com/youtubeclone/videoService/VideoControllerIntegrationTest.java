@@ -26,4 +26,9 @@ class VideoControllerIntegrationTest {
 
     @Autowired
     private MetadataRepository metadataRepository;
+
+    @Test
+    void should_create_video(){
+
+    }
 }
